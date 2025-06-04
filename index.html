@@ -3,149 +3,854 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curso: Hardware y Aplicación Específica</title>
-    <link rel="stylesheet" href="style.css"> </head>
-<body>
+    <title>Hardware y Aplicación Específica</title>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Fuente Inter */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Estilo para iframes para que sean responsivos */
+        .responsive-iframe-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 0.5rem; /* rounded-lg */
+        }
+        .responsive-iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        /* Ocultar secciones de detalle por defecto */
+        .class-detail-section {
+            display: none;
+        }
+        /* Estilo para el botón de carga */
+        .loading-spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: #6366f1; /* Tailwind indigo-500 */
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 8px;
+        }
 
-    <header>
-        <h1>Hardware y Aplicación Específica</h1>
-        <p>Un curso sobre el fascinante mundo del hardware y el procesado de señales.</p>
-        <p><a href="pdfs/Indice_clases_HAE.pdf" target="_blank">Ver Índice General del Curso (PDF)</a></p>
-    </header>
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
 
-    <nav class="indice-clases">
-        <h2>Índice de Clases</h2>
-        <ul>
-            <li><a href="#introduccion">0. Introducción al Procesado de Señales Digitales</a></li>
-            <li><a href="#clase1">Clase 1: Puertos y retardos</a></li>
-            <li><a href="#clase2">Clase 2: Displays de 7 segmentos y Teoría de Señal</a></li>
-            <li><a href="#clase3">Clase 3: Interrupciones INTx y LCD</a></li>
-            <li><a href="#clase4">Clase 4: Teclado e Interrupción RB</a></li>
-            <li><a href="#clase5">Clase 5: Temporizaciones</a></li>
-            <li><a href="#clase6">Clase 6: Convertidores AD I</a></li>
-            <li><a href="#clase7">Clase 7: Convertidores AD II y sensores</a></li>
-            <li><a href="#clase8">Clase 8: Convertidores DA</a></li>
-            <li><a href="#clase9">Clase 9: Control secuencial</a></li>
-            <li><a href="#clase10">Clase 10: Filtros + audio</a></li>
-            <li><a href="#clase11">Clase 11: VHDL</a></li>
-            <li><a href="#clase12">Clase 12: GPUs</a></li>
-            </ul>
-    </nav>
+        /* Estilos específicos para el chat */
+        .chat-message-user {
+            background-color: #dbeafe; /* blue-100 */
+            align-self: flex-end;
+            border-radius: 0.75rem; /* rounded-lg */
+            padding: 0.75rem 1rem; /* p-3 px-4 */
+            max-width: 80%;
+        }
+        .chat-message-gemini {
+            background-color: #e0f2fe; /* light blue for Gemini */
+            align-self: flex-start;
+            border-radius: 0.75rem; /* rounded-lg */
+            padding: 0.75rem 1rem; /* p-3 px-4 */
+            max-width: 80%;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <div class="container mx-auto p-4 md:p-8">
+        <!-- Encabezado de la página -->
+        <header class="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6 rounded-lg shadow-lg mb-8">
+            <h1 class="text-4xl font-extrabold text-center mb-2">Hardware y Aplicación Específica</h1>
+            <p class="text-xl text-center">Explorando el mundo del procesamiento de señales y microcontroladores</p>
+        </header>
 
-    <main>
-        <section id="introduccion" class="clase-contenido">
-            <h2>0. Introducción al Procesado de Señales Digitales</h2>
-            <p>Aquí encontrarás el material introductorio general al curso.</p>
-            <div class="recursos">
-                <h3>Material Principal:</h3>
-                <ul>
-                    <li>
-                        <a href="pdfs/0_introduccion_al_procesado_de_senales_digitales_I_2025.pdf" target="_blank">
-                            Introducción al Procesado de Señales Digitales I 2025 (PDF)
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="clase1" class="clase-contenido">
-            <h2>Clase 1: Puertos y retardos</h2>
-            <p>En esta clase aprenderemos sobre los puertos de los microcontroladores y los retardos.</p>
-            
-            <div class="recursos">
-                <h3>Teoría:</h3>
-                <ul>
-                    <li>
-                        <a href="pdfs/clase1/1ra_clase_sobre_micros.pdf" target="_blank">
-                            1ª clase sobre micros (PDF)
-                        </a>
-                    </li>
-                    <li>
-                        <a href="pdfs/clase1/Tipos_de_datos.pdf" target="_blank">
-                            Tipos de datos (PDF)
-                        </a>
-                    </li>
-                </ul>
-
-                <h3>Práctica / Manuales:</h3>
-                <ul>
-                    <li>
-                        <a href="pdfs/clase1/Manual_compilador_simulador.pdf" target="_blank">
-                            Manual compilador + simulador (PDF)
-                        </a>
-                    </li>
-                    <li>
-                        <a href="pdfs/clase1/PIC18F452.pdf" target="_blank">
-                            Datasheet PIC18F452 (PDF)
-                        </a>
-                    </li>
-                </ul>
-
-                <h3>Archivos Adicionales:</h3>
-                <ul>
-                    <li>
-                        <a href="zips/clase1/Primer_programa.zip" download>
-                            Primer programa (ZIP)
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="clase2" class="clase-contenido">
-            <h2>Clase 2: Displays de 7 segmentos y Teoría de Señal</h2>
-            <p>Contenido de la clase 2... (añade aquí tus descripciones y enlaces).</p>
-            <div class="recursos">
-                <h3>Práctica:</h3>
-                <ul>
-                    <li>
-                        <a href="pdfs/clase2/Practica_2_HAE_Displays_7_segmentos_2025.pdf" target="_blank">
-                            Práctica 2 HAE Displays de 7 segmentos 2025 (PDF)
-                        </a>
-                    </li>
-                </ul>
+        <!-- Sección del Menú Principal (Grid de Tarjetas) -->
+        <section id="main-menu-section" class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-2xl font-semibold text-gray-900 mb-6 text-center">Selecciona un Tema</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Tarjeta Clase 0 -->
+                <div class="class-card bg-blue-100 hover:bg-blue-200 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-0">
+                    <h3 class="text-xl font-bold text-blue-800 mb-2">0. Introducción al Procesado de Señales Digitales</h3>
+                    <p class="text-blue-700 text-sm">Conceptos fundamentales de DSP.</p>
                 </div>
-        </section>
-
-        <section id="clase12" class="clase-contenido">
-            <h2>Clase 12: GPUs</h2>
-            <p>Explorando el mundo de las Unidades de Procesamiento Gráfico.</p>
-            
-            <div class="video-container">
-                <h3>Videos:</h3>
-                <video controls width="600" style="margin-bottom: 10px;">
-                    <source src="videos/clase12/video1.mp4" type="video/mp4">
-                    Tu navegador no soporta la etiqueta de video.
-                </video>
-                <video controls width="600">
-                    <source src="videos/clase12/video2.mp4" type="video/mp4">
-                    Tu navegador no soporta la etiqueta de video.
-                </video>
+                <!-- Tarjeta Clase 1 -->
+                <div class="class-card bg-green-100 hover:bg-green-200 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-1">
+                    <h3 class="text-xl font-bold text-green-800 mb-2">1. Puertos y Retardos</h3>
+                    <p class="text-green-700 text-sm">Primeros pasos con microcontroladores y programación.</p>
+                </div>
+                <!-- Tarjeta Clase 2 -->
+                <div class="class-card bg-purple-100 hover:bg-purple-200 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-2">
+                    <h3 class="text-xl font-bold text-purple-800 mb-2">2. Displays de 7 Segmentos y Teoría de Señal</h3>
+                    <p class="text-purple-700 text-sm">Visualización de datos y fundamentos de señal.</p>
+                </div>
+                <!-- Tarjeta Clase 3 -->
+                <div class="class-card bg-yellow-100 hover:bg-yellow-200 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-3">
+                    <h3 class="text-xl font-bold text-yellow-800 mb-2">3. Interrupciones INTx y LCD</h3>
+                    <p class="text-yellow-700 text-sm">Manejo de eventos y pantallas de cristal líquido.</p>
+                </div>
+                <!-- Tarjeta Clase 4 -->
+                <div class="class-card bg-red-100 hover:bg-red-200 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-4">
+                    <h3 class="text-xl font-bold text-red-800 mb-2">4. Teclado e Interrupción RB</h3>
+                    <p class="text-red-700 text-sm">Interacción con teclados matriciales.</p>
+                </div>
+                <!-- Tarjeta Clase 5 -->
+                <div class="class-card bg-indigo-100 hover:bg-indigo-200 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-5">
+                    <h3 class="text-xl font-bold text-indigo-800 mb-2">5. Temporizaciones</h3>
+                    <p class="text-indigo-700 text-sm">Manejo de tiempos y eventos con temporizadores.</p>
+                </div>
+                <!-- Tarjeta Clase 6 -->
+                <div class="class-card bg-pink-100 hover:bg-pink-200 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-6">
+                    <h3 class="text-xl font-bold text-pink-800 mb-2">6. Convertidores AD I</h3>
+                    <p class="text-pink-700 text-sm">Conversión de señales analógicas a digitales (parte 1).</p>
+                </div>
+                <!-- Tarjeta Clase 7 -->
+                <div class="class-card bg-teal-100 hover:bg-teal-200 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-7">
+                    <h3 class="text-xl font-bold text-teal-800 mb-2">7. Convertidores AD II y Sensores</h3>
+                    <p class="text-teal-700 text-sm">Conversión de señales analógicas a digitales (parte 2) y uso de sensores.</p>
+                </div>
+                <!-- Tarjeta Clase 8 -->
+                <div class="class-card bg-orange-100 hover:bg-orange-200 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-8">
+                    <h3 class="text-xl font-bold text-orange-800 mb-2">8. Convertidores DA</h3>
+                    <p class="text-orange-700 text-sm">Conversión de señales digitales a analógicas.</p>
+                </div>
+                <!-- Tarjeta Clase 9 -->
+                <div class="class-card bg-cyan-100 hover:bg-cyan-200 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-9">
+                    <h3 class="text-xl font-bold text-cyan-800 mb-2">9. Control Secuencial</h3>
+                    <p class="text-cyan-700 text-sm">Implementación de sistemas secuenciales con microcontroladores.</p>
+                </div>
+                <!-- Tarjeta Clase 10 -->
+                <div class="class-card bg-lime-100 hover:bg-lime-200 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-10">
+                    <h3 class="text-xl font-bold text-lime-800 mb-2">10. Filtros + Audio</h3>
+                    <p class="text-lime-700 text-sm">Conceptos de filtrado de señales y aplicaciones de audio.</p>
+                </div>
+                <!-- Tarjeta Clase 11 -->
+                <div class="class-card bg-fuchsia-100 hover:bg-fuchsia-200 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-11">
+                    <h3 class="text-xl font-bold text-fuchsia-800 mb-2">11. VHDL</h3>
+                    <p class="text-fuchsia-700 text-sm">Descripción de hardware con VHDL.</p>
+                </div>
+                <!-- Tarjeta Clase 12 -->
+                <div class="class-card bg-gray-200 hover:bg-gray-300 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-12">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">12. GPUs</h3>
+                    <p class="text-gray-700 text-sm">Aplicaciones y funcionamiento de las Unidades de Procesamiento Gráfico.</p>
+                </div>
+                <!-- Nueva Tarjeta Exámenes -->
+                <div class="class-card bg-red-200 hover:bg-red-300 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-examenes">
+                    <h3 class="text-xl font-bold text-red-900 mb-2">Exámenes</h3>
+                    <p class="text-red-800 text-sm">Sección dedicada a la evaluación y práctica.</p>
+                </div>
             </div>
 
-            <div class="recursos">
-                <h3>Documentos:</h3>
-                <ul>
-                    <li>
-                        <a href="pdfs/clase12/Aplicaciones_de_las_GPUs.pdf" target="_blank">
-                            Aplicaciones de las GPUs (PDF)
-                        </a>
-                    </li>
-                    <li>
-                        <a href="pdfs/clase12/Notas_GPUs_alumnado_2025.pdf" target="_blank">
-                            Notas GPUs alumnado 2025 (PDF)
-                        </a>
-                    </li>
-                </ul>
+            <!-- Sección de Chat con Gemini -->
+            <div class="mt-8 p-6 bg-gray-50 rounded-lg shadow-inner">
+                <h3 class="text-xl font-semibold text-gray-900 mb-4">Chat con Gemini ✨</h3>
+                <div id="chat-history" class="h-80 overflow-y-auto p-4 border border-gray-300 rounded-md bg-white flex flex-col space-y-4 mb-4">
+                    <!-- Los mensajes del chat aparecerán aquí -->
+                    <div class="chat-message-gemini text-sm">¡Hola! Soy tu asistente de Hardware y Aplicación Específica. ¿En qué puedo ayudarte hoy?</div>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <input type="text" id="chat-input" placeholder="Escribe tu mensaje..." class="flex-grow p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                    <button id="send-chat-button" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-md transition duration-300 flex items-center justify-center">
+                        Enviar
+                        <span id="chat-spinner" class="loading-spinner hidden"></span>
+                    </button>
+                </div>
             </div>
         </section>
 
+        <!-- Contenedor de las Secciones de Detalle de Clases -->
+        <div id="class-detail-sections-container">
+            <!-- Clase 0 Detalle -->
+            <section id="clase-detail-0" class="class-detail-section bg-white p-6 rounded-lg shadow-md mb-8">
+                <button class="back-button bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">0. Introducción al Procesado de Señales Digitales</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Video Explicativo</h3>
+                        <div class="responsive-iframe-container">
+                            <!-- Placeholder de Video -->
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Teoría</h3>
+                        <div class="responsive-iframe-container mb-4">
+                            <!-- Placeholder de PDF de Teoría -->
+                            <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
+                        </div>
+                        <p class="text-sm text-gray-600">Archivo original: 0 Introduccion al procesado de señales digitales I 2025.pdf</p>
+                    </div>
+                </div>
+                 <div class="mt-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Práctica</h3>
+                    <p class="text-gray-600">No hay documento de práctica específico para esta clase.</p>
+                </div>
+                <!-- Botón de Resumir Clase -->
+                <div class="mt-6 border-t pt-4 border-gray-200">
+                    <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="0" data-class-title="Introducción al Procesado de Señales Digitales" data-class-content="Conceptos fundamentales de DSP, introducción al procesado de señales digitales.">
+                        Resumir Clase ✨
+                        <span id="summarize-spinner-0" class="loading-spinner hidden"></span>
+                    </button>
+                    <div id="summary-output-0" class="mt-4 p-4 bg-purple-50 text-purple-900 rounded-md border border-purple-200 hidden">
+                        <!-- El resumen de la clase aparecerá aquí -->
+                    </div>
+                </div>
+            </section>
 
-    </main>
+            <!-- Clase 1 Detalle -->
+            <section id="clase-detail-1" class="class-detail-section bg-white p-6 rounded-lg shadow-md mb-8">
+                <button class="back-button bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">1. Puertos y Retardos</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Video Explicativo</h3>
+                        <div class="responsive-iframe-container">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Teoría</h3>
+                        <div class="responsive-iframe-container mb-4">
+                            <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
+                        </div>
+                        <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                            <li>Archivos originales: 1ª clase sobre micros.pdf, Manual compilador + simulador.pdf, PIC18F452.pdf, Tipos de datos.pdf</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Práctica</h3>
+                    <p class="text-gray-600">Archivo original de práctica: Primer programa.zip (Este es un archivo ZIP y necesitaría ser descargado.)</p>
+                </div>
+                <!-- Botón de Resumir Clase -->
+                <div class="mt-6 border-t pt-4 border-gray-200">
+                    <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="1" data-class-title="Puertos y Retardos" data-class-content="Primeros pasos con microcontroladores y programación, introducción a microcontroladores, manual de compilador y simulador, detalles del PIC18F452, primer programa, tipos de datos.">
+                        Resumir Clase ✨
+                        <span id="summarize-spinner-1" class="loading-spinner hidden"></span>
+                    </button>
+                    <div id="summary-output-1" class="mt-4 p-4 bg-purple-50 text-purple-900 rounded-md border border-purple-200 hidden">
+                        <!-- El resumen de la clase aparecerá aquí -->
+                    </div>
+                </div>
+            </section>
 
-    <footer>
-        <p>&copy; 2025 Tu Nombre o Nombre del Curso. Todos los derechos reservados.</p>
-    </footer>
+            <!-- Clase 2 Detalle -->
+            <section id="clase-detail-2" class="class-detail-section bg-white p-6 rounded-lg shadow-md mb-8">
+                <button class="back-button bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">2. Displays de 7 Segmentos y Teoría de Señal</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Video Explicativo</h3>
+                        <div class="responsive-iframe-container">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Teoría</h3>
+                        <p class="text-gray-600">No hay documento de teoría específico para esta clase.</p>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Práctica</h3>
+                    <div class="responsive-iframe-container mb-4">
+                        <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
+                    </div>
+                    <p class="text-sm text-gray-600">Archivo original: Práctica 2 HAE Dispalys de 7 segmentos 2025.pdf</p>
+                </div>
+                <!-- Botón de Resumir Clase -->
+                <div class="mt-6 border-t pt-4 border-gray-200">
+                    <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="2" data-class-title="Displays de 7 Segmentos y Teoría de Señal" data-class-content="Visualización de datos y fundamentos de señal, práctica de Displays de 7 segmentos.">
+                        Resumir Clase ✨
+                        <span id="summarize-spinner-2" class="loading-spinner hidden"></span>
+                    </button>
+                    <div id="summary-output-2" class="mt-4 p-4 bg-purple-50 text-purple-900 rounded-md border border-purple-200 hidden">
+                        <!-- El resumen de la clase aparecerá aquí -->
+                    </div>
+                </div>
+            </section>
 
+            <!-- Clase 3 Detalle -->
+            <section id="clase-detail-3" class="class-detail-section bg-white p-6 rounded-lg shadow-md mb-8">
+                <button class="back-button bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">3. Interrupciones INTx y LCD</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Video Explicativo</h3>
+                        <div class="responsive-iframe-container">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Teoría</h3>
+                        <div class="responsive-iframe-container mb-4">
+                            <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
+                        </div>
+                        <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                            <li>Archivos originales: Clase Interrupciones INTx alumnos.pdf, Clase LCD alumnos.pdf</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Práctica</h3>
+                    <p class="text-gray-600">No hay documento de práctica específico para esta clase.</p>
+                </div>
+                <!-- Botón de Resumir Clase -->
+                <div class="mt-6 border-t pt-4 border-gray-200">
+                    <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="3" data-class-title="Interrupciones INTx y LCD" data-class-content="Manejo de eventos y pantallas de cristal líquido, clase sobre Interrupciones INTx, clase sobre LCD.">
+                        Resumir Clase ✨
+                        <span id="summarize-spinner-3" class="loading-spinner hidden"></span>
+                    </button>
+                    <div id="summary-output-3" class="mt-4 p-4 bg-purple-50 text-purple-900 rounded-md border border-purple-200 hidden">
+                        <!-- El resumen de la clase aparecerá aquí -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Clase 4 Detalle -->
+            <section id="clase-detail-4" class="class-detail-section bg-white p-6 rounded-lg shadow-md mb-8">
+                <button class="back-button bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">4. Teclado e Interrupción RB</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Video Explicativo</h3>
+                        <div class="responsive-iframe-container">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Teoría</h3>
+                        <div class="responsive-iframe-container mb-4">
+                            <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
+                        </div>
+                        <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                            <li>Archivos originales: Clase Interrupcion RB alumnos.pdf, Clase LCD alumnos.pdf</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Práctica</h3>
+                    <p class="text-gray-600">No hay documento de práctica específico para esta clase.</p>
+                </div>
+                <!-- Botón de Resumir Clase -->
+                <div class="mt-6 border-t pt-4 border-gray-200">
+                    <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="4" data-class-title="Teclado e Interrupción RB" data-class-content="Interacción con teclados matriciales, clase sobre Interrupción RB, clase sobre LCD (repaso o continuación).">
+                        Resumir Clase ✨
+                        <span id="summarize-spinner-4" class="loading-spinner hidden"></span>
+                    </button>
+                    <div id="summary-output-4" class="mt-4 p-4 bg-purple-50 text-purple-900 rounded-md border border-purple-200 hidden">
+                        <!-- El resumen de la clase aparecerá aquí -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Clase 5 Detalle -->
+            <section id="clase-detail-5" class="class-detail-section bg-white p-6 rounded-lg shadow-md mb-8">
+                <button class="back-button bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">5. Temporizaciones</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Video Explicativo</h3>
+                        <div class="responsive-iframe-container">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Teoría</h3>
+                        <div class="responsive-iframe-container mb-4">
+                            <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
+                        </div>
+                        <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                            <li>Archivos originales: Notas Timer 0.pdf, Timer 0 datasheet.pdf</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Práctica</h3>
+                    <p class="text-gray-600">No hay documento de práctica específico para esta clase.</p>
+                </div>
+                <!-- Botón de Resumir Clase -->
+                <div class="mt-6 border-t pt-4 border-gray-200">
+                    <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="5" data-class-title="Temporizaciones" data-class-content="Manejo de tiempos y eventos con temporizadores, notas sobre Timer 0, datasheet de Timer 0.">
+                        Resumir Clase ✨
+                        <span id="summarize-spinner-5" class="loading-spinner hidden"></span>
+                    </button>
+                    <div id="summary-output-5" class="mt-4 p-4 bg-purple-50 text-purple-900 rounded-md border border-purple-200 hidden">
+                        <!-- El resumen de la clase aparecerá aquí -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Clase 6 Detalle -->
+            <section id="clase-detail-6" class="class-detail-section bg-white p-6 rounded-lg shadow-md mb-8">
+                <button class="back-button bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">6. Convertidores AD I</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Video Explicativo</h3>
+                        <div class="responsive-iframe-container">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Teoría</h3>
+                        <div class="responsive-iframe-container mb-4">
+                            <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
+                        </div>
+                        <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                            <li>Archivos originales: AD PIC18F452.pdf, Notas convertidores AD.pdf, Notas sobre sensores HAE 24-25.pdf</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Práctica</h3>
+                    <div class="responsive-iframe-container mb-4">
+                        <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
+                    </div>
+                    <p class="text-sm text-gray-600">Archivo original: Practica 6 HAE AD 24-25.pdf</p>
+                </div>
+                <!-- Botón de Resumir Clase -->
+                <div class="mt-6 border-t pt-4 border-gray-200">
+                    <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="6" data-class-title="Convertidores AD I" data-class-content="Conversión de señales analógicas a digitales (parte 1), convertidor AD en PIC18F452, notas sobre convertidores AD, notas sobre sensores, práctica de Convertidores AD.">
+                        Resumir Clase ✨
+                        <span id="summarize-spinner-6" class="loading-spinner hidden"></span>
+                    </button>
+                    <div id="summary-output-6" class="mt-4 p-4 bg-purple-50 text-purple-900 rounded-md border border-purple-200 hidden">
+                        <!-- El resumen de la clase aparecerá aquí -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Clase 7 Detalle -->
+            <section id="clase-detail-7" class="class-detail-section bg-white p-6 rounded-lg shadow-md mb-8">
+                <button class="back-button bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">7. Convertidores AD II y Sensores</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Video Explicativo</h3>
+                        <div class="responsive-iframe-container">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Teoría</h3>
+                        <div class="responsive-iframe-container mb-4">
+                            <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
+                        </div>
+                        <p class="text-sm text-gray-600">Archivo original: Notas sobre sensores HAE 24-25.pdf</p>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Práctica</h3>
+                    <p class="text-gray-600">No hay documento de práctica específico para esta clase.</p>
+                </div>
+                <!-- Botón de Resumir Clase -->
+                <div class="mt-6 border-t pt-4 border-gray-200">
+                    <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="7" data-class-title="Convertidores AD II y Sensores" data-class-content="Conversión de señales analógicas a digitales (parte 2) y uso de sensores, notas sobre sensores (continuación).">
+                        Resumir Clase ✨
+                        <span id="summarize-spinner-7" class="loading-spinner hidden"></span>
+                    </button>
+                    <div id="summary-output-7" class="mt-4 p-4 bg-purple-50 text-purple-900 rounded-md border border-purple-200 hidden">
+                        <!-- El resumen de la clase aparecerá aquí -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Clase 8 Detalle -->
+            <section id="clase-detail-8" class="class-detail-section bg-white p-6 rounded-lg shadow-md mb-8">
+                <button class="back-button bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">8. Convertidores DA</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Video Explicativo</h3>
+                        <div class="responsive-iframe-container">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Teoría</h3>
+                        <div class="responsive-iframe-container mb-4">
+                            <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
+                        </div>
+                        <p class="text-sm text-gray-600">Archivo original: 8 Notas sobre convertidores DA 2025.pdf</p>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Práctica</h3>
+                    <p class="text-gray-600">No hay documento de práctica específico para esta clase.</p>
+                </div>
+                <!-- Botón de Resumir Clase -->
+                <div class="mt-6 border-t pt-4 border-gray-200">
+                    <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="8" data-class-title="Convertidores DA" data-class-content="Conversión de señales digitales a analógicas, notas sobre convertidores DA.">
+                        Resumir Clase ✨
+                        <span id="summarize-spinner-8" class="loading-spinner hidden"></span>
+                    </button>
+                    <div id="summary-output-8" class="mt-4 p-4 bg-purple-50 text-purple-900 rounded-md border border-purple-200 hidden">
+                        <!-- El resumen de la clase aparecerá aquí -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Clase 9 Detalle -->
+            <section id="clase-detail-9" class="class-detail-section bg-white p-6 rounded-lg shadow-md mb-8">
+                <button class="back-button bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">9. Control Secuencial</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Video Explicativo</h3>
+                        <div class="responsive-iframe-container">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Teoría</h3>
+                        <div class="responsive-iframe-container mb-4">
+                            <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
+                        </div>
+                        <p class="text-sm text-gray-600">Archivo original: Notas alumnos implementacion sistema secuencial con uC 2025.pdf</p>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Práctica</h3>
+                    <p class="text-gray-600">No hay documento de práctica específico para esta clase.</p>
+                </div>
+                <!-- Botón de Resumir Clase -->
+                <div class="mt-6 border-t pt-4 border-gray-200">
+                    <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="9" data-class-title="Control Secuencial" data-class-content="Implementación de sistemas secuenciales con microcontroladores, notas sobre implementación de sistema secuencial con uC.">
+                        Resumir Clase ✨
+                        <span id="summarize-spinner-9" class="loading-spinner hidden"></span>
+                    </button>
+                    <div id="summary-output-9" class="mt-4 p-4 bg-purple-50 text-purple-900 rounded-md border border-purple-200 hidden">
+                        <!-- El resumen de la clase aparecerá aquí -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Clase 10 Detalle -->
+            <section id="clase-detail-10" class="class-detail-section bg-white p-6 rounded-lg shadow-md mb-8">
+                <button class="back-button bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">10. Filtros + Audio</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Video Explicativo</h3>
+                        <div class="responsive-iframe-container">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Teoría</h3>
+                        <div class="responsive-iframe-container mb-4">
+                            <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
+                        </div>
+                        <p class="text-sm text-gray-600">Archivo original: Conceptos básicos sobre filtros analógicos y digitales IIR.pdf</p>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Práctica</h3>
+                    <p class="text-gray-600">No hay documento de práctica específico para esta clase.</p>
+                </div>
+                <!-- Botón de Resumir Clase -->
+                <div class="mt-6 border-t pt-4 border-gray-200">
+                    <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="10" data-class-title="Filtros + Audio" data-class-content="Conceptos de filtrado de señales y aplicaciones de audio, conceptos básicos sobre filtros analógicos y digitales IIR.">
+                        Resumir Clase ✨
+                        <span id="summarize-spinner-10" class="loading-spinner hidden"></span>
+                    </button>
+                    <div id="summary-output-10" class="mt-4 p-4 bg-purple-50 text-purple-900 rounded-md border border-purple-200 hidden">
+                        <!-- El resumen de la clase aparecerá aquí -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Clase 11 Detalle -->
+            <section id="clase-detail-11" class="class-detail-section bg-white p-6 rounded-lg shadow-md mb-8">
+                <button class="back-button bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">11. VHDL</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Video Explicativo</h3>
+                        <div class="responsive-iframe-container">
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Teoría</h3>
+                        <div class="responsive-iframe-container mb-4">
+                            <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
+                        </div>
+                        <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                            <li>Archivos originales: Como crear un proyecto en ISE y simularlo con ISIM.pdf, Notas VHDL alumnos 2025.pdf</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Práctica</h3>
+                    <p class="text-gray-600">No hay documento de práctica específico para esta clase.</p>
+                </div>
+                <!-- Botón de Resumir Clase -->
+                <div class="mt-6 border-t pt-4 border-gray-200">
+                    <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="11" data-class-title="VHDL" data-class-content="Descripción de hardware con VHDL, cómo crear un proyecto en ISE y simularlo con ISIM, notas sobre VHDL.">
+                        Resumir Clase ✨
+                        <span id="summarize-spinner-11" class="loading-spinner hidden"></span>
+                    </button>
+                    <div id="summary-output-11" class="mt-4 p-4 bg-purple-50 text-purple-900 rounded-md border border-purple-200 hidden">
+                        <!-- El resumen de la clase aparecerá aquí -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Clase 12 Detalle -->
+            <section id="clase-detail-12" class="class-detail-section bg-white p-6 rounded-lg shadow-md mb-8">
+                <button class="back-button bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">12. GPUs</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Video Explicativo</h3>
+                        <div class="responsive-iframe-container">
+                            <!-- Placeholder de Video para GPUs (con un video de ejemplo) -->
+                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <ul class="list-disc list-inside text-sm text-gray-600 mt-2">
+                            <li>Videos originales: video 1.mp4, video 2.mp4</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Teoría</h3>
+                        <div class="responsive-iframe-container mb-4">
+                            <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
+                        </div>
+                        <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                            <li>Archivos originales: Aplicaciones de las GPUs.pdf, Notas GPUs alumnado 2025.pdf</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Práctica</h3>
+                    <p class="text-gray-600">No hay documento de práctica específico para esta clase.</p>
+                </div>
+                <!-- Botón de Resumir Clase -->
+                <div class="mt-6 border-t pt-4 border-gray-200">
+                    <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="12" data-class-title="GPUs" data-class-content="Aplicaciones y funcionamiento de las Unidades de Procesamiento Gráfico, aplicaciones de las GPUs, notas sobre GPUs.">
+                        Resumir Clase ✨
+                        <span id="summarize-spinner-12" class="loading-spinner hidden"></span>
+                    </button>
+                    <div id="summary-output-12" class="mt-4 p-4 bg-purple-50 text-purple-900 rounded-md border border-purple-200 hidden">
+                        <!-- El resumen de la clase aparecerá aquí -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Nueva Sección de Exámenes -->
+            <section id="clase-detail-examenes" class="class-detail-section bg-white p-6 rounded-lg shadow-md mb-8">
+                <button class="back-button bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
+                <h2 class="text-3xl font-bold text-gray-900 mb-6">Sección de Exámenes</h2>
+                <div class="text-gray-700">
+                    <p class="mb-4">¡Bienvenido a la sección de exámenes! Aquí podrás encontrar recursos para evaluar tus conocimientos y practicar lo aprendido en las clases.</p>
+                    <p class="mb-4">Actualmente, esta sección es un marcador de posición. En el futuro, podrías añadir:</p>
+                    <ul class="list-disc list-inside ml-4 space-y-2">
+                        <li>Exámenes de práctica con preguntas de opción múltiple.</li>
+                        <li>Ejercicios interactivos.</li>
+                        <li>Soluciones a problemas típicos.</li>
+                        <li>Enlaces a recursos externos para preparación de exámenes.</li>
+                    </ul>
+                    <p class="mt-4">¡Mantente atento a las actualizaciones!</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Pie de página -->
+        <footer class="bg-gray-800 text-white p-6 rounded-lg shadow-lg mt-8 text-center">
+            <p>© 2025 Tu Nombre/Organización. Todos los derechos reservados.</p>
+            <p class="text-sm mt-2">Página creada para el curso de Hardware y Aplicación Específica.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainMenuSection = document.getElementById('main-menu-section');
+            const classDetailSections = document.querySelectorAll('.class-detail-section');
+            const classCards = document.querySelectorAll('.class-card');
+            const backButtons = document.querySelectorAll('.back-button');
+            const summarizeButtons = document.querySelectorAll('.summarize-class-button');
+            // const explainConceptButton = document.getElementById('explain-concept-button'); // Removed
+            // const conceptInput = document.getElementById('concept-input'); // Removed
+            // const conceptExplanationOutput = document.getElementById('concept-explanation-output'); // Removed
+            // const explainConceptSpinner = document.getElementById('explain-concept-spinner'); // Removed
+
+            // Chat elements
+            const chatHistoryDiv = document.getElementById('chat-history');
+            const chatInput = document.getElementById('chat-input');
+            const sendChatButton = document.getElementById('send-chat-button');
+            const chatSpinner = document.getElementById('chat-spinner');
+
+            let chatConversationHistory = [{ role: "model", parts: [{ text: "¡Hola! Soy tu asistente de Hardware y Aplicación Específica. ¿En qué puedo ayudarte hoy?" }] }];
+
+            // Función para mostrar una sección y ocultar las demás
+            const showSection = (sectionId) => {
+                // Ocultar todas las secciones de detalle
+                classDetailSections.forEach(section => {
+                    section.style.display = 'none';
+                });
+                // Ocultar el menú principal
+                mainMenuSection.style.display = 'none';
+
+                // Mostrar la sección solicitada
+                const targetSection = document.getElementById(sectionId);
+                if (targetSection) {
+                    targetSection.style.display = 'block';
+                    // Desplazarse al inicio de la sección mostrada
+                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                } else if (sectionId === 'main-menu-section') {
+                    // Si se pide el menú principal, mostrarlo
+                    mainMenuSection.style.display = 'block';
+                    mainMenuSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            };
+
+            // Event listeners para las tarjetas de clase
+            classCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const targetId = card.dataset.target;
+                    showSection(targetId);
+                });
+            });
+
+            // Event listeners para los botones de "Volver al Menú Principal"
+            backButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    showSection('main-menu-section');
+                    // Ocultar cualquier resumen o explicación generada al volver al menú
+                    document.querySelectorAll('[id^="summary-output-"]').forEach(output => {
+                        output.classList.add('hidden');
+                        output.textContent = ''; // Limpiar contenido
+                    });
+                    // conceptExplanationOutput.classList.add('hidden'); // Removed
+                    // conceptExplanationOutput.textContent = ''; // Removed
+                });
+            });
+
+            // Función para llamar a la API de Gemini
+            async function callGeminiAPI(prompt, spinnerElement, outputElement, isChat = false) {
+                spinnerElement.classList.remove('hidden'); // Mostrar spinner
+                if (!isChat && outputElement) { // Check if outputElement exists for non-chat
+                    outputElement.classList.add('hidden'); // Ocultar salida anterior solo si no es chat
+                    outputElement.textContent = ''; // Limpiar salida anterior solo si no es chat
+                }
+
+                let payload;
+                if (isChat) {
+                    chatConversationHistory.push({ role: "user", parts: [{ text: prompt }] });
+                    payload = { contents: chatConversationHistory };
+                } else {
+                    payload = { contents: [{ role: "user", parts: [{ text: prompt }] }] };
+                }
+
+                const apiKey = ""; // La clave API se proporcionará en tiempo de ejecución por Canvas
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    const result = await response.json();
+
+                    if (result.candidates && result.candidates.length > 0 &&
+                        result.candidates[0].content && result.candidates[0].content.parts &&
+                        result.candidates[0].content.parts.length > 0) {
+                        const text = result.candidates[0].content.parts[0].text;
+                        if (isChat) {
+                            chatConversationHistory.push({ role: "model", parts: [{ text: text }] });
+                            const geminiMessageDiv = document.createElement('div');
+                            geminiMessageDiv.className = 'chat-message-gemini text-sm';
+                            geminiMessageDiv.textContent = text;
+                            chatHistoryDiv.appendChild(geminiMessageDiv);
+                            chatHistoryDiv.scrollTop = chatHistoryDiv.scrollHeight; // Scroll to bottom
+                        } else {
+                            outputElement.textContent = text;
+                            outputElement.classList.remove('hidden'); // Mostrar la salida
+                        }
+                    } else {
+                        const errorMessage = 'Error: No se pudo generar la respuesta. Inténtalo de nuevo.';
+                        if (isChat) {
+                            const errorDiv = document.createElement('div');
+                            errorDiv.className = 'chat-message-gemini text-sm text-red-600';
+                            errorDiv.textContent = errorMessage;
+                            chatHistoryDiv.appendChild(errorDiv);
+                            chatHistoryDiv.scrollTop = chatHistoryDiv.scrollHeight;
+                        } else {
+                            outputElement.textContent = errorMessage;
+                            outputElement.classList.remove('hidden');
+                        }
+                    }
+                } catch (error) {
+                    console.error('Error al llamar a la API de Gemini:', error);
+                    const errorMessage = 'Error: Fallo en la conexión con la API. Por favor, inténtalo más tarde.';
+                    if (isChat) {
+                        const errorDiv = document.createElement('div');
+                        errorDiv.className = 'chat-message-gemini text-sm text-red-600';
+                        errorDiv.textContent = errorMessage;
+                        chatHistoryDiv.appendChild(errorDiv);
+                        chatHistoryDiv.scrollTop = chatHistoryDiv.scrollHeight;
+                    } else {
+                        outputElement.textContent = errorMessage;
+                        outputElement.classList.remove('hidden');
+                    }
+                } finally {
+                    spinnerElement.classList.add('hidden'); // Ocultar spinner
+                }
+            }
+
+            // Event listener para los botones de Resumir Clase
+            summarizeButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const classId = button.dataset.classId;
+                    const classTitle = button.dataset.classTitle;
+                    const classContent = button.dataset.classContent;
+                    const prompt = `Por favor, resume la siguiente clase de Hardware y Aplicación Específica: "${classTitle}". El contenido principal incluye: ${classContent}. Proporciona un resumen conciso y útil.`;
+                    const spinner = document.getElementById(`summarize-spinner-${classId}`);
+                    const output = document.getElementById(`summary-output-${classId}`);
+                    callGeminiAPI(prompt, spinner, output);
+                });
+            });
+
+            // Event listener para el botón de enviar mensaje del chat
+            sendChatButton.addEventListener('click', async () => {
+                const userMessage = chatInput.value.trim();
+                if (userMessage) {
+                    // Mostrar mensaje del usuario en el historial
+                    const userMessageDiv = document.createElement('div');
+                    userMessageDiv.className = 'chat-message-user text-sm';
+                    userMessageDiv.textContent = userMessage;
+                    chatHistoryDiv.appendChild(userMessageDiv);
+                    chatHistoryDiv.scrollTop = chatHistoryDiv.scrollHeight; // Scroll to bottom
+
+                    chatInput.value = ''; // Limpiar input
+
+                    // Llamar a la API de Gemini para la respuesta
+                    await callGeminiAPI(userMessage, chatSpinner, null, true); // isChat = true
+                }
+            });
+
+            // Permite enviar mensaje del chat con la tecla Enter
+            chatInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    sendChatButton.click();
+                }
+            });
+
+            // Asegurarse de que el menú principal sea visible al cargar
+            showSection('main-menu-section');
+        });
+    </script>
 </body>
 </html>
