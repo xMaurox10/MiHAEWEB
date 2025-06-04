@@ -158,12 +158,20 @@
                     <!-- Los mensajes del chat aparecerán aquí -->
                     <div class="chat-message-gemini text-sm">¡Hola! Soy tu asistente de Hardware y Aplicación Específica. ¿En qué puedo ayudarte hoy?</div>
                 </div>
-                <div class="flex flex-col sm:flex-row gap-4">
+                <div class="flex flex-col sm:flex-row gap-4 items-center">
                     <input type="text" id="chat-input" placeholder="Escribe tu mensaje..." class="flex-grow p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
-                    <button id="send-chat-button" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-md transition duration-300 flex items-center justify-center">
+                    <label for="file-upload" class="cursor-pointer bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded-md transition duration-300 flex-shrink-0">
+                        Adjuntar Archivo
+                    </label>
+                    <input type="file" id="file-upload" class="hidden" accept="image/*, application/pdf, text/plain">
+                    <button id="send-chat-button" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-md transition duration-300 flex items-center justify-center flex-shrink-0">
                         Enviar
                         <span id="chat-spinner" class="loading-spinner hidden"></span>
                     </button>
+                </div>
+                <div class="mt-2 flex items-center">
+                    <span id="file-name-display" class="text-gray-600 text-sm italic"></span>
+                    <button id="clear-file-button" class="hidden text-red-500 hover:text-red-700 font-bold text-sm ml-2">X</button>
                 </div>
             </div>
         </section>
@@ -673,6 +681,25 @@
         </footer>
     </div>
 
+    <!-- Password Prompt Modal (initially hidden) -->
+    <div id="password-prompt-modal" class="fixed inset-0 bg-gray-800 bg-opacity-75 overflow-y-auto h-full w-full flex items-center justify-center p-4" style="display: none; z-index: 100;">
+        <div class="bg-white p-8 rounded-lg shadow-xl w-full max-w-md transform transition-all sm:my-8 sm:align-middle">
+            <h3 class="text-2xl font-semibold text-gray-900 mb-4 text-center">Acceso a Exámenes</h3>
+            <p class="text-gray-700 mb-6 text-center">Por favor, introduce la contraseña para continuar.</p>
+            <input type="password" id="password-input" placeholder="Contraseña" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4">
+            <p id="password-error" class="text-red-600 text-sm mb-4 text-center" style="display: none;">Contraseña incorrecta. Inténtalo de nuevo.</p>
+            <div class="flex flex-col sm:flex-row justify-end space-y-2 sm:space-y-0 sm:space-x-3">
+                <button id="cancel-password-button" class="w-full sm:w-auto bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-md transition duration-300">
+                    Cancelar
+                </button>
+                <button id="submit-password-button" class="w-full sm:w-auto bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md transition duration-300">
+                    Acceder
+                </button>
+            </div>
+        </div>
+    </div>
+
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const mainMenuSection = document.getElementById('main-menu-section');
@@ -680,18 +707,26 @@
             const classCards = document.querySelectorAll('.class-card');
             const backButtons = document.querySelectorAll('.back-button');
             const summarizeButtons = document.querySelectorAll('.summarize-class-button');
-            // const explainConceptButton = document.getElementById('explain-concept-button'); // Removed
-            // const conceptInput = document.getElementById('concept-input'); // Removed
-            // const conceptExplanationOutput = document.getElementById('concept-explanation-output'); // Removed
-            // const explainConceptSpinner = document.getElementById('explain-concept-spinner'); // Removed
 
             // Chat elements
             const chatHistoryDiv = document.getElementById('chat-history');
             const chatInput = document.getElementById('chat-input');
             const sendChatButton = document.getElementById('send-chat-button');
             const chatSpinner = document.getElementById('chat-spinner');
+            const fileUploadInput = document.getElementById('file-upload');
+            const fileNameDisplay = document.getElementById('file-name-display');
+            const clearFileButton = document.getElementById('clear-file-button');
+
+            // Password Prompt elements
+            const passwordPromptModal = document.getElementById('password-prompt-modal');
+            const passwordInput = document.getElementById('password-input');
+            const submitPasswordButton = document.getElementById('submit-password-button');
+            const cancelPasswordButton = document.getElementById('cancel-password-button');
+            const passwordError = document.getElementById('password-error');
+
 
             let chatConversationHistory = [{ role: "model", parts: [{ text: "¡Hola! Soy tu asistente de Hardware y Aplicación Específica. ¿En qué puedo ayudarte hoy?" }] }];
+            let selectedFile = null; // Variable para almacenar el archivo seleccionado
 
             // Función para mostrar una sección y ocultar las demás
             const showSection = (sectionId) => {
@@ -701,6 +736,9 @@
                 });
                 // Ocultar el menú principal
                 mainMenuSection.style.display = 'none';
+                // Ocultar el prompt de contraseña si está visible
+                if (passwordPromptModal) passwordPromptModal.style.display = 'none';
+
 
                 // Mostrar la sección solicitada
                 const targetSection = document.getElementById(sectionId);
@@ -719,7 +757,17 @@
             classCards.forEach(card => {
                 card.addEventListener('click', () => {
                     const targetId = card.dataset.target;
-                    showSection(targetId);
+                    if (targetId === 'clase-detail-examenes') {
+                        // Show password prompt for "Exámenes"
+                        if (passwordPromptModal) {
+                            passwordPromptModal.style.display = 'flex'; // Use flex to center content
+                            passwordInput.value = ''; // Clear previous input
+                            passwordError.style.display = 'none'; // Hide error message
+                            passwordInput.focus(); // Focus on the password input
+                        }
+                    } else {
+                        showSection(targetId);
+                    }
                 });
             });
 
@@ -732,28 +780,115 @@
                         output.classList.add('hidden');
                         output.textContent = ''; // Limpiar contenido
                     });
-                    // conceptExplanationOutput.classList.add('hidden'); // Removed
-                    // conceptExplanationOutput.textContent = ''; // Removed
+                    // Limpiar el historial del chat y añadir el mensaje inicial al volver al menú principal
+                    chatHistoryDiv.innerHTML = '';
+                    const initialMessageDiv = document.createElement('div');
+                    initialMessageDiv.className = 'chat-message-gemini text-sm';
+                    initialMessageDiv.textContent = '¡Hola! Soy tu asistente de Hardware y Aplicación Específica. ¿En qué puedo ayudarte hoy?';
+                    chatHistoryDiv.appendChild(initialMessageDiv);
+                    chatConversationHistory = [{ role: "model", parts: [{ text: "¡Hola! Soy tu asistente de Hardware y Aplicación Específica. ¿En qué puedo ayudarte hoy?" }] }];
+                    clearSelectedFile(); // Limpiar archivo seleccionado al volver al menú
+                    if (passwordPromptModal) passwordPromptModal.style.display = 'none'; // Ensure password prompt is hidden
+                    if (passwordError) passwordError.style.display = 'none'; // Hide any lingering error message
                 });
             });
 
-            // Función para llamar a la API de Gemini
-            async function callGeminiAPI(prompt, spinnerElement, outputElement, isChat = false) {
-                spinnerElement.classList.remove('hidden'); // Mostrar spinner
-                if (!isChat && outputElement) { // Check if outputElement exists for non-chat
-                    outputElement.classList.add('hidden'); // Ocultar salida anterior solo si no es chat
-                    outputElement.textContent = ''; // Limpiar salida anterior solo si no es chat
-                }
+            // Password prompt logic
+            if (submitPasswordButton) {
+                submitPasswordButton.addEventListener('click', () => {
+                    if (passwordInput.value === 'Meteoro') {
+                        passwordPromptModal.style.display = 'none';
+                        passwordInput.value = ''; // Clear password after successful entry
+                        passwordError.style.display = 'none';
+                        showSection('clase-detail-examenes');
+                    } else {
+                        passwordError.style.display = 'block'; // Show error message
+                        passwordInput.value = ''; // Clear incorrect password
+                        passwordInput.focus(); // Refocus for another attempt
+                    }
+                });
+            }
 
-                let payload;
-                if (isChat) {
-                    chatConversationHistory.push({ role: "user", parts: [{ text: prompt }] });
-                    payload = { contents: chatConversationHistory };
+            if (cancelPasswordButton) {
+                cancelPasswordButton.addEventListener('click', () => {
+                    passwordPromptModal.style.display = 'none';
+                    passwordInput.value = ''; // Clear password input
+                    passwordError.style.display = 'none'; // Hide error message
+                    // User remains on the current view (likely main menu if they clicked exams card from there)
+                });
+            }
+
+            if (passwordInput) {
+                 passwordInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        submitPasswordButton.click(); // Trigger submit on Enter key
+                    }
+                });
+            }
+
+
+            // Función para limpiar el archivo seleccionado
+            const clearSelectedFile = () => {
+                selectedFile = null;
+                fileUploadInput.value = ''; // Limpiar el input de tipo file
+                fileNameDisplay.textContent = '';
+                clearFileButton.classList.add('hidden');
+            };
+
+            // Event listener para cuando se selecciona un archivo
+            fileUploadInput.addEventListener('change', (event) => {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (e) => {
+                        selectedFile = {
+                            name: file.name,
+                            type: file.type,
+                            data: e.target.result.split(',')[1] // Obtener solo la parte Base64
+                        };
+                        fileNameDisplay.textContent = `Archivo seleccionado: ${file.name}`;
+                        clearFileButton.classList.remove('hidden');
+                    };
+
+                    // Leer el archivo según su tipo
+                    if (file.type.startsWith('image/') || file.type === 'application/pdf') {
+                        reader.readAsDataURL(file); // Para imágenes y PDFs, leer como Data URL (Base64)
+                    } else if (file.type === 'text/plain') {
+                         // For text files, read as text. The API expects base64 for inlineData,
+                         // so we'll convert text to base64 string if sending as inlineData,
+                         // or adjust the payload structure if sending as pure text.
+                         // For simplicity with current Gemini API structure, we'll base64 encode it.
+                        reader.onload = (e_text) => { // new reader.onload for text
+                            selectedFile = {
+                                name: file.name,
+                                type: file.type, // keep original type for reference
+                                data: btoa(e_text.target.result) // base64 encode the text content
+                            };
+                            fileNameDisplay.textContent = `Archivo seleccionado: ${file.name}`;
+                            clearFileButton.classList.remove('hidden');
+                        };
+                        reader.readAsText(file);
+                    } else {
+                        reader.readAsDataURL(file);
+                        console.warn(`Tipo de archivo no estándar para la API de Gemini: ${file.type}. Se enviará como Base64.`);
+                    }
                 } else {
-                    payload = { contents: [{ role: "user", parts: [{ text: prompt }] }] };
+                    clearSelectedFile();
+                }
+            });
+
+            // Event listener para el botón de limpiar archivo
+            clearFileButton.addEventListener('click', clearSelectedFile);
+
+            // Función para llamar a la API de Gemini
+            async function callGeminiAPI(payload, spinnerElement, outputElement, isChat = false) {
+                spinnerElement.classList.remove('hidden'); // Mostrar spinner
+                if (!isChat && outputElement) { 
+                    outputElement.classList.add('hidden'); 
+                    outputElement.textContent = ''; 
                 }
 
-                const apiKey = ""; // La clave API se proporcionará en tiempo de ejecución por Canvas
+                const apiKey = "AIzaSyAmmYRxVcSbZBqq_qSXL97LVee_78j1EdY"; // API Key is an empty string
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
                 try {
@@ -780,14 +915,19 @@
                             outputElement.classList.remove('hidden'); // Mostrar la salida
                         }
                     } else {
-                        const errorMessage = 'Error: No se pudo generar la respuesta. Inténtalo de nuevo.';
+                        console.error('Error de la API de Gemini (no candidates or unexpected structure):', result);
+                        let errorMessage = 'Error: No se pudo generar la respuesta. Inténtalo de nuevo.';
+                        if (result.error && result.error.message) {
+                            errorMessage = `Error de la API: ${result.error.message}`;
+                        }
+
                         if (isChat) {
                             const errorDiv = document.createElement('div');
                             errorDiv.className = 'chat-message-gemini text-sm text-red-600';
                             errorDiv.textContent = errorMessage;
                             chatHistoryDiv.appendChild(errorDiv);
                             chatHistoryDiv.scrollTop = chatHistoryDiv.scrollHeight;
-                        } else {
+                        } else if (outputElement) { // Check if outputElement exists
                             outputElement.textContent = errorMessage;
                             outputElement.classList.remove('hidden');
                         }
@@ -801,7 +941,7 @@
                         errorDiv.textContent = errorMessage;
                         chatHistoryDiv.appendChild(errorDiv);
                         chatHistoryDiv.scrollTop = chatHistoryDiv.scrollHeight;
-                    } else {
+                    } else if (outputElement) { // Check if outputElement exists
                         outputElement.textContent = errorMessage;
                         outputElement.classList.remove('hidden');
                     }
@@ -816,28 +956,61 @@
                     const classId = button.dataset.classId;
                     const classTitle = button.dataset.classTitle;
                     const classContent = button.dataset.classContent;
-                    const prompt = `Por favor, resume la siguiente clase de Hardware y Aplicación Específica: "${classTitle}". El contenido principal incluye: ${classContent}. Proporciona un resumen conciso y útil.`;
+                    const prompt = `Por favor, resume la siguiente clase de Hardware y Aplicación Específica: "${classTitle}". El contenido principal incluye: ${classContent}. Proporciona un resumen conciso y útil en español.`;
+                    
+                    const payload = { contents: [{ role: "user", parts: [{ text: prompt }] }] };
                     const spinner = document.getElementById(`summarize-spinner-${classId}`);
                     const output = document.getElementById(`summary-output-${classId}`);
-                    callGeminiAPI(prompt, spinner, output);
+                    callGeminiAPI(payload, spinner, output);
                 });
             });
 
             // Event listener para el botón de enviar mensaje del chat
             sendChatButton.addEventListener('click', async () => {
                 const userMessage = chatInput.value.trim();
-                if (userMessage) {
-                    // Mostrar mensaje del usuario en el historial
+                if (userMessage || selectedFile) {
+                    const userParts = [];
+                    let displayMessage = userMessage; // Message to display in chat UI for user
+
+                    if (userMessage) {
+                        userParts.push({ text: userMessage });
+                    }
+
                     const userMessageDiv = document.createElement('div');
                     userMessageDiv.className = 'chat-message-user text-sm';
-                    userMessageDiv.textContent = userMessage;
+
+                    if (selectedFile) {
+                        // For all file types being sent to Gemini, they are expected as base64 encoded data
+                        // and a mimeType.
+                        userParts.push({ inlineData: { mimeType: selectedFile.type, data: selectedFile.data } });
+
+                        if (selectedFile.type.startsWith('image/')) {
+                            const imgPreview = document.createElement('img');
+                            imgPreview.src = `data:${selectedFile.type};base64,${selectedFile.data}`;
+                            imgPreview.className = 'max-w-xs h-auto rounded-md mt-2'; // Limit preview size
+                            if(userMessage) userMessageDiv.textContent = userMessage;
+                            userMessageDiv.appendChild(imgPreview);
+                        } else {
+                             displayMessage = userMessage ? `${userMessage}\n[Archivo adjunto: ${selectedFile.name}]` : `[Archivo adjunto: ${selectedFile.name}]`;
+                             userMessageDiv.textContent = displayMessage;
+                        }
+                    } else {
+                         userMessageDiv.textContent = displayMessage;
+                    }
+                    
                     chatHistoryDiv.appendChild(userMessageDiv);
-                    chatHistoryDiv.scrollTop = chatHistoryDiv.scrollHeight; // Scroll to bottom
+                    chatHistoryDiv.scrollTop = chatHistoryDiv.scrollHeight;
+                    chatInput.value = ''; 
+                    clearSelectedFile(); 
 
-                    chatInput.value = ''; // Limpiar input
+                    const currentConversation = [...chatConversationHistory]; // Copy existing history
+                    currentConversation.push({ role: "user", parts: userParts });
 
-                    // Llamar a la API de Gemini para la respuesta
-                    await callGeminiAPI(userMessage, chatSpinner, null, true); // isChat = true
+                    // Update the main history *after* the API call for the model's response
+                    chatConversationHistory.push({ role: "user", parts: userParts }); 
+                    
+                    const payload = { contents: currentConversation };
+                    await callGeminiAPI(payload, chatSpinner, null, true); 
                 }
             });
 
