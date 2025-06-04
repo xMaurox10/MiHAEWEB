@@ -1,0 +1,119 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 0.5rem;
+}
+
+header a {
+    color: #a3ceff; /* Un azul claro para el enlace del índice general */
+    text-decoration: none;
+}
+header a:hover {
+    text-decoration: underline;
+}
+
+nav.indice-clases {
+    padding: 1rem;
+    background-color: #ddd;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+nav.indice-clases ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav.indice-clases ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+nav.indice-clases a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+nav.indice-clases a:hover {
+    color: #007bff;
+}
+
+
+main {
+    padding: 20px;
+    max-width: 900px; /* Limita el ancho para mejor lectura */
+    margin: auto; /* Centra el contenido principal */
+}
+
+.clase-contenido {
+    background-color: #fff;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.clase-contenido h2 {
+    color: #333;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.recursos h3 {
+    margin-top: 20px;
+    color: #555;
+    border-left: 3px solid #007bff;
+    padding-left: 10px;
+}
+
+.recursos ul {
+    list-style-type: square; /* Puedes cambiar a 'disc' o 'circle' */
+    padding-left: 20px;
+}
+
+.recursos ul li {
+    margin-bottom: 8px;
+}
+
+.recursos a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.recursos a:hover {
+    text-decoration: underline;
+}
+
+/* Para los videos */
+.video-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.video-container video {
+    max-width: 100%; /* Hace el video responsivo */
+    height: auto;
+    border-radius: 4px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    margin-top: 30px;
+}
