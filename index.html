@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hardware y Aplicación Específica</title>
-    <!-- Carga de Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Fuente Inter */
@@ -54,7 +53,6 @@
 </head>
 <body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
     <div id="page-container" class="container mx-auto p-4 md:p-8">
-        <!-- Encabezado de la página -->
         <header class="bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-700 dark:to-purple-700 text-white p-6 rounded-lg shadow-lg mb-8 relative">
             <div class="text-center">
                 <h1 class="text-4xl font-extrabold mb-2">Hardware y Aplicación Específica</h1>
@@ -69,72 +67,58 @@
         <section id="main-menu-section" class="p-6 rounded-lg shadow-md mb-8">
             <h2 id="main-menu-title" class="text-2xl font-semibold mb-6 text-center">Selecciona un Tema</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                <!-- Card 0 -->
                 <div id="card-0" class="class-card bg-blue-100 hover:bg-blue-200 dark:bg-blue-800 dark:hover:bg-blue-700 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-0">
                     <h3 class="text-xl font-bold text-blue-800 dark:text-blue-200 mb-2">0. Introducción al Procesado de Señales Digitales</h3>
                     <p class="text-blue-700 dark:text-blue-300 text-sm">Conceptos fundamentales de DSP.</p>
                 </div>
-                <!-- Card 1 -->
                 <div id="card-1" class="class-card bg-green-100 hover:bg-green-200 dark:bg-green-800 dark:hover:bg-green-700 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-1">
                     <h3 class="text-xl font-bold text-green-800 dark:text-green-200 mb-2">1. Puertos y Retardos</h3>
                     <p class="text-green-700 dark:text-green-300 text-sm">Primeros pasos con microcontroladores y programación.</p>
                 </div>
-                <!-- Card 2 -->
                 <div id="card-2" class="class-card bg-purple-100 hover:bg-purple-200 dark:bg-purple-800 dark:hover:bg-purple-700 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-2">
                     <h3 class="text-xl font-bold text-purple-800 dark:text-purple-200 mb-2">2. Displays de 7 Segmentos y Teoría de Señal</h3>
                     <p class="text-purple-700 dark:text-purple-300 text-sm">Visualización de datos y fundamentos de señal.</p>
                 </div>
-                <!-- Card 3 -->
                 <div id="card-3" class="class-card bg-yellow-100 hover:bg-yellow-200 dark:bg-yellow-800 dark:hover:bg-yellow-700 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-3">
                     <h3 class="text-xl font-bold text-yellow-800 dark:text-yellow-200 mb-2">3. Interrupciones INTx y LCD</h3>
                     <p class="text-yellow-700 dark:text-yellow-300 text-sm">Manejo de eventos y pantallas de cristal líquido.</p>
                 </div>
-                <!-- Card 4 -->
                 <div id="card-4" class="class-card bg-red-100 hover:bg-red-200 dark:bg-red-800 dark:hover:bg-red-700 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-4">
                     <h3 class="text-xl font-bold text-red-800 dark:text-red-200 mb-2">4. Teclado e Interrupción RB</h3>
                     <p class="text-red-700 dark:text-red-300 text-sm">Interacción con teclados matriciales.</p>
                 </div>
-                <!-- Card 5 -->
                 <div id="card-5" class="class-card bg-indigo-100 hover:bg-indigo-200 dark:bg-indigo-800 dark:hover:bg-indigo-700 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-5">
                     <h3 class="text-xl font-bold text-indigo-800 dark:text-indigo-200 mb-2">5. Temporizaciones</h3>
                     <p class="text-indigo-700 dark:text-indigo-300 text-sm">Manejo de tiempos y eventos con temporizadores.</p>
                 </div>
-                <!-- Card 6 -->
                 <div id="card-6" class="class-card bg-pink-100 hover:bg-pink-200 dark:bg-pink-800 dark:hover:bg-pink-700 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-6">
                     <h3 class="text-xl font-bold text-pink-800 dark:text-pink-200 mb-2">6. Convertidores AD I</h3>
                     <p class="text-pink-700 dark:text-pink-300 text-sm">Conversión de señales analógicas a digitales (parte 1).</p>
                 </div>
-                <!-- Card 7 -->
                 <div id="card-7" class="class-card bg-teal-100 hover:bg-teal-200 dark:bg-teal-800 dark:hover:bg-teal-700 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-7">
                     <h3 class="text-xl font-bold text-teal-800 dark:text-teal-200 mb-2">7. Convertidores AD II y Sensores</h3>
                     <p class="text-teal-700 dark:text-teal-300 text-sm">Conversión de señales analógicas a digitales (parte 2) y uso de sensores.</p>
                 </div>
-                <!-- Card 8 -->
                 <div id="card-8" class="class-card bg-orange-100 hover:bg-orange-200 dark:bg-orange-800 dark:hover:bg-orange-700 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-8">
                     <h3 class="text-xl font-bold text-orange-800 dark:text-orange-200 mb-2">8. Convertidores DA</h3>
                     <p class="text-orange-700 dark:text-orange-300 text-sm">Conversión de señales digitales a analógicas.</p>
                 </div>
-                <!-- Card 9 -->
                 <div id="card-9" class="class-card bg-cyan-100 hover:bg-cyan-200 dark:bg-cyan-800 dark:hover:bg-cyan-700 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-9">
                     <h3 class="text-xl font-bold text-cyan-800 dark:text-cyan-200 mb-2">9. Control Secuencial</h3>
                     <p class="text-cyan-700 dark:text-cyan-300 text-sm">Implementación de sistemas secuenciales con microcontroladores.</p>
                 </div>
-                <!-- Card 10 -->
                 <div id="card-10" class="class-card bg-lime-100 hover:bg-lime-200 dark:bg-lime-800 dark:hover:bg-lime-700 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-10">
                     <h3 class="text-xl font-bold text-lime-800 dark:text-lime-200 mb-2">10. Filtros + Audio</h3>
                     <p class="text-lime-700 dark:text-lime-300 text-sm">Conceptos de filtrado de señales y aplicaciones de audio.</p>
                 </div>
-                <!-- Card 11 -->
                 <div id="card-11" class="class-card bg-fuchsia-100 hover:bg-fuchsia-200 dark:bg-fuchsia-800 dark:hover:bg-fuchsia-700 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-11">
                     <h3 class="text-xl font-bold text-fuchsia-800 dark:text-fuchsia-200 mb-2">11. VHDL</h3>
                     <p class="text-fuchsia-700 dark:text-fuchsia-300 text-sm">Descripción de hardware con VHDL.</p>
                 </div>
-               <!-- Card 12 -->
                 <div id="card-12" class="class-card bg-blue-200 hover:bg-blue-300 dark:bg-blue-700 dark:hover:bg-blue-600 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-12">
                     <h3 class="text-xl font-bold text-blue-900 dark:text-blue-100 mb-2">12. GPUs</h3>
                     <p class="text-blue-800 dark:text-blue-200 text-sm">Aplicaciones y funcionamiento de las Unidades de Procesamiento Gráfico.</p>
                 </div>
-                <!-- Card Examenes -->
                 <div id="card-examenes" class="class-card bg-red-200 hover:bg-red-300 dark:bg-red-800 dark:hover:bg-red-700 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-examenes">
                     <h3 class="text-xl font-bold text-red-900 dark:text-red-200 mb-2">Exámenes</h3>
                     <p class="text-red-800 dark:text-red-300 text-sm">Sección dedicada a la evaluación y práctica.</p>
@@ -142,7 +126,7 @@
             </div>
 
             <div id="chat-container" class="mt-8 p-6 rounded-lg shadow-inner">
-                <h3 id="chat-section-title" class="text-xl font-semibold mb-4">Chat con Gemini </h3>
+                <h3 id="chat-section-title" class="text-xl font-semibold mb-4">Chat con Gemini</h3>
                 <div id="chat-history" class="h-80 overflow-y-auto p-4 border border-black-300 dark:border-black-600 rounded-md flex flex-col space-y-4 mb-4">
                 </div>
                 <div class="flex flex-col sm:flex-row gap-4 items-center">
@@ -164,29 +148,46 @@
         </section>
 
         <div id="class-detail-sections-container">
-            <!-- Secciones de Detalle de Clase -->
-            <!-- Clase 0 -->
             <section id="clase-detail-0" class="class-detail-section p-6 rounded-lg shadow-md mb-8">
                 <button class="back-button bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
                 <h2 class="text-3xl font-bold text-gray-900 mb-6">0. Introducción al Procesado de Señales Digitales</h2>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="space-y-6">
                     <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Video Explicativo</h3>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Video Explicativo</h3>
                         <div class="responsive-iframe-container dark:border dark:border-gray-700">
                             <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Teoría</h3>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Presentación de Google</h3>
+                        <div class="responsive-iframe-container dark:border dark:border-gray-700">
+                            <iframe src="https://docs.google.com/presentation/d/e/SLIDES_PLACEHOLDER_ID_CLASE_0/embed?start=false&loop=false&delayms=3000" title="Google Slides Presentation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Documento de Teoría 1</h3>
                         <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
                             <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
                         </div>
-                        <p class="text-sm text-gray-600">Archivo original: 0 Introduccion al procesado de señales digitales I 2025.pdf</p>
+
                     </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Documento de Teoría 2</h3>
+                        <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
+                            <iframe src="https://docs.google.com/viewer?url=https://www.example.com/clase_0_teoria_2_placeholder.pdf&embedded=true" title="Documento de Teoría 2" frameborder="0"></iframe>
+                        </div>
+                        
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">PDF Resumen</h3>
+                        <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
+                            <iframe src="https://docs.google.com/viewer?url=https://www.example.com/clase_0_resumen_placeholder.pdf&embedded=true" title="PDF Resumen" frameborder="0"></iframe>
+                        </div>
+                        
                 </div>
                 <div class="mt-6">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Práctica</h3>
-                    <p class="text-gray-600">No hay documento de práctica específico para esta clase.</p>
+                    <h3 class="text-3xl font-bold text-gray-900 mb-6">Documento de Práctica</h3>
+                    <p class="text-gray-600 dark:text-gray-400">No hay documento de práctica específico para esta clase.</p>
                 </div>
                 <div class="mt-6 border-t dark:border-gray-700 pt-4 border-gray-200">
                     <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="0" data-class-title="Introducción al Procesado de Señales Digitales" data-class-content="Conceptos fundamentales de DSP, introducción al procesado de señales digitales.">
@@ -198,415 +199,651 @@
                 </div>
             </section>
 
-            <!-- Clase 1 -->
             <section id="clase-detail-1" class="class-detail-section p-6 rounded-lg shadow-md mb-8">
                 <button class="back-button bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
                 <h2 class="text-3xl font-bold text-gray-900 mb-6">1. Puertos y Retardos</h2>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="space-y-6">
                     <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Video Explicativo</h3>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Video Explicativo</h3>
                         <div class="responsive-iframe-container dark:border dark:border-gray-700">
                             <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Teoría</h3>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Presentación de Google</h3>
+                        <div class="responsive-iframe-container dark:border dark:border-gray-700">
+                            <iframe src="https://docs.google.com/presentation/d/e/SLIDES_PLACEHOLDER_ID_CLASE_1/embed?start=false&loop=false&delayms=3000" title="Google Slides Presentation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Documento de Teoría 1</h3>
                         <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
                             <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
                         </div>
-                        <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
-                            <li>Archivos originales: 1ª clase sobre micros.pdf, Manual compilador + simulador.pdf, PIC18F452.pdf, Tipos de datos.pdf</li>
+                        <ul class="list-disc list-inside text-sm text-gray-600 dark:text-gray-400 space-y-1">
+                           
                         </ul>
                     </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Documento de Teoría 2</h3>
+                        <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
+                            <iframe src="https://docs.google.com/viewer?url=https://www.example.com/clase_1_teoria_2_placeholder.pdf&embedded=true" title="Documento de Teoría 2" frameborder="0"></iframe>
+                        </div>
+                        
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">PDF Resumen</h3>
+                        <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
+                            <iframe src="https://docs.google.com/viewer?url=https://www.example.com/clase_1_resumen_placeholder.pdf&embedded=true" title="PDF Resumen" frameborder="0"></iframe>
+                        </div>
+                        
                 </div>
                 <div class="mt-6">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Práctica</h3>
-                    <p class="text-gray-600">Archivo original de práctica: Primer programa.zip (Este es un archivo ZIP y necesitaría ser descargado.)</p>
+                    <h3 class="text-3xl font-bold text-gray-900 mb-6">Documento de Práctica</h3>
+                    <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
+                        <iframe src="https://docs.google.com/viewer?url=https://www.example.com/clase_1_practica_placeholder.pdf&embedded=true" title="Documento de Práctica" frameborder="0"></iframe>
+                    </div>
+                    
                 </div>
                 <div class="mt-6 border-t dark:border-gray-700 pt-4 border-gray-200">
                     <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="1" data-class-title="Puertos y Retardos" data-class-content="Primeros pasos con microcontroladores y programación, introducción a microcontroladores, manual de compilador y simulador, detalles del PIC18F452, primer programa, tipos de datos.">
-                        Resumir Clase ✨
+                        Resumir Clase 
                         <span id="summarize-spinner-1" class="loading-spinner hidden"></span>
                     </button>
                     <div id="summary-output-1" class="mt-4 p-4 bg-purple-50 dark:bg-purple-800 text-purple-900 dark:text-purple-200 rounded-md border border-purple-200 dark:border-purple-600 hidden"></div>
                 </div>
             </section>
 
-            <!-- Clase 2 -->
             <section id="clase-detail-2" class="class-detail-section p-6 rounded-lg shadow-md mb-8">
                 <button class="back-button bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
                 <h2 class="text-3xl font-bold text-gray-900 mb-6">2. Displays de 7 Segmentos y Teoría de Señal</h2>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="space-y-6">
                     <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Video Explicativo</h3>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Video Explicativo</h3>
                         <div class="responsive-iframe-container dark:border dark:border-gray-700">
                             <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Teoría</h3>
-                        <p class="text-gray-600">No hay documento de teoría específico para esta clase.</p>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Presentación de Google</h3>
+                        <div class="responsive-iframe-container dark:border dark:border-gray-700">
+                            <iframe src="https://docs.google.com/presentation/d/e/SLIDES_PLACEHOLDER_ID_CLASE_2/embed?start=false&loop=false&delayms=3000" title="Google Slides Presentation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
                     </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Documento de Teoría 1</h3>
+                        <p class="text-gray-600 dark:text-gray-400">No hay documento de teoría específico para esta clase.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Documento de Teoría 2</h3>
+                        <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
+                            <iframe src="https://docs.google.com/viewer?url=https://www.example.com/clase_2_teoria_2_placeholder.pdf&embedded=true" title="Documento de Teoría 2" frameborder="0"></iframe>
+                        </div>
+                        
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">PDF Resumen</h3>
+                        <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
+                            <iframe src="https://docs.google.com/viewer?url=https://www.example.com/clase_2_resumen_placeholder.pdf&embedded=true" title="PDF Resumen" frameborder="0"></iframe>
+                        </div>
+                        
                 </div>
                 <div class="mt-6">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Práctica</h3>
+                    <h3 class="text-3xl font-bold text-gray-900 mb-6">Documento de Práctica</h3>
                     <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
                         <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
                     </div>
-                    <p class="text-sm text-gray-600">Archivo original: Práctica 2 HAE Dispalys de 7 segmentos 2025.pdf</p>
                 </div>
                 <div class="mt-6 border-t dark:border-gray-700 pt-4 border-gray-200">
                     <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="2" data-class-title="Displays de 7 Segmentos y Teoría de Señal" data-class-content="Visualización de datos y fundamentos de señal, práctica de Displays de 7 segmentos.">
-                        Resumir Clase ✨
+                        Resumir Clase 
                         <span id="summarize-spinner-2" class="loading-spinner hidden"></span>
                     </button>
                     <div id="summary-output-2" class="mt-4 p-4 bg-purple-50 dark:bg-purple-800 text-purple-900 dark:text-purple-200 rounded-md border border-purple-200 dark:border-purple-600 hidden"></div>
                 </div>
             </section>
 
-            <!-- Clase 3 -->
             <section id="clase-detail-3" class="class-detail-section p-6 rounded-lg shadow-md mb-8">
                 <button class="back-button bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
                 <h2 class="text-3xl font-bold text-gray-900 mb-6">3. Interrupciones INTx y LCD</h2>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="space-y-6">
                     <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Video Explicativo</h3>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Video Explicativo</h3>
                         <div class="responsive-iframe-container dark:border dark:border-gray-700">
                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Teoría</h3>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Presentación de Google</h3>
+                        <div class="responsive-iframe-container dark:border dark:border-gray-700">
+                            <iframe src="https://docs.google.com/presentation/d/e/SLIDES_PLACEHOLDER_ID_CLASE_3/embed?start=false&loop=false&delayms=3000" title="Google Slides Presentation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Documento de Teoría 1</h3>
                         <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
                             <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
                         </div>
-                        <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
-                            <li>Archivos originales: Clase Interrupciones INTx alumnos.pdf, Clase LCD alumnos.pdf</li>
+                        <ul class="list-disc list-inside text-sm text-gray-600 dark:text-gray-400 space-y-1">
                         </ul>
                     </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Documento de Teoría 2</h3>
+                        <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
+                            <iframe src="https://docs.google.com/viewer?url=https://www.example.com/clase_3_teoria_2_placeholder.pdf&embedded=true" title="Documento de Teoría 2" frameborder="0"></iframe>
+                        </div>
+                        
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">PDF Resumen</h3>
+                        <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
+                            <iframe src="https://docs.google.com/viewer?url=https://www.example.com/clase_3_resumen_placeholder.pdf&embedded=true" title="PDF Resumen" frameborder="0"></iframe>
+                        </div>
+                        
                 </div>
                 <div class="mt-6">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Práctica</h3>
-                    <p class="text-gray-600">No hay documento de práctica específico para esta clase.</p>
+                    <h3 class="text-3xl font-bold text-gray-900 mb-6">Documento de Práctica</h3>
+                    <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
+                        <iframe src="https://docs.google.com/viewer?url=https://www.example.com/clase_3_practica_placeholder.pdf&embedded=true" title="Documento de Práctica" frameborder="0"></iframe>
+                    </div>
+                    
                 </div>
                 <div class="mt-6 border-t dark:border-gray-700 pt-4 border-gray-200">
                     <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="3" data-class-title="Interrupciones INTx y LCD" data-class-content="Manejo de eventos y pantallas de cristal líquido, clase sobre Interrupciones INTx, clase sobre LCD.">
-                        Resumir Clase ✨
+                        Resumir Clase 
                         <span id="summarize-spinner-3" class="loading-spinner hidden"></span>
                     </button>
                     <div id="summary-output-3" class="mt-4 p-4 bg-purple-50 dark:bg-purple-800 text-purple-900 dark:text-purple-200 rounded-md border border-purple-200 dark:border-purple-600 hidden"></div>
                 </div>
             </section>
 
-            <!-- Clase 4 -->
             <section id="clase-detail-4" class="class-detail-section p-6 rounded-lg shadow-md mb-8">
                 <button class="back-button bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
                 <h2 class="text-3xl font-bold text-gray-900 mb-6">4. Teclado e Interrupción RB</h2>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="space-y-6">
                     <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Video Explicativo</h3>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Video Explicativo</h3>
                         <div class="responsive-iframe-container dark:border dark:border-gray-700">
                             <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Teoría</h3>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Presentación de Google</h3>
+                        <div class="responsive-iframe-container dark:border dark:border-gray-700">
+                            <iframe src="https://docs.google.com/presentation/d/e/SLIDES_PLACEHOLDER_ID_CLASE_4/embed?start=false&loop=false&delayms=3000" title="Google Slides Presentation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Documento de Teoría 1</h3>
                         <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
                            <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
                         </div>
-                        <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
-                            <li>Archivos originales: Clase Interrupcion RB alumnos.pdf, Clase LCD alumnos.pdf</li>
+                        <ul class="list-disc list-inside text-sm text-gray-600 dark:text-gray-400 space-y-1">
                         </ul>
                     </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Documento de Teoría 2</h3>
+                        <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
+                            <iframe src="https://docs.google.com/viewer?url=https://www.example.com/clase_4_teoria_2_placeholder.pdf&embedded=true" title="Documento de Teoría 2" frameborder="0"></iframe>
+                        </div>
+                        
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">PDF Resumen</h3>
+                        <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
+                            <iframe src="https://docs.google.com/viewer?url=https://www.example.com/clase_4_resumen_placeholder.pdf&embedded=true" title="PDF Resumen" frameborder="0"></iframe>
+                        </div>
+                        
                 </div>
                 <div class="mt-6">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Práctica</h3>
-                    <p class="text-gray-600">No hay documento de práctica específico para esta clase.</p>
+                    <h3 class="text-3xl font-bold text-gray-900 mb-6">Documento de Práctica</h3>
+                    <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
+                        <iframe src="https://docs.google.com/viewer?url=https://www.example.com/clase_4_practica_placeholder.pdf&embedded=true" title="Documento de Práctica" frameborder="0"></iframe>
+                    </div>
+                    
                 </div>
                 <div class="mt-6 border-t dark:border-gray-700 pt-4 border-gray-200">
                     <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="4" data-class-title="Teclado e Interrupción RB" data-class-content="Interacción con teclados matriciales, clase sobre Interrupción RB, clase sobre LCD (repaso o continuación).">
-                        Resumir Clase ✨
+                        Resumir Clase 
                         <span id="summarize-spinner-4" class="loading-spinner hidden"></span>
                     </button>
                     <div id="summary-output-4" class="mt-4 p-4 bg-purple-50 dark:bg-purple-800 text-purple-900 dark:text-purple-200 rounded-md border border-purple-200 dark:border-purple-600 hidden"></div>
                 </div>
             </section>
 
-            <!-- Clase 5 -->
             <section id="clase-detail-5" class="class-detail-section p-6 rounded-lg shadow-md mb-8">
                 <button class="back-button bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
                 <h2 class="text-3xl font-bold text-gray-900 mb-6">5. Temporizaciones</h2>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="space-y-6">
                     <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Video Explicativo</h3>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Video Explicativo</h3>
                         <div class="responsive-iframe-container dark:border dark:border-gray-700">
                             <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Teoría</h3>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Presentación de Google</h3>
+                        <div class="responsive-iframe-container dark:border dark:border-gray-700">
+                            <iframe src="https://docs.google.com/presentation/d/e/SLIDES_PLACEHOLDER_ID_CLASE_5/embed?start=false&loop=false&delayms=3000" title="Google Slides Presentation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Documento de Teoría 1</h3>
                         <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
                             <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
                         </div>
-                        <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
-                            <li>Archivos originales: Notas Timer 0.pdf, Timer 0 datasheet.pdf</li>
+                        <ul class="list-disc list-inside text-sm text-gray-600 dark:text-gray-400 space-y-1">
                         </ul>
                     </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Documento de Teoría 2</h3>
+                        <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
+                            <iframe src="https://docs.google.com/viewer?url=https://www.example.com/clase_5_teoria_2_placeholder.pdf&embedded=true" title="Documento de Teoría 2" frameborder="0"></iframe>
+                        </div>
+                        
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">PDF Resumen</h3>
+                        <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
+                            <iframe src="https://docs.google.com/viewer?url=https://www.example.com/clase_5_resumen_placeholder.pdf&embedded=true" title="PDF Resumen" frameborder="0"></iframe>
+                        </div>
+                        
                 </div>
                 <div class="mt-6">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Práctica</h3>
-                    <p class="text-gray-600">No hay documento de práctica específico para esta clase.</p>
+                    <h3 class="text-3xl font-bold text-gray-900 mb-6">Documento de Práctica</h3>
+                    <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
+                        <iframe src="https://docs.google.com/viewer?url=https://www.example.com/clase_5_practica_placeholder.pdf&embedded=true" title="Documento de Práctica" frameborder="0"></iframe>
+                    </div>
+                    
                 </div>
                 <div class="mt-6 border-t dark:border-gray-700 pt-4 border-gray-200">
                     <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="5" data-class-title="Temporizaciones" data-class-content="Manejo de tiempos y eventos con temporizadores, notas sobre Timer 0, datasheet de Timer 0.">
-                        Resumir Clase ✨
+                        Resumir Clase 
                         <span id="summarize-spinner-5" class="loading-spinner hidden"></span>
                     </button>
                     <div id="summary-output-5" class="mt-4 p-4 bg-purple-50 dark:bg-purple-800 text-purple-900 dark:text-purple-200 rounded-md border border-purple-200 dark:border-purple-600 hidden"></div>
                 </div>
             </section>
 
-            <!-- Clase 6 -->
             <section id="clase-detail-6" class="class-detail-section p-6 rounded-lg shadow-md mb-8">
                 <button class="back-button bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
                 <h2 class="text-3xl font-bold text-gray-900 mb-6">6. Convertidores AD I</h2>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="space-y-6">
                     <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Video Explicativo</h3>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Video Explicativo</h3>
                         <div class="responsive-iframe-container dark:border dark:border-gray-700">
                             <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Teoría</h3>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Presentación de Google</h3>
+                        <div class="responsive-iframe-container dark:border dark:border-gray-700">
+                            <iframe src="https://docs.google.com/presentation/d/e/SLIDES_PLACEHOLDER_ID_CLASE_6/embed?start=false&loop=false&delayms=3000" title="Google Slides Presentation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Documento de Teoría 1</h3>
                         <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
                            <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
                         </div>
-                        <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
-                            <li>Archivos originales: AD PIC18F452.pdf, Notas convertidores AD.pdf, Notas sobre sensores HAE 24-25.pdf</li>
+                        <ul class="list-disc list-inside text-sm text-gray-600 dark:text-gray-400 space-y-1">
                         </ul>
                     </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Documento de Teoría 2</h3>
+                        <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
+                            <iframe src="https://docs.google.com/viewer?url=https://www.example.com/clase_6_teoria_2_placeholder.pdf&embedded=true" title="Documento de Teoría 2" frameborder="0"></iframe>
+                        </div>
+                        
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">PDF Resumen</h3>
+                        <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
+                            <iframe src="https://docs.google.com/viewer?url=https://www.example.com/clase_6_resumen_placeholder.pdf&embedded=true" title="PDF Resumen" frameborder="0"></iframe>
+                        </div>
+                        
                 </div>
                 <div class="mt-6">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Práctica</h3>
+                    <h3 class="text-3xl font-bold text-gray-900 mb-6">Documento de Práctica</h3>
                     <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
                         <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
                     </div>
-                    <p class="text-sm text-gray-600">Archivo original: Practica 6 HAE AD 24-25.pdf</p>
-                </div>
+                     </div>
                 <div class="mt-6 border-t dark:border-gray-700 pt-4 border-gray-200">
                     <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="6" data-class-title="Convertidores AD I" data-class-content="Conversión de señales analógicas a digitales (parte 1), convertidor AD en PIC18F452, notas sobre convertidores AD, notas sobre sensores, práctica de Convertidores AD.">
-                        Resumir Clase ✨
+                        Resumir Clase 
                         <span id="summarize-spinner-6" class="loading-spinner hidden"></span>
                     </button>
                     <div id="summary-output-6" class="mt-4 p-4 bg-purple-50 dark:bg-purple-800 text-purple-900 dark:text-purple-200 rounded-md border border-purple-200 dark:border-purple-600 hidden"></div>
                 </div>
             </section>
 
-            <!-- Clase 7 -->
             <section id="clase-detail-7" class="class-detail-section p-6 rounded-lg shadow-md mb-8">
                 <button class="back-button bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
                 <h2 class="text-3xl font-bold text-gray-900 mb-6">7. Convertidores AD II y Sensores</h2>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="space-y-6">
                     <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Video Explicativo</h3>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Video Explicativo</h3>
                         <div class="responsive-iframe-container dark:border dark:border-gray-700">
                             <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Teoría</h3>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Presentación de Google</h3>
+                        <div class="responsive-iframe-container dark:border dark:border-gray-700">
+                            <iframe src="https://docs.google.com/presentation/d/e/SLIDES_PLACEHOLDER_ID_CLASE_7/embed?start=false&loop=false&delayms=3000" title="Google Slides Presentation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Documento de Teoría 1</h3>
                         <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
                             <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
                         </div>
-                        <p class="text-sm text-gray-600">Archivo original: Notas sobre sensores HAE 24-25.pdf</p>
+                        
                     </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Documento de Teoría 2</h3>
+                        <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
+                            <iframe src="https://docs.google.com/viewer?url=https://www.example.com/clase_7_teoria_2_placeholder.pdf&embedded=true" title="Documento de Teoría 2" frameborder="0"></iframe>
+                        </div>
+                        
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">PDF Resumen</h3>
+                        <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
+                            <iframe src="https://docs.google.com/viewer?url=https://www.example.com/clase_7_resumen_placeholder.pdf&embedded=true" title="PDF Resumen" frameborder="0"></iframe>
+                        </div>
+                        
                 </div>
                 <div class="mt-6">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Práctica</h3>
-                    <p class="text-gray-600">No hay documento de práctica específico para esta clase.</p>
+                    <h3 class="text-3xl font-bold text-gray-900 mb-6">Documento de Práctica</h3>
+                    <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
+                        <iframe src="https://docs.google.com/viewer?url=https://www.example.com/clase_7_practica_placeholder.pdf&embedded=true" title="Documento de Práctica" frameborder="0"></iframe>
+                    </div>
+                    
                 </div>
                 <div class="mt-6 border-t dark:border-gray-700 pt-4 border-gray-200">
                     <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="7" data-class-title="Convertidores AD II y Sensores" data-class-content="Conversión de señales analógicas a digitales (parte 2) y uso de sensores, notas sobre sensores (continuación).">
-                        Resumir Clase ✨
+                        Resumir Clase 
                         <span id="summarize-spinner-7" class="loading-spinner hidden"></span>
                     </button>
                     <div id="summary-output-7" class="mt-4 p-4 bg-purple-50 dark:bg-purple-800 text-purple-900 dark:text-purple-200 rounded-md border border-purple-200 dark:border-purple-600 hidden"></div>
                 </div>
             </section>
 
-            <!-- Clase 8 -->
             <section id="clase-detail-8" class="class-detail-section p-6 rounded-lg shadow-md mb-8">
                 <button class="back-button bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
                 <h2 class="text-3xl font-bold text-gray-900 mb-6">8. Convertidores DA</h2>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="space-y-6">
                     <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Video Explicativo</h3>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Video Explicativo</h3>
                         <div class="responsive-iframe-container dark:border dark:border-gray-700">
                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Teoría</h3>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Presentación de Google</h3>
+                        <div class="responsive-iframe-container dark:border dark:border-gray-700">
+                            <iframe src="https://docs.google.com/presentation/d/e/SLIDES_PLACEHOLDER_ID_CLASE_8/embed?start=false&loop=false&delayms=3000" title="Google Slides Presentation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Documento de Teoría 1</h3>
                         <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
                             <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
                         </div>
-                        <p class="text-sm text-gray-600">Archivo original: 8 Notas sobre convertidores DA 2025.pdf</p>
                     </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Documento de Teoría 2</h3>
+                        <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
+                            <iframe src="https://docs.google.com/viewer?url=https://www.example.com/clase_8_teoria_2_placeholder.pdf&embedded=true" title="Documento de Teoría 2" frameborder="0"></iframe>
+                        </div>
+                        
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">PDF Resumen</h3>
+                        <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
+                            <iframe src="https://docs.google.com/viewer?url=https://www.example.com/clase_8_resumen_placeholder.pdf&embedded=true" title="PDF Resumen" frameborder="0"></iframe>
+                        </div>
+                        
                 </div>
                 <div class="mt-6">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Práctica</h3>
-                    <p class="text-gray-600">No hay documento de práctica específico para esta clase.</p>
+                    <h3 class="text-3xl font-bold text-gray-900 mb-6">Documento de Práctica</h3>
+                    <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
+                        <iframe src="https://docs.google.com/viewer?url=https://www.example.com/clase_8_practica_placeholder.pdf&embedded=true" title="Documento de Práctica" frameborder="0"></iframe>
+                    </div>
+                    
                 </div>
                 <div class="mt-6 border-t dark:border-gray-700 pt-4 border-gray-200">
                     <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="8" data-class-title="Convertidores DA" data-class-content="Conversión de señales digitales a analógicas, notas sobre convertidores DA.">
-                        Resumir Clase ✨
+                        Resumir Clase 
                         <span id="summarize-spinner-8" class="loading-spinner hidden"></span>
                     </button>
                     <div id="summary-output-8" class="mt-4 p-4 bg-purple-50 dark:bg-purple-800 text-purple-900 dark:text-purple-200 rounded-md border border-purple-200 dark:border-purple-600 hidden"></div>
                 </div>
             </section>
 
-            <!-- Clase 9 -->
             <section id="clase-detail-9" class="class-detail-section p-6 rounded-lg shadow-md mb-8">
                 <button class="back-button bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
                 <h2 class="text-3xl font-bold text-gray-900 mb-6">9. Control Secuencial</h2>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="space-y-6">
                     <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Video Explicativo</h3>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Video Explicativo</h3>
                         <div class="responsive-iframe-container dark:border dark:border-gray-700">
                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Teoría</h3>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Presentación de Google</h3>
+                        <div class="responsive-iframe-container dark:border dark:border-gray-700">
+                            <iframe src="https://docs.google.com/presentation/d/e/SLIDES_PLACEHOLDER_ID_CLASE_9/embed?start=false&loop=false&delayms=3000" title="Google Slides Presentation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Documento de Teoría 1</h3>
                         <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
                            <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
                         </div>
-                        <p class="text-sm text-gray-600">Archivo original: Notas alumnos implementacion sistema secuencial con uC 2025.pdf</p>
                     </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Documento de Teoría 2</h3>
+                        <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
+                            <iframe src="https://docs.google.com/viewer?url=https://www.example.com/clase_9_teoria_2_placeholder.pdf&embedded=true" title="Documento de Teoría 2" frameborder="0"></iframe>
+                        </div>
+                        
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">PDF Resumen</h3>
+                        <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
+                            <iframe src="https://docs.google.com/viewer?url=https://www.example.com/clase_9_resumen_placeholder.pdf&embedded=true" title="PDF Resumen" frameborder="0"></iframe>
+                        </div>
+                        
                 </div>
                 <div class="mt-6">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Práctica</h3>
-                    <p class="text-gray-600">No hay documento de práctica específico para esta clase.</p>
+                    <h3 class="text-3xl font-bold text-gray-900 mb-6">Documento de Práctica</h3>
+                    <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
+                        <iframe src="https://docs.google.com/viewer?url=https://www.example.com/clase_9_practica_placeholder.pdf&embedded=true" title="Documento de Práctica" frameborder="0"></iframe>
+                    </div>
+                    
                 </div>
                 <div class="mt-6 border-t dark:border-gray-700 pt-4 border-gray-200">
                     <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="9" data-class-title="Control Secuencial" data-class-content="Implementación de sistemas secuenciales con microcontroladores, notas sobre implementación de sistema secuencial con uC.">
-                        Resumir Clase ✨
+                        Resumir Clase 
                         <span id="summarize-spinner-9" class="loading-spinner hidden"></span>
                     </button>
                     <div id="summary-output-9" class="mt-4 p-4 bg-purple-50 dark:bg-purple-800 text-purple-900 dark:text-purple-200 rounded-md border border-purple-200 dark:border-purple-600 hidden"></div>
                 </div>
             </section>
 
-            <!-- Clase 10 -->
             <section id="clase-detail-10" class="class-detail-section p-6 rounded-lg shadow-md mb-8">
                 <button class="back-button bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
                 <h2 class="text-3xl font-bold text-gray-900 mb-6">10. Filtros + Audio</h2>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="space-y-6">
                     <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Video Explicativo</h3>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Video Explicativo</h3>
                         <div class="responsive-iframe-container dark:border dark:border-gray-700">
                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Teoría</h3>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Presentación de Google</h3>
+                        <div class="responsive-iframe-container dark:border dark:border-gray-700">
+                            <iframe src="https://docs.google.com/presentation/d/e/SLIDES_PLACEHOLDER_ID_CLASE_10/embed?start=false&loop=false&delayms=3000" title="Google Slides Presentation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Documento de Teoría 1</h3>
                         <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
                             <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
                         </div>
-                        <p class="text-sm text-gray-600">Archivo original: Conceptos básicos sobre filtros analógicos y digitales IIR.pdf</p>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Documento de Teoría 2</h3>
+                        <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
+                            <iframe src="https://docs.google.com/viewer?url=https://www.example.com/clase_10_teoria_2_placeholder.pdf&embedded=true" title="Documento de Teoría 2" frameborder="0"></iframe>
+                        </div>
+                        
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">PDF Resumen</h3>
+                        <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
+                            <iframe src="https://docs.google.com/viewer?url=https://www.example.com/clase_10_resumen_placeholder.pdf&embedded=true" title="PDF Resumen" frameborder="0"></iframe>
+                        </div>
+                        
                     </div>
                 </div>
                 <div class="mt-6">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Práctica</h3>
-                    <p class="text-gray-600">No hay documento de práctica específico para esta clase.</p>
+                    <h3 class="text-3xl font-bold text-gray-900 mb-6">Documento de Práctica</h3>
+                    <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
+                        <iframe src="https://docs.google.com/viewer?url=https://www.example.com/clase_10_practica_placeholder.pdf&embedded=true" title="Documento de Práctica" frameborder="0"></iframe>
+                    </div>
+                    >
                 </div>
                 <div class="mt-6 border-t dark:border-gray-700 pt-4 border-gray-200">
                     <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="10" data-class-title="Filtros + Audio" data-class-content="Conceptos de filtrado de señales y aplicaciones de audio, conceptos básicos sobre filtros analógicos y digitales IIR.">
-                        Resumir Clase ✨
+                        Resumir Clase 
                         <span id="summarize-spinner-10" class="loading-spinner hidden"></span>
                     </button>
                     <div id="summary-output-10" class="mt-4 p-4 bg-purple-50 dark:bg-purple-800 text-purple-900 dark:text-purple-200 rounded-md border border-purple-200 dark:border-purple-600 hidden"></div>
                 </div>
             </section>
 
-            <!-- Clase 11 -->
             <section id="clase-detail-11" class="class-detail-section p-6 rounded-lg shadow-md mb-8">
                 <button class="back-button bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
                 <h2 class="text-3xl font-bold text-gray-900 mb-6">11. VHDL</h2>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="space-y-6">
                     <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Video Explicativo</h3>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Video Explicativo</h3>
                         <div class="responsive-iframe-container dark:border dark:border-gray-700">
                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Teoría</h3>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Presentación de Google</h3>
+                        <div class="responsive-iframe-container dark:border dark:border-gray-700">
+                            <iframe src="https://docs.google.com/presentation/d/e/SLIDES_PLACEHOLDER_ID_CLASE_11/embed?start=false&loop=false&delayms=3000" title="Google Slides Presentation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Documento de Teoría 1</h3>
                         <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
                             <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
                         </div>
-                        <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
-                            <li>Archivos originales: Como crear un proyecto en ISE y simularlo con ISIM.pdf, Notas VHDL alumnos 2025.pdf</li>
+                        <ul class="list-disc list-inside text-sm text-gray-600 dark:text-gray-400 space-y-1">
                         </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Documento de Teoría 2</h3>
+                        <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
+                            <iframe src="https://docs.google.com/viewer?url=https://www.example.com/clase_11_teoria_2_placeholder.pdf&embedded=true" title="Documento de Teoría 2" frameborder="0"></iframe>
+                        </div>
+                        >
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">PDF Resumen</h3>
+                        <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
+                            <iframe src="https://docs.google.com/viewer?url=https://www.example.com/clase_11_resumen_placeholder.pdf&embedded=true" title="PDF Resumen" frameborder="0"></iframe>
+                        </div>
+                        
                     </div>
                 </div>
                 <div class="mt-6">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Práctica</h3>
-                    <p class="text-gray-600">No hay documento de práctica específico para esta clase.</p>
+                    <h3 class="text-3xl font-bold text-gray-900 mb-6">Documento de Práctica</h3>
+                    <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
+                        <iframe src="https://docs.google.com/viewer?url=https://www.example.com/clase_11_practica_placeholder.pdf&embedded=true" title="Documento de Práctica" frameborder="0"></iframe>
+                    </div>
+                    
                 </div>
                 <div class="mt-6 border-t dark:border-gray-700 pt-4 border-gray-200">
                     <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="11" data-class-title="VHDL" data-class-content="Descripción de hardware con VHDL, cómo crear un proyecto en ISE y simularlo con ISIM, notas sobre VHDL.">
-                        Resumir Clase ✨
+                        Resumir Clase 
                         <span id="summarize-spinner-11" class="loading-spinner hidden"></span>
                     </button>
                     <div id="summary-output-11" class="mt-4 p-4 bg-purple-50 dark:bg-purple-800 text-purple-900 dark:text-purple-200 rounded-md border border-purple-200 dark:border-purple-600 hidden"></div>
                 </div>
             </section>
 
-            <!-- Clase 12 -->
             <section id="clase-detail-12" class="class-detail-section p-6 rounded-lg shadow-md mb-8">
                 <button class="back-button bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
                 <h2 class="text-3xl font-bold text-gray-900 mb-6">12. GPUs</h2>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="space-y-6">
                     <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Video Explicativo</h3>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Video Explicativo</h3>
                         <div class="responsive-iframe-container dark:border dark:border-gray-700">
                             <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
-                        <ul class="list-disc list-inside text-sm text-gray-600 mt-2 space-y-1">
-                            <li>Videos originales: video 1.mp4, video 2.mp4</li>
+                        <ul class="list-disc list-inside text-sm text-gray-600 dark:text-gray-400 mt-2 space-y-1">
                         </ul>
                     </div>
                     <div>
-                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Teoría</h3>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Presentación de Google</h3>
+                        <div class="responsive-iframe-container dark:border dark:border-gray-700">
+                            <iframe src="https://docs.google.com/presentation/d/e/SLIDES_PLACEHOLDER_ID_CLASE_12/embed?start=false&loop=false&delayms=3000" title="Google Slides Presentation" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Documento de Teoría 1</h3>
                         <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
                            <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
                         </div>
-                        <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
-                            <li>Archivos originales: Aplicaciones de las GPUs.pdf, Notas GPUs alumnado 2025.pdf</li>
+                        <ul class="list-disc list-inside text-sm text-gray-600 dark:text-gray-400 space-y-1">
                         </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">Documento de Teoría 2</h3>
+                        <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
+                            <iframe src="https://docs.google.com/viewer?url=https://www.example.com/clase_12_teoria_2_placeholder.pdf&embedded=true" title="Documento de Teoría 2" frameborder="0"></iframe>
+                        </div>
+                        >
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-6">PDF Resumen</h3>
+                        <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
+                            <iframe src="https://docs.google.com/viewer?url=https://www.example.com/clase_12_resumen_placeholder.pdf&embedded=true" title="PDF Resumen" frameborder="0"></iframe>
+                        </div>
+                        
                     </div>
                 </div>
                 <div class="mt-6">
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Práctica</h3>
-                    <p class="text-gray-600">No hay documento de práctica específico para esta clase.</p>
+                    <h3 class="text-3xl font-bold text-gray-900 mb-6">Documento de Práctica</h3>
+                    <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
+                        <iframe src="https://docs.google.com/viewer?url=https://www.example.com/clase_12_practica_placeholder.pdf&embedded=true" title="Documento de Práctica" frameborder="0"></iframe>
+                    </div>
+                    
                 </div>
                 <div class="mt-6 border-t dark:border-gray-700 pt-4 border-gray-200">
                     <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="12" data-class-title="GPUs" data-class-content="Aplicaciones y funcionamiento de las Unidades de Procesamiento Gráfico, aplicaciones de las GPUs, notas sobre GPUs.">
-                        Resumir Clase ✨
+                        Resumir Clase 
                         <span id="summarize-spinner-12" class="loading-spinner hidden"></span>
                     </button>
                     <div id="summary-output-12" class="mt-4 p-4 bg-purple-50 dark:bg-purple-800 text-purple-900 dark:text-purple-200 rounded-md border border-purple-200 dark:border-purple-600 hidden"></div>
                 </div>
             </section>
 
-            <!-- Clase Examenes -->
             <section id="clase-detail-examenes" class="class-detail-section p-6 rounded-lg shadow-md mb-8">
                 <button class="back-button bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
                 <h2 class="text-3xl font-bold text-gray-900 mb-6">Sección de Exámenes</h2>
-                <div id="exam-content-text-container" class="text-gray-700"> <!-- ID added, dark:text-gray-300 removed -->
+                <div id="exam-content-text-container" class="text-gray-700"> 
                     <p class="mb-4">¡Bienvenido a la sección de exámenes! Aquí podrás encontrar recursos para evaluar tus conocimientos y practicar lo aprendido en las clases.</p>
                     <p class="mb-4">Actualmente, esta sección es un marcador de posición. En el futuro, podrías añadir:</p>
                     <ul class="list-disc list-inside ml-4 space-y-2">
@@ -620,14 +857,12 @@
             </section>
         </div>
 
-        <!-- Pie de página -->
         <footer class="bg-gray-800 dark:bg-black text-white dark:text-gray-300 p-6 rounded-lg shadow-lg mt-8 text-center">
             <p>© 2025 Maurox. Todos los derechos reservados.</p>
             <p class="text-sm mt-2">Página creada para el curso de Hardware y Aplicación Específica.</p>
         </footer>
     </div>
 
-    <!-- Password Prompt Modal (initially hidden) -->
     <div id="password-prompt-modal" class="fixed inset-0 bg-gray-800 bg-opacity-75 dark:bg-black dark:bg-opacity-80 overflow-y-auto h-full w-full flex items-center justify-center p-4" style="display: none; z-index: 100;">
         <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-xl w-full max-w-md transform transition-all sm:my-8 sm:align-middle">
             <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4 text-center">Acceso a Exámenes</h3>
@@ -658,13 +893,13 @@
 
             // Elementos del chat
             const chatContainer = document.getElementById('chat-container');
-            const chatSectionTitle = document.getElementById('chat-section-title'); // Added
+            const chatSectionTitle = document.getElementById('chat-section-title'); 
             const chatHistoryDiv = document.getElementById('chat-history');
             const chatInput = document.getElementById('chat-input');
             const sendChatButton = document.getElementById('send-chat-button');
             const chatSpinner = document.getElementById('chat-spinner');
             const fileUploadInput = document.getElementById('file-upload');
-            const fileUploadLabel = document.getElementById('file-upload-label'); // Added
+            const fileUploadLabel = document.getElementById('file-upload-label'); 
             const fileNameDisplay = document.getElementById('file-name-display');
             const clearFileButton = document.getElementById('clear-file-button');
 
@@ -688,55 +923,54 @@
             const themeControlledElements = {
                 pageContainer: {
                     element: pageContainer,
-                    light: ['bg-gray-100'], // Adjusted to match initial body for light
-                    dark: ['bg-gray-900']   // Adjusted to match initial body for dark
+                    light: ['bg-gray-100'], 
+                    dark: ['bg-gray-900']   
                 },
                 mainMenuTitle: {
                     element: mainMenuTitle,
                     light: ['text-black'],
                     dark: ['text-gray-100']
                 },
-                mainMenu: { // mainMenuSection is the element
+                mainMenu: { 
                     element: mainMenuSection,
-                    light: ['bg-white'], // Example: section background
+                    light: ['bg-white'], 
                     dark: ['bg-gray-700']
                 },
-                chatContainer: { // chatContainer is the element
+                chatContainer: { 
                     element: chatContainer,
                     light: ['bg-gray-50'],
                     dark: ['bg-gray-700', 'bg-opacity-50']
                 },
-                chatSectionTitle: { // For the "Chat con Gemini" title
+                chatSectionTitle: { 
                     element: chatSectionTitle,
                     light: ['text-black'],
                     dark: ['text-gray-100']
                 },
                 chatHistory: {
                     element: chatHistoryDiv,
-                    light: ['bg-white'], // Background of the history box
-                    dark: ['bg-gray-700'] // Darker gray for history box in dark mode
+                    light: ['bg-white'], 
+                    dark: ['bg-gray-700'] 
                 },
-                chatInput: { // Controls background and text of chat input
+                chatInput: { 
                     element: chatInput,
                     light: ['bg-white', 'text-gray-800'],
                     dark: ['bg-gray-600', 'text-gray-100']
                 },
-                chatFileUploadLabel: { // For the "Adjuntar Archivo" label text
+                chatFileUploadLabel: { 
                     element: fileUploadLabel,
-                    light: ['text-gray-700'], // Original light mode text color
-                    dark: ['text-gray-200']   // Original dark mode text color
+                    light: ['text-gray-700'], 
+                    dark: ['text-gray-200']   
                 },
-                chatFileNameDisplay: { // For the selected file name text
+                chatFileNameDisplay: { 
                     element: fileNameDisplay,
                     light: ['text-gray-600'],
                     dark: ['text-gray-400']
                 },
-                examContentTextContainer: { // For the main text block in the exam section
-                     element: examContentTextContainer,
-                     light: ['text-gray-700'],
-                     dark: ['text-gray-300']
+                examContentTextContainer: { 
+                    element: examContentTextContainer,
+                    light: ['text-gray-700'],
+                    dark: ['text-gray-300']
                 }
-                // Class detail sections' children text will be handled in the applyTheme loop
             };
 
             let chatConversationHistory = [];
@@ -747,8 +981,8 @@
                 const classesToRemove = (mode === 'dark') ? styleSet.light : styleSet.dark;
                 const classesToAdd = (mode === 'dark') ? styleSet.dark : styleSet.light;
 
-                if (classesToRemove) element.classList.remove(...classesToRemove.filter(c => c)); // Filter out null/undefined
-                if (classesToAdd) element.classList.add(...classesToAdd.filter(c => c)); // Filter out null/undefined
+                if (classesToRemove) element.classList.remove(...classesToRemove.filter(c => c)); 
+                if (classesToAdd) element.classList.add(...classesToAdd.filter(c => c)); 
             }
 
             const applyTheme = (theme) => {
@@ -763,52 +997,53 @@
                     if (themeToggleDarkIcon) themeToggleDarkIcon.classList.remove('hidden');
                 }
 
-                // Apply styles to elements controlled individually by themeControlledElements
                 for (const key in themeControlledElements) {
                     const item = themeControlledElements[key];
-                    if (item.element) { // Ensure element exists
+                    if (item.element) { 
                         applyElementThemeClasses(item.element, theme, item);
-                    } else {
-                        // It's possible some elements (like examContentTextContainer) are not yet in the DOM if their section is hidden
-                        // console.warn(`Element for themeControlledElements key '${key}' not found or not yet in DOM.`);
                     }
                 }
                 
-                // Apply styles to all class detail sections and their children
                 classDetailSectionsNodeList.forEach(section => {
-                    // Background for the section itself
                     applyElementThemeClasses(section, theme, {
                         light: ['bg-white'],
                         dark: ['bg-gray-800']
                     });
 
-                    // Text colors for children elements within this section
-                    // Ensure elements exist before applying classes, as sections might be hidden initially
                     const h2 = section.querySelector('h2');
                     if (h2) applyElementThemeClasses(h2, theme, { light: ['text-gray-900'], dark: ['text-gray-100'] });
 
                     section.querySelectorAll('h3').forEach(h3 => {
-                        applyElementThemeClasses(h3, theme, { light: ['text-gray-800'], dark: ['text-gray-200'] });
+                        const h3TextContent = h3.textContent || ""; 
+                        const specificTitles = [
+                            "Video Explicativo", "Presentación de Google", "Documento de Teoría 1",
+                            "Documento de Teoría 2", "PDF Resumen", "Documento de Práctica"
+                        ];
+                        let isSpecificTitle = specificTitles.some(title => h3TextContent.includes(title));
+
+                        if (isSpecificTitle) {
+                            applyElementThemeClasses(h3, theme, { light: ['text-black'], dark: ['text-gray-200'] });
+                        } else {
+                            applyElementThemeClasses(h3, theme, { light: ['text-gray-800'], dark: ['text-gray-200'] });
+                        }
                     });
                     
-                    // General paragraphs (not part of summary output, which has its own styling)
-                    // Also, skip paragraphs within the exam section's main text container as it's handled separately
                     if (section.id !== 'clase-detail-examenes') {
                         section.querySelectorAll('p').forEach(p => {
                             if (!p.closest('[id^="summary-output-"]')) {
-                                applyElementThemeClasses(p, theme, { light: ['text-gray-600'], dark: ['text-gray-400'] });
+                                if (p.classList.contains('text-sm')) { 
+                                     applyElementThemeClasses(p, theme, { light: ['text-gray-600'], dark: ['text-gray-400'] });
+                                } else { 
+                                     applyElementThemeClasses(p, theme, { light: ['text-gray-700'], dark: ['text-gray-300'] }); 
+                                }
                             }
                         });
-
-                        // Unordered lists (for file lists, etc.)
-                        section.querySelectorAll('ul').forEach(ul => {
+                        section.querySelectorAll('ul').forEach(ul => { 
                             if (!ul.closest('[id^="summary-output-"]')) {
                                 applyElementThemeClasses(ul, theme, { light: ['text-gray-600'], dark: ['text-gray-400'] });
                             }
                         });
                     }
-                    // The exam section's main text (examContentTextContainer) is handled by themeControlledElements.
-                    // Its h2 is handled by the generic h2 rule above.
                 });
                 console.log("documentElement classes:", document.documentElement.className);
             };
@@ -848,8 +1083,6 @@
                 if (targetSection) {
                     targetSection.style.display = 'block';
                     targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                     // Re-apply theme specifically for newly shown elements if needed,
-                     // especially if their controllers are not found initially.
                     applyTheme(document.documentElement.classList.contains('dark') ? 'dark' : 'light');
                 } else if (sectionId === 'main-menu-section' && mainMenuSection) {
                     mainMenuSection.style.display = 'block';
@@ -889,7 +1122,7 @@
 
             if (submitPasswordButton && passwordInputEl && passwordError && passwordPromptModal) {
                 submitPasswordButton.addEventListener('click', () => {
-                    if (passwordInputEl.value === 'Meteoro') { // Example password
+                    if (passwordInputEl.value === 'Meteoro') { 
                         passwordPromptModal.style.display = 'none';
                         passwordInputEl.value = '';
                         passwordError.style.display = 'none';
@@ -910,7 +1143,7 @@
                 });
             }
 
-             if (passwordInputEl && submitPasswordButton) {
+            if (passwordInputEl && submitPasswordButton) {
                 passwordInputEl.addEventListener('keypress', (e) => {
                     if (e.key === 'Enter') {
                         submitPasswordButton.click();
@@ -934,19 +1167,16 @@
                             selectedFile = {
                                 name: file.name,
                                 type: file.type,
-                                data: e_reader.target.result.split(',')[1] // Base64 data
+                                data: e_reader.target.result.split(',')[1] 
                             };
                             if(fileNameDisplay) fileNameDisplay.textContent = `Archivo seleccionado: ${file.name}`;
                             if(clearFileButton) clearFileButton.classList.remove('hidden');
                         };
 
                         if (file.type.startsWith('image/') || file.type === 'application/pdf' || file.type === 'text/plain') {
-                             // For text/plain, Gemini expects text, not base64 of text for `text` part.
-                             // However, if sending as inlineData, base64 is fine.
-                             // Let's assume all files for `inlineData` are read as DataURL for simplicity here.
                             reader.readAsDataURL(file);
                         } else {
-                            reader.readAsDataURL(file); // Default to DataURL for other types
+                            reader.readAsDataURL(file); 
                             console.warn(`Tipo de archivo no estándar para la API de Gemini: ${file.type}. Se enviará como Base64.`);
                         }
                     } else {
@@ -966,8 +1196,8 @@
                     outputElement.classList.add('hidden');
                     outputElement.textContent = '';
                 }
-                const apiKey = ""; // API Key will be injected by the environment if needed
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+                const apiKey = ""; 
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
                 try {
                     const response = await fetch(apiUrl, {
                         method: 'POST',
@@ -983,12 +1213,12 @@
                             chatConversationHistory.push({ role: "model", parts: [{ text: text }] });
                             const geminiMessageDiv = document.createElement('div');
                             geminiMessageDiv.className = 'chat-message bg-sky-100 dark:bg-sky-700 dark:text-sky-50 self-start rounded-lg p-3 px-4 max-w-[80%] text-sm';
-                            geminiMessageDiv.textContent = text;
+                            geminiMessageDiv.textContent = text; 
                             if(chatHistoryDiv) chatHistoryDiv.appendChild(geminiMessageDiv);
                             if(chatHistoryDiv) chatHistoryDiv.scrollTop = chatHistoryDiv.scrollHeight;
                         } else {
                             if(outputElement) {
-                                outputElement.textContent = text;
+                                outputElement.textContent = text; 
                                 outputElement.classList.remove('hidden');
                             }
                         }
@@ -1054,35 +1284,32 @@
                         userMessageDiv.className = 'chat-message bg-blue-100 dark:bg-blue-700 dark:text-blue-50 self-end rounded-lg p-3 px-4 max-w-[80%] text-sm';
 
                         if (selectedFile) {
-                            // Ensure selectedFile.data is base64 encoded string without the data URL prefix
                             userParts.push({ inlineData: { mimeType: selectedFile.type, data: selectedFile.data } });
                             if (selectedFile.type.startsWith('image/')) {
                                 const imgPreview = document.createElement('img');
                                 imgPreview.src = `data:${selectedFile.type};base64,${selectedFile.data}`;
                                 imgPreview.className = 'max-w-xs h-auto rounded-md mt-2';
-                                if(userMessage) userMessageDiv.textContent = userMessage;
+                                if(userMessage) userMessageDiv.textContent = userMessage; 
                                 userMessageDiv.appendChild(imgPreview);
                             } else {
-                                 displayMessage = userMessage ? `${userMessage}\n[Archivo adjunto: ${selectedFile.name}]` : `[Archivo adjunto: ${selectedFile.name}]`;
-                                 userMessageDiv.textContent = displayMessage;
+                                displayMessage = userMessage ? `${userMessage}\n[Archivo adjunto: ${selectedFile.name}]` : `[Archivo adjunto: ${selectedFile.name}]`;
+                                userMessageDiv.textContent = displayMessage; 
                             }
                         } else {
-                             userMessageDiv.textContent = displayMessage;
+                            userMessageDiv.textContent = displayMessage; 
                         }
 
                         chatHistoryDiv.appendChild(userMessageDiv);
                         chatHistoryDiv.scrollTop = chatHistoryDiv.scrollHeight;
                         chatInput.value = '';
-                        const tempSelectedFile = selectedFile; // Store before clearing
-                        clearSelectedFile();
-
+                        
                         const currentApiConversation = [...chatConversationHistory];
                         currentApiConversation.push({ role: "user", parts: userParts });
-                        // Update main history AFTER sending, to keep it clean for retries if needed
                         chatConversationHistory.push({ role: "user", parts: userParts}); 
 
                         const payload = { contents: currentApiConversation };
                         await callGeminiAPI(payload, chatSpinner, null, true);
+                        clearSelectedFile(); 
                     }
                 });
             }
