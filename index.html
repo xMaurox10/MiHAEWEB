@@ -50,185 +50,168 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Estilos específicos para el chat */
-        .chat-message-user {
-            background-color: #dbeafe; /* blue-100 */
-            align-self: flex-end;
-            border-radius: 0.75rem; /* rounded-lg */
-            padding: 0.75rem 1rem; /* p-3 px-4 */
-            max-width: 80%;
-        }
-        .chat-message-gemini {
-            background-color: #e0f2fe; /* light blue for Gemini */
-            align-self: flex-start;
-            border-radius: 0.75rem; /* rounded-lg */
-            padding: 0.75rem 1rem; /* p-3 px-4 */
-            max-width: 80%;
-        }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
-    <div class="container mx-auto p-4 md:p-8">
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+    <div id="page-container" class="container mx-auto p-4 md:p-8">
         <!-- Encabezado de la página -->
-        <header class="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6 rounded-lg shadow-lg mb-8">
-            <h1 class="text-4xl font-extrabold text-center mb-2">Hardware y Aplicación Específica</h1>
-            <p class="text-xl text-center">Explorando el mundo del procesamiento de señales y microcontroladores</p>
+        <header class="bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-700 dark:to-purple-700 text-white p-6 rounded-lg shadow-lg mb-8 relative">
+            <div class="text-center">
+                <h1 class="text-4xl font-extrabold mb-2">Hardware y Aplicación Específica</h1>
+                <p class="text-xl">Explorando el mundo del procesamiento de señales y microcontroladores</p>
+            </div>
+            <button id="theme-toggle" type="button" title="Toggle dark mode" class="absolute top-4 right-4 text-white bg-white/20 hover:bg-white/30 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+                <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+                <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm.001 6.071a1 1 0 10-1.414 1.414l.706.706a1 1 0 101.414-1.414l-.706-.706zM3 11a1 1 0 100 2h1a1 1 0 100-2H3zM2 5a1 1 0 011-1h1a1 1 0 110 2H3a1 1 0 01-1-1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+            </button>
         </header>
 
-        <!-- Sección del Menú Principal (Grid de Tarjetas) -->
-        <section id="main-menu-section" class="bg-white p-6 rounded-lg shadow-md mb-8">
-            <h2 class="text-2xl font-semibold text-gray-900 mb-6 text-center">Selecciona un Tema</h2>
+        <section id="main-menu-section" class="p-6 rounded-lg shadow-md mb-8">
+            <h2 id="main-menu-title" class="text-2xl font-semibold mb-6 text-center">Selecciona un Tema</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                <!-- Tarjeta Clase 0 -->
-                <div class="class-card bg-blue-100 hover:bg-blue-200 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-0">
-                    <h3 class="text-xl font-bold text-blue-800 mb-2">0. Introducción al Procesado de Señales Digitales</h3>
-                    <p class="text-blue-700 text-sm">Conceptos fundamentales de DSP.</p>
+                <!-- Card 0 -->
+                <div id="card-0" class="class-card bg-blue-100 hover:bg-blue-200 dark:bg-blue-800 dark:hover:bg-blue-700 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-0">
+                    <h3 class="text-xl font-bold text-blue-800 dark:text-blue-200 mb-2">0. Introducción al Procesado de Señales Digitales</h3>
+                    <p class="text-blue-700 dark:text-blue-300 text-sm">Conceptos fundamentales de DSP.</p>
                 </div>
-                <!-- Tarjeta Clase 1 -->
-                <div class="class-card bg-green-100 hover:bg-green-200 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-1">
-                    <h3 class="text-xl font-bold text-green-800 mb-2">1. Puertos y Retardos</h3>
-                    <p class="text-green-700 text-sm">Primeros pasos con microcontroladores y programación.</p>
+                <!-- Card 1 -->
+                <div id="card-1" class="class-card bg-green-100 hover:bg-green-200 dark:bg-green-800 dark:hover:bg-green-700 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-1">
+                    <h3 class="text-xl font-bold text-green-800 dark:text-green-200 mb-2">1. Puertos y Retardos</h3>
+                    <p class="text-green-700 dark:text-green-300 text-sm">Primeros pasos con microcontroladores y programación.</p>
                 </div>
-                <!-- Tarjeta Clase 2 -->
-                <div class="class-card bg-purple-100 hover:bg-purple-200 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-2">
-                    <h3 class="text-xl font-bold text-purple-800 mb-2">2. Displays de 7 Segmentos y Teoría de Señal</h3>
-                    <p class="text-purple-700 text-sm">Visualización de datos y fundamentos de señal.</p>
+                <!-- Card 2 -->
+                <div id="card-2" class="class-card bg-purple-100 hover:bg-purple-200 dark:bg-purple-800 dark:hover:bg-purple-700 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-2">
+                    <h3 class="text-xl font-bold text-purple-800 dark:text-purple-200 mb-2">2. Displays de 7 Segmentos y Teoría de Señal</h3>
+                    <p class="text-purple-700 dark:text-purple-300 text-sm">Visualización de datos y fundamentos de señal.</p>
                 </div>
-                <!-- Tarjeta Clase 3 -->
-                <div class="class-card bg-yellow-100 hover:bg-yellow-200 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-3">
-                    <h3 class="text-xl font-bold text-yellow-800 mb-2">3. Interrupciones INTx y LCD</h3>
-                    <p class="text-yellow-700 text-sm">Manejo de eventos y pantallas de cristal líquido.</p>
+                <!-- Card 3 -->
+                <div id="card-3" class="class-card bg-yellow-100 hover:bg-yellow-200 dark:bg-yellow-800 dark:hover:bg-yellow-700 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-3">
+                    <h3 class="text-xl font-bold text-yellow-800 dark:text-yellow-200 mb-2">3. Interrupciones INTx y LCD</h3>
+                    <p class="text-yellow-700 dark:text-yellow-300 text-sm">Manejo de eventos y pantallas de cristal líquido.</p>
                 </div>
-                <!-- Tarjeta Clase 4 -->
-                <div class="class-card bg-red-100 hover:bg-red-200 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-4">
-                    <h3 class="text-xl font-bold text-red-800 mb-2">4. Teclado e Interrupción RB</h3>
-                    <p class="text-red-700 text-sm">Interacción con teclados matriciales.</p>
+                <!-- Card 4 -->
+                <div id="card-4" class="class-card bg-red-100 hover:bg-red-200 dark:bg-red-800 dark:hover:bg-red-700 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-4">
+                    <h3 class="text-xl font-bold text-red-800 dark:text-red-200 mb-2">4. Teclado e Interrupción RB</h3>
+                    <p class="text-red-700 dark:text-red-300 text-sm">Interacción con teclados matriciales.</p>
                 </div>
-                <!-- Tarjeta Clase 5 -->
-                <div class="class-card bg-indigo-100 hover:bg-indigo-200 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-5">
-                    <h3 class="text-xl font-bold text-indigo-800 mb-2">5. Temporizaciones</h3>
-                    <p class="text-indigo-700 text-sm">Manejo de tiempos y eventos con temporizadores.</p>
+                <!-- Card 5 -->
+                <div id="card-5" class="class-card bg-indigo-100 hover:bg-indigo-200 dark:bg-indigo-800 dark:hover:bg-indigo-700 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-5">
+                    <h3 class="text-xl font-bold text-indigo-800 dark:text-indigo-200 mb-2">5. Temporizaciones</h3>
+                    <p class="text-indigo-700 dark:text-indigo-300 text-sm">Manejo de tiempos y eventos con temporizadores.</p>
                 </div>
-                <!-- Tarjeta Clase 6 -->
-                <div class="class-card bg-pink-100 hover:bg-pink-200 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-6">
-                    <h3 class="text-xl font-bold text-pink-800 mb-2">6. Convertidores AD I</h3>
-                    <p class="text-pink-700 text-sm">Conversión de señales analógicas a digitales (parte 1).</p>
+                <!-- Card 6 -->
+                <div id="card-6" class="class-card bg-pink-100 hover:bg-pink-200 dark:bg-pink-800 dark:hover:bg-pink-700 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-6">
+                    <h3 class="text-xl font-bold text-pink-800 dark:text-pink-200 mb-2">6. Convertidores AD I</h3>
+                    <p class="text-pink-700 dark:text-pink-300 text-sm">Conversión de señales analógicas a digitales (parte 1).</p>
                 </div>
-                <!-- Tarjeta Clase 7 -->
-                <div class="class-card bg-teal-100 hover:bg-teal-200 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-7">
-                    <h3 class="text-xl font-bold text-teal-800 mb-2">7. Convertidores AD II y Sensores</h3>
-                    <p class="text-teal-700 text-sm">Conversión de señales analógicas a digitales (parte 2) y uso de sensores.</p>
+                <!-- Card 7 -->
+                <div id="card-7" class="class-card bg-teal-100 hover:bg-teal-200 dark:bg-teal-800 dark:hover:bg-teal-700 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-7">
+                    <h3 class="text-xl font-bold text-teal-800 dark:text-teal-200 mb-2">7. Convertidores AD II y Sensores</h3>
+                    <p class="text-teal-700 dark:text-teal-300 text-sm">Conversión de señales analógicas a digitales (parte 2) y uso de sensores.</p>
                 </div>
-                <!-- Tarjeta Clase 8 -->
-                <div class="class-card bg-orange-100 hover:bg-orange-200 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-8">
-                    <h3 class="text-xl font-bold text-orange-800 mb-2">8. Convertidores DA</h3>
-                    <p class="text-orange-700 text-sm">Conversión de señales digitales a analógicas.</p>
+                <!-- Card 8 -->
+                <div id="card-8" class="class-card bg-orange-100 hover:bg-orange-200 dark:bg-orange-800 dark:hover:bg-orange-700 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-8">
+                    <h3 class="text-xl font-bold text-orange-800 dark:text-orange-200 mb-2">8. Convertidores DA</h3>
+                    <p class="text-orange-700 dark:text-orange-300 text-sm">Conversión de señales digitales a analógicas.</p>
                 </div>
-                <!-- Tarjeta Clase 9 -->
-                <div class="class-card bg-cyan-100 hover:bg-cyan-200 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-9">
-                    <h3 class="text-xl font-bold text-cyan-800 mb-2">9. Control Secuencial</h3>
-                    <p class="text-cyan-700 text-sm">Implementación de sistemas secuenciales con microcontroladores.</p>
+                <!-- Card 9 -->
+                <div id="card-9" class="class-card bg-cyan-100 hover:bg-cyan-200 dark:bg-cyan-800 dark:hover:bg-cyan-700 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-9">
+                    <h3 class="text-xl font-bold text-cyan-800 dark:text-cyan-200 mb-2">9. Control Secuencial</h3>
+                    <p class="text-cyan-700 dark:text-cyan-300 text-sm">Implementación de sistemas secuenciales con microcontroladores.</p>
                 </div>
-                <!-- Tarjeta Clase 10 -->
-                <div class="class-card bg-lime-100 hover:bg-lime-200 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-10">
-                    <h3 class="text-xl font-bold text-lime-800 mb-2">10. Filtros + Audio</h3>
-                    <p class="text-lime-700 text-sm">Conceptos de filtrado de señales y aplicaciones de audio.</p>
+                <!-- Card 10 -->
+                <div id="card-10" class="class-card bg-lime-100 hover:bg-lime-200 dark:bg-lime-800 dark:hover:bg-lime-700 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-10">
+                    <h3 class="text-xl font-bold text-lime-800 dark:text-lime-200 mb-2">10. Filtros + Audio</h3>
+                    <p class="text-lime-700 dark:text-lime-300 text-sm">Conceptos de filtrado de señales y aplicaciones de audio.</p>
                 </div>
-                <!-- Tarjeta Clase 11 -->
-                <div class="class-card bg-fuchsia-100 hover:bg-fuchsia-200 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-11">
-                    <h3 class="text-xl font-bold text-fuchsia-800 mb-2">11. VHDL</h3>
-                    <p class="text-fuchsia-700 text-sm">Descripción de hardware con VHDL.</p>
+                <!-- Card 11 -->
+                <div id="card-11" class="class-card bg-fuchsia-100 hover:bg-fuchsia-200 dark:bg-fuchsia-800 dark:hover:bg-fuchsia-700 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-11">
+                    <h3 class="text-xl font-bold text-fuchsia-800 dark:text-fuchsia-200 mb-2">11. VHDL</h3>
+                    <p class="text-fuchsia-700 dark:text-fuchsia-300 text-sm">Descripción de hardware con VHDL.</p>
                 </div>
-                <!-- Tarjeta Clase 12 -->
-                <div class="class-card bg-gray-200 hover:bg-gray-300 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-12">
-                    <h3 class="text-xl font-bold text-gray-800 mb-2">12. GPUs</h3>
-                    <p class="text-gray-700 text-sm">Aplicaciones y funcionamiento de las Unidades de Procesamiento Gráfico.</p>
+               <!-- Card 12 -->
+                <div id="card-12" class="class-card bg-blue-200 hover:bg-blue-300 dark:bg-blue-700 dark:hover:bg-blue-600 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-12">
+                    <h3 class="text-xl font-bold text-blue-900 dark:text-blue-100 mb-2">12. GPUs</h3>
+                    <p class="text-blue-800 dark:text-blue-200 text-sm">Aplicaciones y funcionamiento de las Unidades de Procesamiento Gráfico.</p>
                 </div>
-                <!-- Nueva Tarjeta Exámenes -->
-                <div class="class-card bg-red-200 hover:bg-red-300 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-examenes">
-                    <h3 class="text-xl font-bold text-red-900 mb-2">Exámenes</h3>
-                    <p class="text-red-800 text-sm">Sección dedicada a la evaluación y práctica.</p>
+                <!-- Card Examenes -->
+                <div id="card-examenes" class="class-card bg-red-200 hover:bg-red-300 dark:bg-red-800 dark:hover:bg-red-700 p-6 rounded-lg shadow-md cursor-pointer transition duration-300 transform hover:scale-105" data-target="clase-detail-examenes">
+                    <h3 class="text-xl font-bold text-red-900 dark:text-red-200 mb-2">Exámenes</h3>
+                    <p class="text-red-800 dark:text-red-300 text-sm">Sección dedicada a la evaluación y práctica.</p>
                 </div>
             </div>
 
-            <!-- Sección de Chat con Gemini -->
-            <div class="mt-8 p-6 bg-gray-50 rounded-lg shadow-inner">
-                <h3 class="text-xl font-semibold text-gray-900 mb-4">Chat con Gemini ✨</h3>
-                <div id="chat-history" class="h-80 overflow-y-auto p-4 border border-gray-300 rounded-md bg-white flex flex-col space-y-4 mb-4">
-                    <!-- Los mensajes del chat aparecerán aquí -->
-                    <div class="chat-message-gemini text-sm">¡Hola! Soy tu asistente de Hardware y Aplicación Específica. ¿En qué puedo ayudarte hoy?</div>
+            <div id="chat-container" class="mt-8 p-6 rounded-lg shadow-inner">
+                <h3 id="chat-section-title" class="text-xl font-semibold mb-4">Chat con Gemini </h3>
+                <div id="chat-history" class="h-80 overflow-y-auto p-4 border border-black-300 dark:border-black-600 rounded-md flex flex-col space-y-4 mb-4">
                 </div>
                 <div class="flex flex-col sm:flex-row gap-4 items-center">
-                    <input type="text" id="chat-input" placeholder="Escribe tu mensaje..." class="flex-grow p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
-                    <label for="file-upload" class="cursor-pointer bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded-md transition duration-300 flex-shrink-0">
+                    <input type="text" id="chat-input" placeholder="Escribe tu mensaje..." class="flex-grow p-3 border border-black-300 dark:border-black-500 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 dark:focus:ring-green-600">
+                    <label id="file-upload-label" for="file-upload" class="cursor-pointer bg-black-200 hover:bg-black-300 dark:bg-black-600 dark:hover:bg-black-500 font-bold py-2 px-4 rounded-md transition duration-300 flex-shrink-0">
                         Adjuntar Archivo
                     </label>
                     <input type="file" id="file-upload" class="hidden" accept="image/*, application/pdf, text/plain">
-                    <button id="send-chat-button" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-md transition duration-300 flex items-center justify-center flex-shrink-0">
+                    <button id="send-chat-button" class="bg-green-500 hover:bg-green-600 dark:bg-green-600 dark:hover:bg-green-700 text-white font-bold py-3 px-6 rounded-md transition duration-300 flex items-center justify-center flex-shrink-0">
                         Enviar
                         <span id="chat-spinner" class="loading-spinner hidden"></span>
                     </button>
                 </div>
                 <div class="mt-2 flex items-center">
-                    <span id="file-name-display" class="text-gray-600 text-sm italic"></span>
-                    <button id="clear-file-button" class="hidden text-red-500 hover:text-red-700 font-bold text-sm ml-2">X</button>
+                    <span id="file-name-display" class="text-sm italic"></span>
+                    <button id="clear-file-button" class="hidden text-red-500 hover:text-red-700 dark:text-red-400 dark:hover:text-red-500 font-bold text-sm ml-2">X</button>
                 </div>
             </div>
         </section>
 
-        <!-- Contenedor de las Secciones de Detalle de Clases -->
         <div id="class-detail-sections-container">
-            <!-- Clase 0 Detalle -->
-            <section id="clase-detail-0" class="class-detail-section bg-white p-6 rounded-lg shadow-md mb-8">
-                <button class="back-button bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
+            <!-- Secciones de Detalle de Clase -->
+            <!-- Clase 0 -->
+            <section id="clase-detail-0" class="class-detail-section p-6 rounded-lg shadow-md mb-8">
+                <button class="back-button bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
                 <h2 class="text-3xl font-bold text-gray-900 mb-6">0. Introducción al Procesado de Señales Digitales</h2>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800 mb-3">Video Explicativo</h3>
-                        <div class="responsive-iframe-container">
-                            <!-- Placeholder de Video -->
+                        <div class="responsive-iframe-container dark:border dark:border-gray-700">
                             <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Teoría</h3>
-                        <div class="responsive-iframe-container mb-4">
-                            <!-- Placeholder de PDF de Teoría -->
+                        <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
                             <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
                         </div>
                         <p class="text-sm text-gray-600">Archivo original: 0 Introduccion al procesado de señales digitales I 2025.pdf</p>
                     </div>
                 </div>
-                 <div class="mt-6">
+                <div class="mt-6">
                     <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Práctica</h3>
                     <p class="text-gray-600">No hay documento de práctica específico para esta clase.</p>
                 </div>
-                <!-- Botón de Resumir Clase -->
-                <div class="mt-6 border-t pt-4 border-gray-200">
-                    <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="0" data-class-title="Introducción al Procesado de Señales Digitales" data-class-content="Conceptos fundamentales de DSP, introducción al procesado de señales digitales.">
-                        Resumir Clase ✨
+                <div class="mt-6 border-t dark:border-gray-700 pt-4 border-gray-200">
+                    <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="0" data-class-title="Introducción al Procesado de Señales Digitales" data-class-content="Conceptos fundamentales de DSP, introducción al procesado de señales digitales.">
+                        Resumir Clase 
                         <span id="summarize-spinner-0" class="loading-spinner hidden"></span>
                     </button>
-                    <div id="summary-output-0" class="mt-4 p-4 bg-purple-50 text-purple-900 rounded-md border border-purple-200 hidden">
-                        <!-- El resumen de la clase aparecerá aquí -->
+                    <div id="summary-output-0" class="mt-4 p-4 bg-purple-50 dark:bg-purple-800 text-purple-900 dark:text-purple-200 rounded-md border border-purple-200 dark:border-purple-600 hidden">
                     </div>
                 </div>
             </section>
 
-            <!-- Clase 1 Detalle -->
-            <section id="clase-detail-1" class="class-detail-section bg-white p-6 rounded-lg shadow-md mb-8">
-                <button class="back-button bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
+            <!-- Clase 1 -->
+            <section id="clase-detail-1" class="class-detail-section p-6 rounded-lg shadow-md mb-8">
+                <button class="back-button bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
                 <h2 class="text-3xl font-bold text-gray-900 mb-6">1. Puertos y Retardos</h2>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800 mb-3">Video Explicativo</h3>
-                        <div class="responsive-iframe-container">
+                        <div class="responsive-iframe-container dark:border dark:border-gray-700">
                             <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Teoría</h3>
-                        <div class="responsive-iframe-container mb-4">
+                        <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
                             <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
                         </div>
                         <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
@@ -240,26 +223,23 @@
                     <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Práctica</h3>
                     <p class="text-gray-600">Archivo original de práctica: Primer programa.zip (Este es un archivo ZIP y necesitaría ser descargado.)</p>
                 </div>
-                <!-- Botón de Resumir Clase -->
-                <div class="mt-6 border-t pt-4 border-gray-200">
-                    <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="1" data-class-title="Puertos y Retardos" data-class-content="Primeros pasos con microcontroladores y programación, introducción a microcontroladores, manual de compilador y simulador, detalles del PIC18F452, primer programa, tipos de datos.">
+                <div class="mt-6 border-t dark:border-gray-700 pt-4 border-gray-200">
+                    <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="1" data-class-title="Puertos y Retardos" data-class-content="Primeros pasos con microcontroladores y programación, introducción a microcontroladores, manual de compilador y simulador, detalles del PIC18F452, primer programa, tipos de datos.">
                         Resumir Clase ✨
                         <span id="summarize-spinner-1" class="loading-spinner hidden"></span>
                     </button>
-                    <div id="summary-output-1" class="mt-4 p-4 bg-purple-50 text-purple-900 rounded-md border border-purple-200 hidden">
-                        <!-- El resumen de la clase aparecerá aquí -->
-                    </div>
+                    <div id="summary-output-1" class="mt-4 p-4 bg-purple-50 dark:bg-purple-800 text-purple-900 dark:text-purple-200 rounded-md border border-purple-200 dark:border-purple-600 hidden"></div>
                 </div>
             </section>
 
-            <!-- Clase 2 Detalle -->
-            <section id="clase-detail-2" class="class-detail-section bg-white p-6 rounded-lg shadow-md mb-8">
-                <button class="back-button bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
+            <!-- Clase 2 -->
+            <section id="clase-detail-2" class="class-detail-section p-6 rounded-lg shadow-md mb-8">
+                <button class="back-button bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
                 <h2 class="text-3xl font-bold text-gray-900 mb-6">2. Displays de 7 Segmentos y Teoría de Señal</h2>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800 mb-3">Video Explicativo</h3>
-                        <div class="responsive-iframe-container">
+                        <div class="responsive-iframe-container dark:border dark:border-gray-700">
                             <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
@@ -270,37 +250,34 @@
                 </div>
                 <div class="mt-6">
                     <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Práctica</h3>
-                    <div class="responsive-iframe-container mb-4">
+                    <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
                         <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
                     </div>
                     <p class="text-sm text-gray-600">Archivo original: Práctica 2 HAE Dispalys de 7 segmentos 2025.pdf</p>
                 </div>
-                <!-- Botón de Resumir Clase -->
-                <div class="mt-6 border-t pt-4 border-gray-200">
-                    <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="2" data-class-title="Displays de 7 Segmentos y Teoría de Señal" data-class-content="Visualización de datos y fundamentos de señal, práctica de Displays de 7 segmentos.">
+                <div class="mt-6 border-t dark:border-gray-700 pt-4 border-gray-200">
+                    <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="2" data-class-title="Displays de 7 Segmentos y Teoría de Señal" data-class-content="Visualización de datos y fundamentos de señal, práctica de Displays de 7 segmentos.">
                         Resumir Clase ✨
                         <span id="summarize-spinner-2" class="loading-spinner hidden"></span>
                     </button>
-                    <div id="summary-output-2" class="mt-4 p-4 bg-purple-50 text-purple-900 rounded-md border border-purple-200 hidden">
-                        <!-- El resumen de la clase aparecerá aquí -->
-                    </div>
+                    <div id="summary-output-2" class="mt-4 p-4 bg-purple-50 dark:bg-purple-800 text-purple-900 dark:text-purple-200 rounded-md border border-purple-200 dark:border-purple-600 hidden"></div>
                 </div>
             </section>
 
-            <!-- Clase 3 Detalle -->
-            <section id="clase-detail-3" class="class-detail-section bg-white p-6 rounded-lg shadow-md mb-8">
-                <button class="back-button bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
+            <!-- Clase 3 -->
+            <section id="clase-detail-3" class="class-detail-section p-6 rounded-lg shadow-md mb-8">
+                <button class="back-button bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
                 <h2 class="text-3xl font-bold text-gray-900 mb-6">3. Interrupciones INTx y LCD</h2>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800 mb-3">Video Explicativo</h3>
-                        <div class="responsive-iframe-container">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="responsive-iframe-container dark:border dark:border-gray-700">
+                           <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Teoría</h3>
-                        <div class="responsive-iframe-container mb-4">
+                        <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
                             <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
                         </div>
                         <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
@@ -312,33 +289,30 @@
                     <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Práctica</h3>
                     <p class="text-gray-600">No hay documento de práctica específico para esta clase.</p>
                 </div>
-                <!-- Botón de Resumir Clase -->
-                <div class="mt-6 border-t pt-4 border-gray-200">
-                    <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="3" data-class-title="Interrupciones INTx y LCD" data-class-content="Manejo de eventos y pantallas de cristal líquido, clase sobre Interrupciones INTx, clase sobre LCD.">
+                <div class="mt-6 border-t dark:border-gray-700 pt-4 border-gray-200">
+                    <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="3" data-class-title="Interrupciones INTx y LCD" data-class-content="Manejo de eventos y pantallas de cristal líquido, clase sobre Interrupciones INTx, clase sobre LCD.">
                         Resumir Clase ✨
                         <span id="summarize-spinner-3" class="loading-spinner hidden"></span>
                     </button>
-                    <div id="summary-output-3" class="mt-4 p-4 bg-purple-50 text-purple-900 rounded-md border border-purple-200 hidden">
-                        <!-- El resumen de la clase aparecerá aquí -->
-                    </div>
+                    <div id="summary-output-3" class="mt-4 p-4 bg-purple-50 dark:bg-purple-800 text-purple-900 dark:text-purple-200 rounded-md border border-purple-200 dark:border-purple-600 hidden"></div>
                 </div>
             </section>
 
-            <!-- Clase 4 Detalle -->
-            <section id="clase-detail-4" class="class-detail-section bg-white p-6 rounded-lg shadow-md mb-8">
-                <button class="back-button bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
+            <!-- Clase 4 -->
+            <section id="clase-detail-4" class="class-detail-section p-6 rounded-lg shadow-md mb-8">
+                <button class="back-button bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
                 <h2 class="text-3xl font-bold text-gray-900 mb-6">4. Teclado e Interrupción RB</h2>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800 mb-3">Video Explicativo</h3>
-                        <div class="responsive-iframe-container">
+                        <div class="responsive-iframe-container dark:border dark:border-gray-700">
                             <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Teoría</h3>
-                        <div class="responsive-iframe-container mb-4">
-                            <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
+                        <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
+                           <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
                         </div>
                         <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
                             <li>Archivos originales: Clase Interrupcion RB alumnos.pdf, Clase LCD alumnos.pdf</li>
@@ -349,32 +323,29 @@
                     <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Práctica</h3>
                     <p class="text-gray-600">No hay documento de práctica específico para esta clase.</p>
                 </div>
-                <!-- Botón de Resumir Clase -->
-                <div class="mt-6 border-t pt-4 border-gray-200">
-                    <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="4" data-class-title="Teclado e Interrupción RB" data-class-content="Interacción con teclados matriciales, clase sobre Interrupción RB, clase sobre LCD (repaso o continuación).">
+                <div class="mt-6 border-t dark:border-gray-700 pt-4 border-gray-200">
+                    <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="4" data-class-title="Teclado e Interrupción RB" data-class-content="Interacción con teclados matriciales, clase sobre Interrupción RB, clase sobre LCD (repaso o continuación).">
                         Resumir Clase ✨
                         <span id="summarize-spinner-4" class="loading-spinner hidden"></span>
                     </button>
-                    <div id="summary-output-4" class="mt-4 p-4 bg-purple-50 text-purple-900 rounded-md border border-purple-200 hidden">
-                        <!-- El resumen de la clase aparecerá aquí -->
-                    </div>
+                    <div id="summary-output-4" class="mt-4 p-4 bg-purple-50 dark:bg-purple-800 text-purple-900 dark:text-purple-200 rounded-md border border-purple-200 dark:border-purple-600 hidden"></div>
                 </div>
             </section>
 
-            <!-- Clase 5 Detalle -->
-            <section id="clase-detail-5" class="class-detail-section bg-white p-6 rounded-lg shadow-md mb-8">
-                <button class="back-button bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
+            <!-- Clase 5 -->
+            <section id="clase-detail-5" class="class-detail-section p-6 rounded-lg shadow-md mb-8">
+                <button class="back-button bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
                 <h2 class="text-3xl font-bold text-gray-900 mb-6">5. Temporizaciones</h2>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800 mb-3">Video Explicativo</h3>
-                        <div class="responsive-iframe-container">
+                        <div class="responsive-iframe-container dark:border dark:border-gray-700">
                             <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Teoría</h3>
-                        <div class="responsive-iframe-container mb-4">
+                        <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
                             <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
                         </div>
                         <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
@@ -386,33 +357,30 @@
                     <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Práctica</h3>
                     <p class="text-gray-600">No hay documento de práctica específico para esta clase.</p>
                 </div>
-                <!-- Botón de Resumir Clase -->
-                <div class="mt-6 border-t pt-4 border-gray-200">
-                    <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="5" data-class-title="Temporizaciones" data-class-content="Manejo de tiempos y eventos con temporizadores, notas sobre Timer 0, datasheet de Timer 0.">
+                <div class="mt-6 border-t dark:border-gray-700 pt-4 border-gray-200">
+                    <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="5" data-class-title="Temporizaciones" data-class-content="Manejo de tiempos y eventos con temporizadores, notas sobre Timer 0, datasheet de Timer 0.">
                         Resumir Clase ✨
                         <span id="summarize-spinner-5" class="loading-spinner hidden"></span>
                     </button>
-                    <div id="summary-output-5" class="mt-4 p-4 bg-purple-50 text-purple-900 rounded-md border border-purple-200 hidden">
-                        <!-- El resumen de la clase aparecerá aquí -->
-                    </div>
+                    <div id="summary-output-5" class="mt-4 p-4 bg-purple-50 dark:bg-purple-800 text-purple-900 dark:text-purple-200 rounded-md border border-purple-200 dark:border-purple-600 hidden"></div>
                 </div>
             </section>
 
-            <!-- Clase 6 Detalle -->
-            <section id="clase-detail-6" class="class-detail-section bg-white p-6 rounded-lg shadow-md mb-8">
-                <button class="back-button bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
+            <!-- Clase 6 -->
+            <section id="clase-detail-6" class="class-detail-section p-6 rounded-lg shadow-md mb-8">
+                <button class="back-button bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
                 <h2 class="text-3xl font-bold text-gray-900 mb-6">6. Convertidores AD I</h2>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800 mb-3">Video Explicativo</h3>
-                        <div class="responsive-iframe-container">
+                        <div class="responsive-iframe-container dark:border dark:border-gray-700">
                             <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Teoría</h3>
-                        <div class="responsive-iframe-container mb-4">
-                            <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
+                        <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
+                           <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
                         </div>
                         <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
                             <li>Archivos originales: AD PIC18F452.pdf, Notas convertidores AD.pdf, Notas sobre sensores HAE 24-25.pdf</li>
@@ -421,37 +389,34 @@
                 </div>
                 <div class="mt-6">
                     <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Práctica</h3>
-                    <div class="responsive-iframe-container mb-4">
+                    <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
                         <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
                     </div>
                     <p class="text-sm text-gray-600">Archivo original: Practica 6 HAE AD 24-25.pdf</p>
                 </div>
-                <!-- Botón de Resumir Clase -->
-                <div class="mt-6 border-t pt-4 border-gray-200">
-                    <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="6" data-class-title="Convertidores AD I" data-class-content="Conversión de señales analógicas a digitales (parte 1), convertidor AD en PIC18F452, notas sobre convertidores AD, notas sobre sensores, práctica de Convertidores AD.">
+                <div class="mt-6 border-t dark:border-gray-700 pt-4 border-gray-200">
+                    <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="6" data-class-title="Convertidores AD I" data-class-content="Conversión de señales analógicas a digitales (parte 1), convertidor AD en PIC18F452, notas sobre convertidores AD, notas sobre sensores, práctica de Convertidores AD.">
                         Resumir Clase ✨
                         <span id="summarize-spinner-6" class="loading-spinner hidden"></span>
                     </button>
-                    <div id="summary-output-6" class="mt-4 p-4 bg-purple-50 text-purple-900 rounded-md border border-purple-200 hidden">
-                        <!-- El resumen de la clase aparecerá aquí -->
-                    </div>
+                    <div id="summary-output-6" class="mt-4 p-4 bg-purple-50 dark:bg-purple-800 text-purple-900 dark:text-purple-200 rounded-md border border-purple-200 dark:border-purple-600 hidden"></div>
                 </div>
             </section>
 
-            <!-- Clase 7 Detalle -->
-            <section id="clase-detail-7" class="class-detail-section bg-white p-6 rounded-lg shadow-md mb-8">
-                <button class="back-button bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
+            <!-- Clase 7 -->
+            <section id="clase-detail-7" class="class-detail-section p-6 rounded-lg shadow-md mb-8">
+                <button class="back-button bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
                 <h2 class="text-3xl font-bold text-gray-900 mb-6">7. Convertidores AD II y Sensores</h2>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800 mb-3">Video Explicativo</h3>
-                        <div class="responsive-iframe-container">
+                        <div class="responsive-iframe-container dark:border dark:border-gray-700">
                             <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Teoría</h3>
-                        <div class="responsive-iframe-container mb-4">
+                        <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
                             <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
                         </div>
                         <p class="text-sm text-gray-600">Archivo original: Notas sobre sensores HAE 24-25.pdf</p>
@@ -461,32 +426,29 @@
                     <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Práctica</h3>
                     <p class="text-gray-600">No hay documento de práctica específico para esta clase.</p>
                 </div>
-                <!-- Botón de Resumir Clase -->
-                <div class="mt-6 border-t pt-4 border-gray-200">
-                    <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="7" data-class-title="Convertidores AD II y Sensores" data-class-content="Conversión de señales analógicas a digitales (parte 2) y uso de sensores, notas sobre sensores (continuación).">
+                <div class="mt-6 border-t dark:border-gray-700 pt-4 border-gray-200">
+                    <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="7" data-class-title="Convertidores AD II y Sensores" data-class-content="Conversión de señales analógicas a digitales (parte 2) y uso de sensores, notas sobre sensores (continuación).">
                         Resumir Clase ✨
                         <span id="summarize-spinner-7" class="loading-spinner hidden"></span>
                     </button>
-                    <div id="summary-output-7" class="mt-4 p-4 bg-purple-50 text-purple-900 rounded-md border border-purple-200 hidden">
-                        <!-- El resumen de la clase aparecerá aquí -->
-                    </div>
+                    <div id="summary-output-7" class="mt-4 p-4 bg-purple-50 dark:bg-purple-800 text-purple-900 dark:text-purple-200 rounded-md border border-purple-200 dark:border-purple-600 hidden"></div>
                 </div>
             </section>
 
-            <!-- Clase 8 Detalle -->
-            <section id="clase-detail-8" class="class-detail-section bg-white p-6 rounded-lg shadow-md mb-8">
-                <button class="back-button bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
+            <!-- Clase 8 -->
+            <section id="clase-detail-8" class="class-detail-section p-6 rounded-lg shadow-md mb-8">
+                <button class="back-button bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
                 <h2 class="text-3xl font-bold text-gray-900 mb-6">8. Convertidores DA</h2>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800 mb-3">Video Explicativo</h3>
-                        <div class="responsive-iframe-container">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="responsive-iframe-container dark:border dark:border-gray-700">
+                           <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Teoría</h3>
-                        <div class="responsive-iframe-container mb-4">
+                        <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
                             <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
                         </div>
                         <p class="text-sm text-gray-600">Archivo original: 8 Notas sobre convertidores DA 2025.pdf</p>
@@ -496,33 +458,30 @@
                     <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Práctica</h3>
                     <p class="text-gray-600">No hay documento de práctica específico para esta clase.</p>
                 </div>
-                <!-- Botón de Resumir Clase -->
-                <div class="mt-6 border-t pt-4 border-gray-200">
-                    <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="8" data-class-title="Convertidores DA" data-class-content="Conversión de señales digitales a analógicas, notas sobre convertidores DA.">
+                <div class="mt-6 border-t dark:border-gray-700 pt-4 border-gray-200">
+                    <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="8" data-class-title="Convertidores DA" data-class-content="Conversión de señales digitales a analógicas, notas sobre convertidores DA.">
                         Resumir Clase ✨
                         <span id="summarize-spinner-8" class="loading-spinner hidden"></span>
                     </button>
-                    <div id="summary-output-8" class="mt-4 p-4 bg-purple-50 text-purple-900 rounded-md border border-purple-200 hidden">
-                        <!-- El resumen de la clase aparecerá aquí -->
-                    </div>
+                    <div id="summary-output-8" class="mt-4 p-4 bg-purple-50 dark:bg-purple-800 text-purple-900 dark:text-purple-200 rounded-md border border-purple-200 dark:border-purple-600 hidden"></div>
                 </div>
             </section>
 
-            <!-- Clase 9 Detalle -->
-            <section id="clase-detail-9" class="class-detail-section bg-white p-6 rounded-lg shadow-md mb-8">
-                <button class="back-button bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
+            <!-- Clase 9 -->
+            <section id="clase-detail-9" class="class-detail-section p-6 rounded-lg shadow-md mb-8">
+                <button class="back-button bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
                 <h2 class="text-3xl font-bold text-gray-900 mb-6">9. Control Secuencial</h2>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800 mb-3">Video Explicativo</h3>
-                        <div class="responsive-iframe-container">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="responsive-iframe-container dark:border dark:border-gray-700">
+                           <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Teoría</h3>
-                        <div class="responsive-iframe-container mb-4">
-                            <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
+                        <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
+                           <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
                         </div>
                         <p class="text-sm text-gray-600">Archivo original: Notas alumnos implementacion sistema secuencial con uC 2025.pdf</p>
                     </div>
@@ -531,32 +490,29 @@
                     <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Práctica</h3>
                     <p class="text-gray-600">No hay documento de práctica específico para esta clase.</p>
                 </div>
-                <!-- Botón de Resumir Clase -->
-                <div class="mt-6 border-t pt-4 border-gray-200">
-                    <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="9" data-class-title="Control Secuencial" data-class-content="Implementación de sistemas secuenciales con microcontroladores, notas sobre implementación de sistema secuencial con uC.">
+                <div class="mt-6 border-t dark:border-gray-700 pt-4 border-gray-200">
+                    <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="9" data-class-title="Control Secuencial" data-class-content="Implementación de sistemas secuenciales con microcontroladores, notas sobre implementación de sistema secuencial con uC.">
                         Resumir Clase ✨
                         <span id="summarize-spinner-9" class="loading-spinner hidden"></span>
                     </button>
-                    <div id="summary-output-9" class="mt-4 p-4 bg-purple-50 text-purple-900 rounded-md border border-purple-200 hidden">
-                        <!-- El resumen de la clase aparecerá aquí -->
-                    </div>
+                    <div id="summary-output-9" class="mt-4 p-4 bg-purple-50 dark:bg-purple-800 text-purple-900 dark:text-purple-200 rounded-md border border-purple-200 dark:border-purple-600 hidden"></div>
                 </div>
             </section>
 
-            <!-- Clase 10 Detalle -->
-            <section id="clase-detail-10" class="class-detail-section bg-white p-6 rounded-lg shadow-md mb-8">
-                <button class="back-button bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
+            <!-- Clase 10 -->
+            <section id="clase-detail-10" class="class-detail-section p-6 rounded-lg shadow-md mb-8">
+                <button class="back-button bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
                 <h2 class="text-3xl font-bold text-gray-900 mb-6">10. Filtros + Audio</h2>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800 mb-3">Video Explicativo</h3>
-                        <div class="responsive-iframe-container">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="responsive-iframe-container dark:border dark:border-gray-700">
+                           <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Teoría</h3>
-                        <div class="responsive-iframe-container mb-4">
+                        <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
                             <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
                         </div>
                         <p class="text-sm text-gray-600">Archivo original: Conceptos básicos sobre filtros analógicos y digitales IIR.pdf</p>
@@ -566,32 +522,29 @@
                     <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Práctica</h3>
                     <p class="text-gray-600">No hay documento de práctica específico para esta clase.</p>
                 </div>
-                <!-- Botón de Resumir Clase -->
-                <div class="mt-6 border-t pt-4 border-gray-200">
-                    <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="10" data-class-title="Filtros + Audio" data-class-content="Conceptos de filtrado de señales y aplicaciones de audio, conceptos básicos sobre filtros analógicos y digitales IIR.">
+                <div class="mt-6 border-t dark:border-gray-700 pt-4 border-gray-200">
+                    <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="10" data-class-title="Filtros + Audio" data-class-content="Conceptos de filtrado de señales y aplicaciones de audio, conceptos básicos sobre filtros analógicos y digitales IIR.">
                         Resumir Clase ✨
                         <span id="summarize-spinner-10" class="loading-spinner hidden"></span>
                     </button>
-                    <div id="summary-output-10" class="mt-4 p-4 bg-purple-50 text-purple-900 rounded-md border border-purple-200 hidden">
-                        <!-- El resumen de la clase aparecerá aquí -->
-                    </div>
+                    <div id="summary-output-10" class="mt-4 p-4 bg-purple-50 dark:bg-purple-800 text-purple-900 dark:text-purple-200 rounded-md border border-purple-200 dark:border-purple-600 hidden"></div>
                 </div>
             </section>
 
-            <!-- Clase 11 Detalle -->
-            <section id="clase-detail-11" class="class-detail-section bg-white p-6 rounded-lg shadow-md mb-8">
-                <button class="back-button bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
+            <!-- Clase 11 -->
+            <section id="clase-detail-11" class="class-detail-section p-6 rounded-lg shadow-md mb-8">
+                <button class="back-button bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
                 <h2 class="text-3xl font-bold text-gray-900 mb-6">11. VHDL</h2>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800 mb-3">Video Explicativo</h3>
-                        <div class="responsive-iframe-container">
-                            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="responsive-iframe-container dark:border dark:border-gray-700">
+                           <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Teoría</h3>
-                        <div class="responsive-iframe-container mb-4">
+                        <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
                             <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
                         </div>
                         <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
@@ -603,37 +556,33 @@
                     <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Práctica</h3>
                     <p class="text-gray-600">No hay documento de práctica específico para esta clase.</p>
                 </div>
-                <!-- Botón de Resumir Clase -->
-                <div class="mt-6 border-t pt-4 border-gray-200">
-                    <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="11" data-class-title="VHDL" data-class-content="Descripción de hardware con VHDL, cómo crear un proyecto en ISE y simularlo con ISIM, notas sobre VHDL.">
+                <div class="mt-6 border-t dark:border-gray-700 pt-4 border-gray-200">
+                    <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="11" data-class-title="VHDL" data-class-content="Descripción de hardware con VHDL, cómo crear un proyecto en ISE y simularlo con ISIM, notas sobre VHDL.">
                         Resumir Clase ✨
                         <span id="summarize-spinner-11" class="loading-spinner hidden"></span>
                     </button>
-                    <div id="summary-output-11" class="mt-4 p-4 bg-purple-50 text-purple-900 rounded-md border border-purple-200 hidden">
-                        <!-- El resumen de la clase aparecerá aquí -->
-                    </div>
+                    <div id="summary-output-11" class="mt-4 p-4 bg-purple-50 dark:bg-purple-800 text-purple-900 dark:text-purple-200 rounded-md border border-purple-200 dark:border-purple-600 hidden"></div>
                 </div>
             </section>
 
-            <!-- Clase 12 Detalle -->
-            <section id="clase-detail-12" class="class-detail-section bg-white p-6 rounded-lg shadow-md mb-8">
-                <button class="back-button bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
+            <!-- Clase 12 -->
+            <section id="clase-detail-12" class="class-detail-section p-6 rounded-lg shadow-md mb-8">
+                <button class="back-button bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
                 <h2 class="text-3xl font-bold text-gray-900 mb-6">12. GPUs</h2>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800 mb-3">Video Explicativo</h3>
-                        <div class="responsive-iframe-container">
-                            <!-- Placeholder de Video para GPUs (con un video de ejemplo) -->
+                        <div class="responsive-iframe-container dark:border dark:border-gray-700">
                             <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
-                        <ul class="list-disc list-inside text-sm text-gray-600 mt-2">
+                        <ul class="list-disc list-inside text-sm text-gray-600 mt-2 space-y-1">
                             <li>Videos originales: video 1.mp4, video 2.mp4</li>
                         </ul>
                     </div>
                     <div>
                         <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Teoría</h3>
-                        <div class="responsive-iframe-container mb-4">
-                            <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
+                        <div class="responsive-iframe-container mb-4 dark:border dark:border-gray-700">
+                           <iframe src="https://docs.google.com/viewer?url=https://www.africau.edu/images/default/sample.pdf&embedded=true" frameborder="0"></iframe>
                         </div>
                         <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
                             <li>Archivos originales: Aplicaciones de las GPUs.pdf, Notas GPUs alumnado 2025.pdf</li>
@@ -644,23 +593,20 @@
                     <h3 class="text-xl font-semibold text-gray-800 mb-3">Documento de Práctica</h3>
                     <p class="text-gray-600">No hay documento de práctica específico para esta clase.</p>
                 </div>
-                <!-- Botón de Resumir Clase -->
-                <div class="mt-6 border-t pt-4 border-gray-200">
-                    <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="12" data-class-title="GPUs" data-class-content="Aplicaciones y funcionamiento de las Unidades de Procesamiento Gráfico, aplicaciones de las GPUs, notas sobre GPUs.">
+                <div class="mt-6 border-t dark:border-gray-700 pt-4 border-gray-200">
+                    <button class="summarize-class-button bg-purple-500 hover:bg-purple-600 dark:bg-purple-600 dark:hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-md transition duration-300 flex items-center justify-center" data-class-id="12" data-class-title="GPUs" data-class-content="Aplicaciones y funcionamiento de las Unidades de Procesamiento Gráfico, aplicaciones de las GPUs, notas sobre GPUs.">
                         Resumir Clase ✨
                         <span id="summarize-spinner-12" class="loading-spinner hidden"></span>
                     </button>
-                    <div id="summary-output-12" class="mt-4 p-4 bg-purple-50 text-purple-900 rounded-md border border-purple-200 hidden">
-                        <!-- El resumen de la clase aparecerá aquí -->
-                    </div>
+                    <div id="summary-output-12" class="mt-4 p-4 bg-purple-50 dark:bg-purple-800 text-purple-900 dark:text-purple-200 rounded-md border border-purple-200 dark:border-purple-600 hidden"></div>
                 </div>
             </section>
 
-            <!-- Nueva Sección de Exámenes -->
-            <section id="clase-detail-examenes" class="class-detail-section bg-white p-6 rounded-lg shadow-md mb-8">
-                <button class="back-button bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
+            <!-- Clase Examenes -->
+            <section id="clase-detail-examenes" class="class-detail-section p-6 rounded-lg shadow-md mb-8">
+                <button class="back-button bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-bold py-2 px-4 rounded-full mb-4 transition duration-300">← Volver al Menú Principal</button>
                 <h2 class="text-3xl font-bold text-gray-900 mb-6">Sección de Exámenes</h2>
-                <div class="text-gray-700">
+                <div id="exam-content-text-container" class="text-gray-700"> <!-- ID added, dark:text-gray-300 removed -->
                     <p class="mb-4">¡Bienvenido a la sección de exámenes! Aquí podrás encontrar recursos para evaluar tus conocimientos y practicar lo aprendido en las clases.</p>
                     <p class="mb-4">Actualmente, esta sección es un marcador de posición. En el futuro, podrías añadir:</p>
                     <ul class="list-disc list-inside ml-4 space-y-2">
@@ -675,21 +621,21 @@
         </div>
 
         <!-- Pie de página -->
-        <footer class="bg-gray-800 text-white p-6 rounded-lg shadow-lg mt-8 text-center">
+        <footer class="bg-gray-800 dark:bg-black text-white dark:text-gray-300 p-6 rounded-lg shadow-lg mt-8 text-center">
             <p>© 2025 Maurox. Todos los derechos reservados.</p>
             <p class="text-sm mt-2">Página creada para el curso de Hardware y Aplicación Específica.</p>
         </footer>
     </div>
 
     <!-- Password Prompt Modal (initially hidden) -->
-    <div id="password-prompt-modal" class="fixed inset-0 bg-gray-800 bg-opacity-75 overflow-y-auto h-full w-full flex items-center justify-center p-4" style="display: none; z-index: 100;">
-        <div class="bg-white p-8 rounded-lg shadow-xl w-full max-w-md transform transition-all sm:my-8 sm:align-middle">
-            <h3 class="text-2xl font-semibold text-gray-900 mb-4 text-center">Acceso a Exámenes</h3>
-            <p class="text-gray-700 mb-6 text-center">Por favor, introduce la contraseña para continuar.</p>
-            <input type="password" id="password-input" placeholder="Contraseña" class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4">
-            <p id="password-error" class="text-red-600 text-sm mb-4 text-center" style="display: none;">Contraseña incorrecta. Inténtalo de nuevo.</p>
+    <div id="password-prompt-modal" class="fixed inset-0 bg-gray-800 bg-opacity-75 dark:bg-black dark:bg-opacity-80 overflow-y-auto h-full w-full flex items-center justify-center p-4" style="display: none; z-index: 100;">
+        <div class="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-xl w-full max-w-md transform transition-all sm:my-8 sm:align-middle">
+            <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4 text-center">Acceso a Exámenes</h3>
+            <p class="text-gray-700 dark:text-gray-300 mb-6 text-center">Por favor, introduce la contraseña para continuar.</p>
+            <input type="password" id="password-input" placeholder="Contraseña" class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-600 bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-100 mb-4">
+            <p id="password-error" class="text-red-600 dark:text-red-400 text-sm mb-4 text-center" style="display: none;">Contraseña incorrecta. Inténtalo de nuevo.</p>
             <div class="flex flex-col sm:flex-row justify-end space-y-2 sm:space-y-0 sm:space-x-3">
-                <button id="cancel-password-button" class="w-full sm:w-auto bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-md transition duration-300">
+                <button id="cancel-password-button" class="w-full sm:w-auto bg-gray-300 hover:bg-gray-400 dark:bg-gray-600 dark:hover:bg-gray-500 text-gray-800 dark:text-gray-200 font-bold py-2 px-4 rounded-md transition duration-300">
                     Cancelar
                 </button>
                 <button id="submit-password-button" class="w-full sm:w-auto bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md transition duration-300">
@@ -699,71 +645,227 @@
         </div>
     </div>
 
-
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Elementos principales
+            const pageContainer = document.getElementById('page-container');
+            const mainMenuTitle = document.getElementById('main-menu-title');
             const mainMenuSection = document.getElementById('main-menu-section');
-            const classDetailSections = document.querySelectorAll('.class-detail-section');
-            const classCards = document.querySelectorAll('.class-card');
+            const classDetailSectionsNodeList = document.querySelectorAll('.class-detail-section');
+            const allClassCards = document.querySelectorAll('.class-card');
             const backButtons = document.querySelectorAll('.back-button');
             const summarizeButtons = document.querySelectorAll('.summarize-class-button');
 
-            // Chat elements
+            // Elementos del chat
+            const chatContainer = document.getElementById('chat-container');
+            const chatSectionTitle = document.getElementById('chat-section-title'); // Added
             const chatHistoryDiv = document.getElementById('chat-history');
             const chatInput = document.getElementById('chat-input');
             const sendChatButton = document.getElementById('send-chat-button');
             const chatSpinner = document.getElementById('chat-spinner');
             const fileUploadInput = document.getElementById('file-upload');
+            const fileUploadLabel = document.getElementById('file-upload-label'); // Added
             const fileNameDisplay = document.getElementById('file-name-display');
             const clearFileButton = document.getElementById('clear-file-button');
 
-            // Password Prompt elements
+
+            // Elementos del modal de contraseña
             const passwordPromptModal = document.getElementById('password-prompt-modal');
-            const passwordInput = document.getElementById('password-input');
+            const passwordInputEl = document.getElementById('password-input');
             const submitPasswordButton = document.getElementById('submit-password-button');
             const cancelPasswordButton = document.getElementById('cancel-password-button');
             const passwordError = document.getElementById('password-error');
 
+            // Elementos del botón de tema
+            const themeToggleButton = document.getElementById('theme-toggle');
+            const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+            const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
 
-            let chatConversationHistory = [{ role: "model", parts: [{ text: "¡Hola! Soy tu asistente de Hardware y Aplicación Específica. ¿En qué puedo ayudarte hoy?" }] }];
-            let selectedFile = null; // Variable para almacenar el archivo seleccionado
+            // Specific element for exam section text
+            const examContentTextContainer = document.getElementById('exam-content-text-container');
 
-            // Función para mostrar una sección y ocultar las demás
+
+            const themeControlledElements = {
+                pageContainer: {
+                    element: pageContainer,
+                    light: ['bg-gray-100'], // Adjusted to match initial body for light
+                    dark: ['bg-gray-900']   // Adjusted to match initial body for dark
+                },
+                mainMenuTitle: {
+                    element: mainMenuTitle,
+                    light: ['text-black'],
+                    dark: ['text-gray-100']
+                },
+                mainMenu: { // mainMenuSection is the element
+                    element: mainMenuSection,
+                    light: ['bg-white'], // Example: section background
+                    dark: ['bg-gray-700']
+                },
+                chatContainer: { // chatContainer is the element
+                    element: chatContainer,
+                    light: ['bg-gray-50'],
+                    dark: ['bg-gray-700', 'bg-opacity-50']
+                },
+                chatSectionTitle: { // For the "Chat con Gemini" title
+                    element: chatSectionTitle,
+                    light: ['text-black'],
+                    dark: ['text-gray-100']
+                },
+                chatHistory: {
+                    element: chatHistoryDiv,
+                    light: ['bg-white'], // Background of the history box
+                    dark: ['bg-gray-700'] // Darker gray for history box in dark mode
+                },
+                chatInput: { // Controls background and text of chat input
+                    element: chatInput,
+                    light: ['bg-white', 'text-gray-800'],
+                    dark: ['bg-gray-600', 'text-gray-100']
+                },
+                chatFileUploadLabel: { // For the "Adjuntar Archivo" label text
+                    element: fileUploadLabel,
+                    light: ['text-gray-700'], // Original light mode text color
+                    dark: ['text-gray-200']   // Original dark mode text color
+                },
+                chatFileNameDisplay: { // For the selected file name text
+                    element: fileNameDisplay,
+                    light: ['text-gray-600'],
+                    dark: ['text-gray-400']
+                },
+                examContentTextContainer: { // For the main text block in the exam section
+                     element: examContentTextContainer,
+                     light: ['text-gray-700'],
+                     dark: ['text-gray-300']
+                }
+                // Class detail sections' children text will be handled in the applyTheme loop
+            };
+
+            let chatConversationHistory = [];
+            let selectedFile = null;
+
+            function applyElementThemeClasses(element, mode, styleSet) {
+                if (!element || !styleSet) return;
+                const classesToRemove = (mode === 'dark') ? styleSet.light : styleSet.dark;
+                const classesToAdd = (mode === 'dark') ? styleSet.dark : styleSet.light;
+
+                if (classesToRemove) element.classList.remove(...classesToRemove.filter(c => c)); // Filter out null/undefined
+                if (classesToAdd) element.classList.add(...classesToAdd.filter(c => c)); // Filter out null/undefined
+            }
+
+            const applyTheme = (theme) => {
+                console.log(`Applying theme: ${theme}`);
+                if (theme === 'dark') {
+                    document.documentElement.classList.add('dark');
+                    if (themeToggleLightIcon) themeToggleLightIcon.classList.remove('hidden');
+                    if (themeToggleDarkIcon) themeToggleDarkIcon.classList.add('hidden');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    if (themeToggleLightIcon) themeToggleLightIcon.classList.add('hidden');
+                    if (themeToggleDarkIcon) themeToggleDarkIcon.classList.remove('hidden');
+                }
+
+                // Apply styles to elements controlled individually by themeControlledElements
+                for (const key in themeControlledElements) {
+                    const item = themeControlledElements[key];
+                    if (item.element) { // Ensure element exists
+                        applyElementThemeClasses(item.element, theme, item);
+                    } else {
+                        // It's possible some elements (like examContentTextContainer) are not yet in the DOM if their section is hidden
+                        // console.warn(`Element for themeControlledElements key '${key}' not found or not yet in DOM.`);
+                    }
+                }
+                
+                // Apply styles to all class detail sections and their children
+                classDetailSectionsNodeList.forEach(section => {
+                    // Background for the section itself
+                    applyElementThemeClasses(section, theme, {
+                        light: ['bg-white'],
+                        dark: ['bg-gray-800']
+                    });
+
+                    // Text colors for children elements within this section
+                    // Ensure elements exist before applying classes, as sections might be hidden initially
+                    const h2 = section.querySelector('h2');
+                    if (h2) applyElementThemeClasses(h2, theme, { light: ['text-gray-900'], dark: ['text-gray-100'] });
+
+                    section.querySelectorAll('h3').forEach(h3 => {
+                        applyElementThemeClasses(h3, theme, { light: ['text-gray-800'], dark: ['text-gray-200'] });
+                    });
+                    
+                    // General paragraphs (not part of summary output, which has its own styling)
+                    // Also, skip paragraphs within the exam section's main text container as it's handled separately
+                    if (section.id !== 'clase-detail-examenes') {
+                        section.querySelectorAll('p').forEach(p => {
+                            if (!p.closest('[id^="summary-output-"]')) {
+                                applyElementThemeClasses(p, theme, { light: ['text-gray-600'], dark: ['text-gray-400'] });
+                            }
+                        });
+
+                        // Unordered lists (for file lists, etc.)
+                        section.querySelectorAll('ul').forEach(ul => {
+                            if (!ul.closest('[id^="summary-output-"]')) {
+                                applyElementThemeClasses(ul, theme, { light: ['text-gray-600'], dark: ['text-gray-400'] });
+                            }
+                        });
+                    }
+                    // The exam section's main text (examContentTextContainer) is handled by themeControlledElements.
+                    // Its h2 is handled by the generic h2 rule above.
+                });
+                console.log("documentElement classes:", document.documentElement.className);
+            };
+
+            const storedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const initialTheme = storedTheme ? storedTheme : (prefersDark ? 'dark' : 'light');
+
+
+            if (themeToggleButton) {
+                themeToggleButton.addEventListener('click', () => {
+                    const currentIsDark = document.documentElement.classList.contains('dark');
+                    const newTheme = currentIsDark ? 'light' : 'dark';
+                    localStorage.setItem('theme', newTheme);
+                    applyTheme(newTheme);
+                });
+            }
+
+            const addInitialChatMessage = () => {
+                if (!chatHistoryDiv) return;
+                chatHistoryDiv.innerHTML = '';
+                const initialMessageDiv = document.createElement('div');
+                initialMessageDiv.className = 'chat-message bg-sky-100 dark:bg-sky-700 dark:text-sky-50 self-start rounded-lg p-3 px-4 max-w-[80%] text-sm';
+                initialMessageDiv.textContent = '¡Hola! Soy tu asistente de Hardware y Aplicación Específica. ¿En qué puedo ayudarte hoy?';
+                chatHistoryDiv.appendChild(initialMessageDiv);
+                chatConversationHistory = [{ role: "model", parts: [{ text: "¡Hola! Soy tu asistente de Hardware y Aplicación Específica. ¿En qué puedo ayudarte hoy?" }] }];
+            };
+
             const showSection = (sectionId) => {
-                // Ocultar todas las secciones de detalle
-                classDetailSections.forEach(section => {
+                classDetailSectionsNodeList.forEach(section => {
                     section.style.display = 'none';
                 });
-                // Ocultar el menú principal
-                mainMenuSection.style.display = 'none';
-                // Ocultar el prompt de contraseña si está visible
+                if (mainMenuSection) mainMenuSection.style.display = 'none';
                 if (passwordPromptModal) passwordPromptModal.style.display = 'none';
 
-
-                // Mostrar la sección solicitada
                 const targetSection = document.getElementById(sectionId);
                 if (targetSection) {
                     targetSection.style.display = 'block';
-                    // Desplazarse al inicio de la sección mostrada
                     targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                } else if (sectionId === 'main-menu-section') {
-                    // Si se pide el menú principal, mostrarlo
+                     // Re-apply theme specifically for newly shown elements if needed,
+                     // especially if their controllers are not found initially.
+                    applyTheme(document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+                } else if (sectionId === 'main-menu-section' && mainMenuSection) {
                     mainMenuSection.style.display = 'block';
                     mainMenuSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             };
 
-            // Event listeners para las tarjetas de clase
-            classCards.forEach(card => {
+            allClassCards.forEach(card => {
                 card.addEventListener('click', () => {
                     const targetId = card.dataset.target;
                     if (targetId === 'clase-detail-examenes') {
-                        // Show password prompt for "Exámenes"
                         if (passwordPromptModal) {
-                            passwordPromptModal.style.display = 'flex'; // Use flex to center content
-                            passwordInput.value = ''; // Clear previous input
-                            passwordError.style.display = 'none'; // Hide error message
-                            passwordInput.focus(); // Focus on the password input
+                            passwordPromptModal.style.display = 'flex';
+                            if(passwordInputEl) passwordInputEl.value = '';
+                            if(passwordError) passwordError.style.display = 'none';
+                            if(passwordInputEl) passwordInputEl.focus();
                         }
                     } else {
                         showSection(targetId);
@@ -771,126 +873,101 @@
                 });
             });
 
-            // Event listeners para los botones de "Volver al Menú Principal"
             backButtons.forEach(button => {
                 button.addEventListener('click', () => {
                     showSection('main-menu-section');
-                    // Ocultar cualquier resumen o explicación generada al volver al menú
                     document.querySelectorAll('[id^="summary-output-"]').forEach(output => {
                         output.classList.add('hidden');
-                        output.textContent = ''; // Limpiar contenido
+                        output.textContent = '';
                     });
-                    // Limpiar el historial del chat y añadir el mensaje inicial al volver al menú principal
-                    chatHistoryDiv.innerHTML = '';
-                    const initialMessageDiv = document.createElement('div');
-                    initialMessageDiv.className = 'chat-message-gemini text-sm';
-                    initialMessageDiv.textContent = '¡Hola! Soy tu asistente de Hardware y Aplicación Específica. ¿En qué puedo ayudarte hoy?';
-                    chatHistoryDiv.appendChild(initialMessageDiv);
-                    chatConversationHistory = [{ role: "model", parts: [{ text: "¡Hola! Soy tu asistente de Hardware y Aplicación Específica. ¿En qué puedo ayudarte hoy?" }] }];
-                    clearSelectedFile(); // Limpiar archivo seleccionado al volver al menú
-                    if (passwordPromptModal) passwordPromptModal.style.display = 'none'; // Ensure password prompt is hidden
-                    if (passwordError) passwordError.style.display = 'none'; // Hide any lingering error message
+                    addInitialChatMessage();
+                    clearSelectedFile();
+                    if (passwordPromptModal) passwordPromptModal.style.display = 'none';
+                    if (passwordError) passwordError.style.display = 'none';
                 });
             });
 
-            // Password prompt logic
-            if (submitPasswordButton) {
+            if (submitPasswordButton && passwordInputEl && passwordError && passwordPromptModal) {
                 submitPasswordButton.addEventListener('click', () => {
-                    if (passwordInput.value === 'Meteoro') {
+                    if (passwordInputEl.value === 'Meteoro') { // Example password
                         passwordPromptModal.style.display = 'none';
-                        passwordInput.value = ''; // Clear password after successful entry
+                        passwordInputEl.value = '';
                         passwordError.style.display = 'none';
                         showSection('clase-detail-examenes');
                     } else {
-                        passwordError.style.display = 'block'; // Show error message
-                        passwordInput.value = ''; // Clear incorrect password
-                        passwordInput.focus(); // Refocus for another attempt
+                        passwordError.style.display = 'block';
+                        passwordInputEl.value = '';
+                        passwordInputEl.focus();
                     }
                 });
             }
 
-            if (cancelPasswordButton) {
+            if (cancelPasswordButton && passwordInputEl && passwordError && passwordPromptModal) {
                 cancelPasswordButton.addEventListener('click', () => {
                     passwordPromptModal.style.display = 'none';
-                    passwordInput.value = ''; // Clear password input
-                    passwordError.style.display = 'none'; // Hide error message
-                    // User remains on the current view (likely main menu if they clicked exams card from there)
+                    passwordInputEl.value = '';
+                    passwordError.style.display = 'none';
                 });
             }
 
-            if (passwordInput) {
-                 passwordInput.addEventListener('keypress', (e) => {
+             if (passwordInputEl && submitPasswordButton) {
+                passwordInputEl.addEventListener('keypress', (e) => {
                     if (e.key === 'Enter') {
-                        submitPasswordButton.click(); // Trigger submit on Enter key
+                        submitPasswordButton.click();
                     }
                 });
             }
 
-
-            // Función para limpiar el archivo seleccionado
             const clearSelectedFile = () => {
                 selectedFile = null;
-                fileUploadInput.value = ''; // Limpiar el input de tipo file
-                fileNameDisplay.textContent = '';
-                clearFileButton.classList.add('hidden');
+                if (fileUploadInput) fileUploadInput.value = '';
+                if (fileNameDisplay) fileNameDisplay.textContent = '';
+                if (clearFileButton) clearFileButton.classList.add('hidden');
             };
 
-            // Event listener para cuando se selecciona un archivo
-            fileUploadInput.addEventListener('change', (event) => {
-                const file = event.target.files[0];
-                if (file) {
-                    const reader = new FileReader();
-                    reader.onload = (e) => {
-                        selectedFile = {
-                            name: file.name,
-                            type: file.type,
-                            data: e.target.result.split(',')[1] // Obtener solo la parte Base64
-                        };
-                        fileNameDisplay.textContent = `Archivo seleccionado: ${file.name}`;
-                        clearFileButton.classList.remove('hidden');
-                    };
-
-                    // Leer el archivo según su tipo
-                    if (file.type.startsWith('image/') || file.type === 'application/pdf') {
-                        reader.readAsDataURL(file); // Para imágenes y PDFs, leer como Data URL (Base64)
-                    } else if (file.type === 'text/plain') {
-                         // For text files, read as text. The API expects base64 for inlineData,
-                         // so we'll convert text to base64 string if sending as inlineData,
-                         // or adjust the payload structure if sending as pure text.
-                         // For simplicity with current Gemini API structure, we'll base64 encode it.
-                        reader.onload = (e_text) => { // new reader.onload for text
+            if (fileUploadInput) {
+                fileUploadInput.addEventListener('change', (event) => {
+                    const file = event.target.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = (e_reader) => {
                             selectedFile = {
                                 name: file.name,
-                                type: file.type, // keep original type for reference
-                                data: btoa(e_text.target.result) // base64 encode the text content
+                                type: file.type,
+                                data: e_reader.target.result.split(',')[1] // Base64 data
                             };
-                            fileNameDisplay.textContent = `Archivo seleccionado: ${file.name}`;
-                            clearFileButton.classList.remove('hidden');
+                            if(fileNameDisplay) fileNameDisplay.textContent = `Archivo seleccionado: ${file.name}`;
+                            if(clearFileButton) clearFileButton.classList.remove('hidden');
                         };
-                        reader.readAsText(file);
+
+                        if (file.type.startsWith('image/') || file.type === 'application/pdf' || file.type === 'text/plain') {
+                             // For text/plain, Gemini expects text, not base64 of text for `text` part.
+                             // However, if sending as inlineData, base64 is fine.
+                             // Let's assume all files for `inlineData` are read as DataURL for simplicity here.
+                            reader.readAsDataURL(file);
+                        } else {
+                            reader.readAsDataURL(file); // Default to DataURL for other types
+                            console.warn(`Tipo de archivo no estándar para la API de Gemini: ${file.type}. Se enviará como Base64.`);
+                        }
                     } else {
-                        reader.readAsDataURL(file);
-                        console.warn(`Tipo de archivo no estándar para la API de Gemini: ${file.type}. Se enviará como Base64.`);
+                        clearSelectedFile();
                     }
-                } else {
-                    clearSelectedFile();
-                }
-            });
+                });
+            }
 
-            // Event listener para el botón de limpiar archivo
-            clearFileButton.addEventListener('click', clearSelectedFile);
 
-            // Función para llamar a la API de Gemini
+            if (clearFileButton) {
+                clearFileButton.addEventListener('click', clearSelectedFile);
+            }
+
             async function callGeminiAPI(payload, spinnerElement, outputElement, isChat = false) {
-                spinnerElement.classList.remove('hidden'); // Mostrar spinner
-                if (!isChat && outputElement) { 
-                    outputElement.classList.add('hidden'); 
-                    outputElement.textContent = ''; 
+                if(spinnerElement) spinnerElement.classList.remove('hidden');
+                if (!isChat && outputElement) {
+                    outputElement.classList.add('hidden');
+                    outputElement.textContent = '';
                 }
-
-                const apiKey = "AIzaSyAmmYRxVcSbZBqq_qSXL97LVee_78j1EdY"; // API Key is an empty string
+                const apiKey = ""; // API Key will be injected by the environment if needed
                 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-
                 try {
                     const response = await fetch(apiUrl, {
                         method: 'POST',
@@ -898,7 +975,6 @@
                         body: JSON.stringify(payload)
                     });
                     const result = await response.json();
-
                     if (result.candidates && result.candidates.length > 0 &&
                         result.candidates[0].content && result.candidates[0].content.parts &&
                         result.candidates[0].content.parts.length > 0) {
@@ -906,13 +982,15 @@
                         if (isChat) {
                             chatConversationHistory.push({ role: "model", parts: [{ text: text }] });
                             const geminiMessageDiv = document.createElement('div');
-                            geminiMessageDiv.className = 'chat-message-gemini text-sm';
+                            geminiMessageDiv.className = 'chat-message bg-sky-100 dark:bg-sky-700 dark:text-sky-50 self-start rounded-lg p-3 px-4 max-w-[80%] text-sm';
                             geminiMessageDiv.textContent = text;
-                            chatHistoryDiv.appendChild(geminiMessageDiv);
-                            chatHistoryDiv.scrollTop = chatHistoryDiv.scrollHeight; // Scroll to bottom
+                            if(chatHistoryDiv) chatHistoryDiv.appendChild(geminiMessageDiv);
+                            if(chatHistoryDiv) chatHistoryDiv.scrollTop = chatHistoryDiv.scrollHeight;
                         } else {
-                            outputElement.textContent = text;
-                            outputElement.classList.remove('hidden'); // Mostrar la salida
+                            if(outputElement) {
+                                outputElement.textContent = text;
+                                outputElement.classList.remove('hidden');
+                            }
                         }
                     } else {
                         console.error('Error de la API de Gemini (no candidates or unexpected structure):', result);
@@ -920,14 +998,13 @@
                         if (result.error && result.error.message) {
                             errorMessage = `Error de la API: ${result.error.message}`;
                         }
-
-                        if (isChat) {
+                        if (isChat && chatHistoryDiv) {
                             const errorDiv = document.createElement('div');
-                            errorDiv.className = 'chat-message-gemini text-sm text-red-600';
+                            errorDiv.className = 'chat-message bg-red-100 dark:bg-red-700 dark:text-red-50 self-start rounded-lg p-3 px-4 max-w-[80%] text-sm text-red-600 dark:text-red-300';
                             errorDiv.textContent = errorMessage;
                             chatHistoryDiv.appendChild(errorDiv);
                             chatHistoryDiv.scrollTop = chatHistoryDiv.scrollHeight;
-                        } else if (outputElement) { // Check if outputElement exists
+                        } else if (outputElement) {
                             outputElement.textContent = errorMessage;
                             outputElement.classList.remove('hidden');
                         }
@@ -935,93 +1012,91 @@
                 } catch (error) {
                     console.error('Error al llamar a la API de Gemini:', error);
                     const errorMessage = 'Error: Fallo en la conexión con la API. Por favor, inténtalo más tarde.';
-                    if (isChat) {
+                    if (isChat && chatHistoryDiv) {
                         const errorDiv = document.createElement('div');
-                        errorDiv.className = 'chat-message-gemini text-sm text-red-600';
+                        errorDiv.className = 'chat-message bg-red-100 dark:bg-red-700 dark:text-red-50 self-start rounded-lg p-3 px-4 max-w-[80%] text-sm text-red-600 dark:text-red-300';
                         errorDiv.textContent = errorMessage;
                         chatHistoryDiv.appendChild(errorDiv);
                         chatHistoryDiv.scrollTop = chatHistoryDiv.scrollHeight;
-                    } else if (outputElement) { // Check if outputElement exists
+                    } else if (outputElement) {
                         outputElement.textContent = errorMessage;
                         outputElement.classList.remove('hidden');
                     }
                 } finally {
-                    spinnerElement.classList.add('hidden'); // Ocultar spinner
+                    if(spinnerElement) spinnerElement.classList.add('hidden');
                 }
             }
 
-            // Event listener para los botones de Resumir Clase
             summarizeButtons.forEach(button => {
                 button.addEventListener('click', () => {
                     const classId = button.dataset.classId;
                     const classTitle = button.dataset.classTitle;
                     const classContent = button.dataset.classContent;
-                    const prompt = `Por favor, resume la siguiente clase de Hardware y Aplicación Específica: "${classTitle}". El contenido principal incluye: ${classContent}. Proporciona un resumen conciso y útil en español.`;
-                    
-                    const payload = { contents: [{ role: "user", parts: [{ text: prompt }] }] };
+                    const promptText = `Por favor, resume la siguiente clase de Hardware y Aplicación Específica: "${classTitle}". El contenido principal incluye: ${classContent}. Proporciona un resumen conciso y útil en español.`;
+
+                    const payload = { contents: [{ role: "user", parts: [{ text: promptText }] }] };
                     const spinner = document.getElementById(`summarize-spinner-${classId}`);
                     const output = document.getElementById(`summary-output-${classId}`);
                     callGeminiAPI(payload, spinner, output);
                 });
             });
 
-            // Event listener para el botón de enviar mensaje del chat
-            sendChatButton.addEventListener('click', async () => {
-                const userMessage = chatInput.value.trim();
-                if (userMessage || selectedFile) {
-                    const userParts = [];
-                    let displayMessage = userMessage; // Message to display in chat UI for user
+            if (sendChatButton && chatInput && chatHistoryDiv) {
+                sendChatButton.addEventListener('click', async () => {
+                    const userMessage = chatInput.value.trim();
+                    if (userMessage || selectedFile) {
+                        const userParts = [];
+                        let displayMessage = userMessage;
+                        if (userMessage) {
+                            userParts.push({ text: userMessage });
+                        }
+                        const userMessageDiv = document.createElement('div');
+                        userMessageDiv.className = 'chat-message bg-blue-100 dark:bg-blue-700 dark:text-blue-50 self-end rounded-lg p-3 px-4 max-w-[80%] text-sm';
 
-                    if (userMessage) {
-                        userParts.push({ text: userMessage });
-                    }
-
-                    const userMessageDiv = document.createElement('div');
-                    userMessageDiv.className = 'chat-message-user text-sm';
-
-                    if (selectedFile) {
-                        // For all file types being sent to Gemini, they are expected as base64 encoded data
-                        // and a mimeType.
-                        userParts.push({ inlineData: { mimeType: selectedFile.type, data: selectedFile.data } });
-
-                        if (selectedFile.type.startsWith('image/')) {
-                            const imgPreview = document.createElement('img');
-                            imgPreview.src = `data:${selectedFile.type};base64,${selectedFile.data}`;
-                            imgPreview.className = 'max-w-xs h-auto rounded-md mt-2'; // Limit preview size
-                            if(userMessage) userMessageDiv.textContent = userMessage;
-                            userMessageDiv.appendChild(imgPreview);
+                        if (selectedFile) {
+                            // Ensure selectedFile.data is base64 encoded string without the data URL prefix
+                            userParts.push({ inlineData: { mimeType: selectedFile.type, data: selectedFile.data } });
+                            if (selectedFile.type.startsWith('image/')) {
+                                const imgPreview = document.createElement('img');
+                                imgPreview.src = `data:${selectedFile.type};base64,${selectedFile.data}`;
+                                imgPreview.className = 'max-w-xs h-auto rounded-md mt-2';
+                                if(userMessage) userMessageDiv.textContent = userMessage;
+                                userMessageDiv.appendChild(imgPreview);
+                            } else {
+                                 displayMessage = userMessage ? `${userMessage}\n[Archivo adjunto: ${selectedFile.name}]` : `[Archivo adjunto: ${selectedFile.name}]`;
+                                 userMessageDiv.textContent = displayMessage;
+                            }
                         } else {
-                             displayMessage = userMessage ? `${userMessage}\n[Archivo adjunto: ${selectedFile.name}]` : `[Archivo adjunto: ${selectedFile.name}]`;
                              userMessageDiv.textContent = displayMessage;
                         }
-                    } else {
-                         userMessageDiv.textContent = displayMessage;
+
+                        chatHistoryDiv.appendChild(userMessageDiv);
+                        chatHistoryDiv.scrollTop = chatHistoryDiv.scrollHeight;
+                        chatInput.value = '';
+                        const tempSelectedFile = selectedFile; // Store before clearing
+                        clearSelectedFile();
+
+                        const currentApiConversation = [...chatConversationHistory];
+                        currentApiConversation.push({ role: "user", parts: userParts });
+                        // Update main history AFTER sending, to keep it clean for retries if needed
+                        chatConversationHistory.push({ role: "user", parts: userParts}); 
+
+                        const payload = { contents: currentApiConversation };
+                        await callGeminiAPI(payload, chatSpinner, null, true);
                     }
-                    
-                    chatHistoryDiv.appendChild(userMessageDiv);
-                    chatHistoryDiv.scrollTop = chatHistoryDiv.scrollHeight;
-                    chatInput.value = ''; 
-                    clearSelectedFile(); 
+                });
+            }
 
-                    const currentConversation = [...chatConversationHistory]; // Copy existing history
-                    currentConversation.push({ role: "user", parts: userParts });
+            if (chatInput && sendChatButton) {
+                chatInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        sendChatButton.click();
+                    }
+                });
+            }
 
-                    // Update the main history *after* the API call for the model's response
-                    chatConversationHistory.push({ role: "user", parts: userParts }); 
-                    
-                    const payload = { contents: currentConversation };
-                    await callGeminiAPI(payload, chatSpinner, null, true); 
-                }
-            });
-
-            // Permite enviar mensaje del chat con la tecla Enter
-            chatInput.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    sendChatButton.click();
-                }
-            });
-
-            // Asegurarse de que el menú principal sea visible al cargar
+            applyTheme(initialTheme);
+            addInitialChatMessage();
             showSection('main-menu-section');
         });
     </script>
