@@ -2,6 +2,24 @@
 
 const translations = {
     es: {
+        // --- CLAVES DE LOGIN/REGISTRO ACTUALIZADAS ---
+        welcomeTitle: "Bienvenido",
+        welcomeSubtitle: "Inicia sesión o regístrate para continuar.",
+        usernameLabel: "Nombre de Usuario",
+        passwordLabel: "Contraseña",
+        confirmPasswordLabel: "Confirmar Contraseña",
+        loginButton: "Entrar",
+        registerButton: "Registrarse",
+        loginPrompt: "¿Ya tienes una cuenta? Inicia sesión",
+        registerPrompt: "¿No tienes cuenta? Regístrate aquí",
+        // --- Mensajes de error y éxito ---
+        authError: "Error",
+        passwordMismatchError: "Las contraseñas no coinciden.",
+        fieldsRequiredError: "Todos los campos son obligatorios.",
+        userExistsError: "El nombre de usuario ya existe.",
+        loginFailedError: "Usuario o contraseña incorrectos.",
+        registrationSuccess: "¡Registro completado! Por favor, inicia sesión.",
+        // --- FIN DE CLAVES NUEVAS ---
         pageMetaTitle: "Hardware y Aplicación Específica",
         pageTitle: "Hardware y Aplicación Específica",
         pageSubtitle: "Explorando el mundo del procesamiento de señales y microcontroladores",
@@ -75,7 +93,7 @@ const translations = {
         cancelButton: "Cancelar",
         accessButton: "Acceder",
         langToggleTitle: "Cambiar idioma",
-        themeToggleTitle: "Cambiar tema", // <-- CLAVE AÑADIDA
+        themeToggleTitle: "Cambiar tema",
         initialChatMsg: "¡Hola! Soy tu asistente de Hardware y Aplicación Específica. ¿En qué puedo ayudarte hoy?",
         fileAttached: "Adjunto:",
         apiErrorUnexpected: "Respuesta inesperada de la API o contenido vacío.",
@@ -84,6 +102,24 @@ const translations = {
         errorReadingFile: "Error al leer el archivo."
     },
     en: {
+        // --- UPDATED LOGIN/REGISTER KEYS ---
+        welcomeTitle: "Welcome",
+        welcomeSubtitle: "Login or register to continue.",
+        usernameLabel: "Username",
+        passwordLabel: "Password",
+        confirmPasswordLabel: "Confirm Password",
+        loginButton: "Enter",
+        registerButton: "Register",
+        loginPrompt: "Already have an account? Log in",
+        registerPrompt: "Don't have an account? Register here",
+        // --- Error and success messages ---
+        authError: "Error",
+        passwordMismatchError: "Passwords do not match.",
+        fieldsRequiredError: "All fields are required.",
+        userExistsError: "Username already exists.",
+        loginFailedError: "Incorrect username or password.",
+        registrationSuccess: "Registration successful! Please log in.",
+        // --- END OF NEW KEYS ---
         pageMetaTitle: "Hardware and Specific Application",
         pageTitle: "Hardware and Specific Application",
         pageSubtitle: "Exploring the world of signal processing and microcontrollers",
@@ -157,7 +193,7 @@ const translations = {
         cancelButton: "Cancel",
         accessButton: "Access",
         langToggleTitle: "Change language",
-        themeToggleTitle: "Change theme", // <-- KEY ADDED
+        themeToggleTitle: "Change theme",
         initialChatMsg: "Hello! I'm your Hardware and Specific Application assistant. How can I help you today?",
         fileAttached: "Attached:",
         apiErrorUnexpected: "Unexpected API response or empty content.",
@@ -200,7 +236,10 @@ export function initializeLanguage(üretim, addInitialChatMessage) {
         currentLanguage = newLang;
         localStorage.setItem('language', newLang);
         translatePage(currentLanguage, üretim);
-        addInitialChatMessage(true, currentLanguage, translations);
+        // Solo actualiza el mensaje inicial del chat si el chat ya está visible
+        if (üretim.chatHistoryDiv && üretim.chatHistoryDiv.offsetParent !== null) {
+            addInitialChatMessage(true, currentLanguage, translations);
+        }
     };
 
     if (üretim.languageToggleButton) {
@@ -210,9 +249,10 @@ export function initializeLanguage(üretim, addInitialChatMessage) {
         });
     }
 
-    updateLanguage(currentLanguage);
+    // Traduce la página al cargar con el idioma guardado
+    translatePage(currentLanguage, üretim);
 
     return currentLanguage;
 }
 
-export { translations };    
+export { translations };

@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="es"> <head>
+<html lang="es">
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-translate-key="pageMetaTitle">Hardware y Aplicación Específica</title>
@@ -8,70 +10,231 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
-    
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+    </noscript>
+
     <style>
         :root {
             /* TEMA POR DEFECTO: OSCURO (SYSTEM) */
-            --color-background: 222 47% 11%;        /* gray-900 */
-            --color-foreground: 210 40% 98%;        /* gray-50 */
-            --color-muted: 222 47% 15%;             /* gray-800 */
-            --color-muted-foreground: 215 20% 65%;   /* gray-400 */
-            --color-card: 222 47% 15%;              /* gray-800 */
-            --color-card-foreground: 210 40% 98%;   /* gray-50 */
-            --color-border: 217 33% 25%;            /* gray-700 */
-            --color-input: 217 33% 25%;             /* gray-700 */
-            --color-accent: 9 95% 68%;              /* orange-500 */
-            --color-accent-foreground: 222 47% 11%; /* gray-900 */
-            --color-destructive: 0 84.2% 60.2%;     /* red-500 */
-            --color-ring: 9 95% 68%;                /* orange-500 */
+            --color-background: 222 47% 11%;
+            /* gray-900 */
+            --color-foreground: 210 40% 98%;
+            /* gray-50 */
+            --color-muted: 222 47% 15%;
+            /* gray-800 */
+            --color-muted-foreground: 215 20% 65%;
+            /* gray-400 */
+            --color-card: 222 47% 15%;
+            /* gray-800 */
+            --color-card-foreground: 210 40% 98%;
+            /* gray-50 */
+            --color-border: 217 33% 25%;
+            /* gray-700 */
+            --color-input: 217 33% 25%;
+            /* gray-700 */
+            --color-accent: 9 95% 68%;
+            /* orange-500 */
+            --color-accent-foreground: 222 47% 11%;
+            /* gray-900 */
+            --color-destructive: 0 84.2% 60.2%;
+            /* red-500 */
+            --color-ring: 9 95% 68%;
+            /* orange-500 */
         }
-        
+
         .theme-intermediate {
             /* TEMA INTERMEDIO (AZUL CLÁSICO) */
-            --color-background: 210 29% 7%;          /* #0d1117 */
-            --color-foreground: 210 14% 84%;         /* #c9d1d9 */
-            --color-muted: 212 23% 11%;              /* #161b22 */
-            --color-muted-foreground: 213 9% 58%;    /* #8b949e */
-            --color-card: 212 23% 11%;               /* #161b22 */
-            --color-card-foreground: 210 14% 84%;    /* #c9d1d9 */
-            --color-border: 213 14% 20%;             /* #21262d */
-            --color-input: 210 29% 7%;               /* #0d1117 */
-            --color-accent: 212 100% 67%;            /* #58a6ff */
-            --color-accent-foreground: 212 23% 11%;  /* #161b22 */
-            --color-destructive: 2 82% 62%;          /* #f87171 */
-            --color-ring: 212 100% 67%;              /* #58a6ff */
+            --color-background: 210 29% 7%;
+            /* #0d1117 */
+            --color-foreground: 210 14% 84%;
+            /* #c9d1d9 */
+            --color-muted: 212 23% 11%;
+            /* #161b22 */
+            --color-muted-foreground: 213 9% 58%;
+            /* #8b949e */
+            --color-card: 212 23% 11%;
+            /* #161b22 */
+            --color-card-foreground: 210 14% 84%;
+            /* #c9d1d9 */
+            --color-border: 213 14% 20%;
+            /* #21262d */
+            --color-input: 210 29% 7%;
+            /* #0d1117 */
+            --color-accent: 212 100% 67%;
+            /* #58a6ff */
+            --color-accent-foreground: 212 23% 11%;
+            /* #161b22 */
+            --color-destructive: 2 82% 62%;
+            /* #f87171 */
+            --color-ring: 212 100% 67%;
+            /* #58a6ff */
         }
 
         .light {
             /* TEMA CLARO (VIBRANT) */
-            --color-background: 0 0% 100%;             /* white */
-            --color-foreground: 222.2 84% 4.9%;        /* gray-950 */
-            --color-muted: 210 40% 96.1%;            /* gray-100 */
-            --color-muted-foreground: 215.4 16.3% 46.9%; /* gray-500 */
-            --color-card: 210 40% 98%;               /* gray-50 */
-            --color-card-foreground: 222.2 84% 4.9%;   /* gray-950 */
-            --color-border: 214.3 31.8% 91.4%;       /* gray-200 */
-            --color-input: 214.3 31.8% 91.4%;        /* gray-200 */
-            --color-accent: 198 93% 59%;             /* sky-500 */
-            --color-accent-foreground: 210 40% 98%;  /* gray-50 */
-            --color-destructive: 0 84.2% 60.2%;       /* red-500 */
-            --color-ring: 198 93% 59%;               /* sky-500 */
+            --color-background: 0 0% 100%;
+            /* white */
+            --color-foreground: 222.2 84% 4.9%;
+            /* gray-950 */
+            --color-muted: 210 40% 96.1%;
+            /* gray-100 */
+            --color-muted-foreground: 215.4 16.3% 46.9%;
+            /* gray-500 */
+            --color-card: 210 40% 98%;
+            /* gray-50 */
+            --color-card-foreground: 222.2 84% 4.9%;
+            /* gray-950 */
+            --color-border: 214.3 31.8% 91.4%;
+            /* gray-200 */
+            --color-input: 214.3 31.8% 91.4%;
+            /* gray-200 */
+            --color-accent: 198 93% 59%;
+            /* sky-500 */
+            --color-accent-foreground: 210 40% 98%;
+            /* gray-50 */
+            --color-destructive: 0 84.2% 60.2%;
+            /* red-500 */
+            --color-ring: 198 93% 59%;
+            /* sky-500 */
         }
-        
-        body { font-family: 'Inter', sans-serif; }
-        .class-detail-section { display: none; }
-        .loading-spinner { border-left-color: hsl(var(--color-accent)); }
-        @keyframes spin { to { transform: rotate(360deg); } }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .class-detail-section {
+            display: none;
+        }
+
+        .loading-spinner {
+            border-left-color: hsl(var(--color-accent));
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
         @keyframes keyframes-fade-in-up {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        .fade-in-up { animation: keyframes-fade-in-up 0.5s ease-out forwards; opacity: 0; }
-        .responsive-iframe-container { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 0.5rem; }
-        .responsive-iframe-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; background-color: hsl(var(--color-muted)); }
-        .chat-message { transition: all 0.3s ease; }
+
+        .fade-in-up {
+            animation: keyframes-fade-in-up 0.5s ease-out forwards;
+            opacity: 0;
+        }
+
+        .responsive-iframe-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 0.5rem;
+        }
+
+        .responsive-iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            background-color: hsl(var(--color-muted));
+        }
+
+        .chat-message {
+            transition: all 0.3s ease;
+        }
+
+        @keyframes typing-cursor-blink {
+
+            0%,
+            100% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .typing-cursor {
+            display: inline-block;
+            width: 8px;
+            height: 1.1em;
+            background-color: hsl(var(--color-accent));
+            animation: typing-cursor-blink 1s step-end infinite;
+            margin-left: 3px;
+            vertical-align: text-bottom;
+            border-radius: 2px;
+        }
+
+        /* --- Estilos básicos para el contenido Markdown de Gemini --- */
+        .gemini-response-content strong,
+        .gemini-response-content b {
+            font-weight: 700;
+            color: hsl(var(--color-card-foreground));
+        }
+
+        .gemini-response-content em,
+        .gemini-response-content i {
+            font-style: italic;
+        }
+
+        .gemini-response-content ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .gemini-response-content ol {
+            list-style-type: decimal;
+            padding-left: 20px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .gemini-response-content code {
+            background-color: hsl(var(--color-muted));
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+
+        .gemini-response-content pre {
+            background-color: hsl(var(--color-muted));
+            padding: 10px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+
+        .gemini-response-content pre code {
+            padding: 0;
+            background-color: transparent;
+        }
+
+        .gemini-response-content a {
+            color: hsl(var(--color-accent));
+            text-decoration: underline;
+        }
 
         /* --- Estilos para el efecto de chispas del ratón --- */
         .sparkle {
@@ -81,7 +244,8 @@
             background-color: hsl(var(--color-accent));
             border-radius: 50%;
             z-index: 9999;
-            pointer-events: none; /* Para que las chispas no interfieran con los clics */
+            pointer-events: none;
+            /* Para que las chispas no interfieran con los clics */
             animation: sparkle-animation 700ms forwards;
             transform-origin: center;
         }
@@ -91,585 +255,1179 @@
                 opacity: 1;
                 transform: scale(1) translate(0, 0);
             }
+
             100% {
                 opacity: 0;
                 transform: scale(0) translate(var(--sparkle-translate-x), var(--sparkle-translate-y));
             }
         }
+        
+        /* --- NUEVAS ANIMACIONES PARA LOGIN --- */
+        #login-form {
+            animation: keyframes-fade-in-up 0.7s ease-out forwards;
+        }
+
+        .fade-out {
+            animation: fade-out-animation 0.5s ease-out forwards;
+        }
+
+        @keyframes fade-out-animation {
+            from {
+                opacity: 1;
+                transform: scale(1);
+            }
+            to {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+        }
+        
+        @keyframes horizontal-shake {
+          0%, 100% { transform: translateX(0); }
+          25% { transform: translateX(-8px); }
+          50% { transform: translateX(8px); }
+          75% { transform: translateX(-8px); }
+        }
 
     </style>
-    
+
     <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            colors: {
-              border: 'hsl(var(--color-border))', input: 'hsl(var(--color-input))', ring: 'hsl(var(--color-ring))',
-              background: 'hsl(var(--color-background))', foreground: 'hsl(var(--color-foreground))',
-              primary: { DEFAULT: 'hsl(var(--color-primary))', foreground: 'hsl(var(--color-primary-foreground))' },
-              muted: { DEFAULT: 'hsl(var(--color-muted))', foreground: 'hsl(var(--color-muted-foreground))' },
-              accent: { DEFAULT: 'hsl(var(--color-accent))', foreground: 'hsl(var(--color-accent-foreground))' },
-              destructive: { DEFAULT: 'hsl(var(--color-destructive))' },
-              popover: { DEFAULT: 'hsl(var(--color-popover))', foreground: 'hsl(var(--color-popover-foreground))' },
-              card: { DEFAULT: 'hsl(var(--color-card))', foreground: 'hsl(var(--color-card-foreground))' },
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        border: 'hsl(var(--color-border))', input: 'hsl(var(--color-input))', ring: 'hsl(var(--color-ring))',
+                        background: 'hsl(var(--color-background))', foreground: 'hsl(var(--color-foreground))',
+                        primary: { DEFAULT: 'hsl(var(--color-primary))', foreground: 'hsl(var(--color-primary-foreground))' },
+                        muted: { DEFAULT: 'hsl(var(--color-muted))', foreground: 'hsl(var(--color-muted-foreground))' },
+                        accent: { DEFAULT: 'hsl(var(--color-accent))', foreground: 'hsl(var(--color-accent-foreground))' },
+                        destructive: { DEFAULT: 'hsl(var(--color-destructive))' },
+                        popover: { DEFAULT: 'hsl(var(--color-popover))', foreground: 'hsl(var(--color-popover-foreground))' },
+                        card: { DEFAULT: 'hsl(var(--color-card))', foreground: 'hsl(var(--color-card-foreground))' },
+                    }
+                }
             }
-          }
         }
-      }
     </script>
 </head>
 
 <body class="bg-background text-foreground transition-colors duration-300">
-    <div id="page-container" class="container mx-auto p-4 md:p-8">
-        
-        <header class="sticky top-0 z-50 bg-background/80 backdrop-blur-lg shadow-sm p-6 rounded-lg mb-8 transition-all duration-300">
+    
+    <div id="login-screen" class="fixed inset-0 bg-background/80 backdrop-blur-sm z-[101] flex items-center justify-center p-4">
+        <div id="login-form" class="bg-card text-card-foreground p-8 rounded-xl shadow-2xl w-full max-w-sm transform transition-all duration-500 border border-border">
+            
+            <div id="auth-container">
+                <h2 data-translate-key="welcomeTitle" class="text-3xl font-bold mb-2 text-center">Bienvenido</h2>
+                <p data-translate-key="welcomeSubtitle" class="text-muted-foreground mb-6 text-center">Inicia sesión o regístrate para continuar.</p>
+
+                <div id="login-view">
+                    <div class="space-y-4">
+                        <div>
+                            <label for="login-username-input" class="text-sm font-medium text-muted-foreground" data-translate-key="usernameLabel">Nombre de Usuario</label>
+                            <input type="text" id="login-username-input" class="w-full mt-1 p-3 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring bg-background text-foreground">
+                        </div>
+                        <div>
+                            <label for="login-password-input" class="text-sm font-medium text-muted-foreground" data-translate-key="passwordLabel">Contraseña</label>
+                            <input type="password" id="login-password-input" class="w-full mt-1 p-3 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring bg-background text-foreground">
+                        </div>
+                    </div>
+                    <button id="login-button" data-translate-key="loginButton" class="w-full mt-6 bg-accent hover:bg-accent/90 text-accent-foreground font-bold py-3 px-6 rounded-md transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                        Entrar
+                    </button>
+                    <p class="text-center text-sm text-muted-foreground mt-6">
+                        <span data-translate-key="registerPrompt">¿No tienes cuenta?</span>
+                        <a href="#" id="show-register-view" class="font-semibold text-accent hover:underline">Regístrate aquí</a>
+                    </p>
+                </div>
+
+                <div id="register-view" style="display: none;">
+                    <div class="space-y-4">
+                        <div>
+                            <label for="register-username-input" class="text-sm font-medium text-muted-foreground" data-translate-key="usernameLabel">Nombre de Usuario</label>
+                            <input type="text" id="register-username-input" class="w-full mt-1 p-3 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring bg-background text-foreground">
+                        </div>
+                        <div>
+                            <label for="register-password-input" class="text-sm font-medium text-muted-foreground" data-translate-key="passwordLabel">Contraseña</label>
+                            <input type="password" id="register-password-input" class="w-full mt-1 p-3 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring bg-background text-foreground">
+                        </div>
+                        <div>
+                            <label for="register-confirm-password-input" class="text-sm font-medium text-muted-foreground" data-translate-key="confirmPasswordLabel">Confirmar Contraseña</label>
+                            <input type="password" id="register-confirm-password-input" class="w-full mt-1 p-3 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring bg-background text-foreground">
+                        </div>
+                    </div>
+                    <button id="register-button" data-translate-key="registerButton" class="w-full mt-6 bg-accent hover:bg-accent/90 text-accent-foreground font-bold py-3 px-6 rounded-md transition duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                        Registrarse
+                    </button>
+                    <p class="text-center text-sm text-muted-foreground mt-6">
+                        <span data-translate-key="loginPrompt">¿Ya tienes una cuenta?</span>
+                        <a href="#" id="show-login-view" class="font-semibold text-accent hover:underline">Inicia sesión</a>
+                    </p>
+                </div>
+
+                <div id="auth-error-message" class="mt-4 text-center text-destructive text-sm font-medium p-3 bg-destructive/10 rounded-md" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="page-container" class="container mx-auto p-4 md:p-8" style="display: none;">
+
+        <header
+            class="sticky top-0 z-50 bg-background/80 backdrop-blur-lg shadow-sm p-6 rounded-lg mb-8 transition-all duration-300">
             <div class="text-center">
-                <h1 data-translate-key="pageTitle" class="text-4xl font-extrabold mb-2 text-foreground">Hardware y Aplicación Específica</h1>
-                <p data-translate-key="pageSubtitle" class="text-xl text-muted-foreground">Explorando el mundo del procesamiento de señales y microcontroladores</p>
+                <h1 data-translate-key="pageTitle" class="text-4xl font-extrabold mb-2 text-foreground">Hardware y
+                    Aplicación Específica</h1>
+                <p data-translate-key="pageSubtitle" class="text-xl text-muted-foreground">Explorando el mundo del
+                    procesamiento de señales y microcontroladores</p>
             </div>
             <div class="absolute top-4 right-4 flex space-x-2">
-                <button id="language-toggle" type="button" title="Cambiar idioma" data-translate-title-key="langToggleTitle" class="bg-card hover:bg-border text-foreground focus:outline-none focus:ring-2 focus:ring-ring rounded-lg text-sm p-2.5 font-semibold">EN</button>
-                <button id="theme-toggle" type="button" title="Cambiar tema" data-translate-title-key="themeToggleTitle" class="bg-card hover:bg-border text-foreground focus:outline-none focus:ring-2 focus:ring-ring rounded-lg text-sm p-2.5">
-                    <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-                    <svg id="theme-toggle-intermediate-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9 2a8.001 8.001 0 000 16V2z"></path></svg>
-                    <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm-.707 10.607a1 1 0 011.414 0l.707-.707a1 1 0 111.414 1.414l-.707.707a1 1 0 01-1.414 0zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+                <button id="language-toggle" type="button" title="Cambiar idioma"
+                    data-translate-title-key="langToggleTitle"
+                    class="bg-card hover:bg-border text-foreground focus:outline-none focus:ring-2 focus:ring-ring rounded-lg text-sm p-2.5 font-semibold">EN</button>
+                <button id="theme-toggle" type="button" title="Cambiar tema" data-translate-title-key="themeToggleTitle"
+                    class="bg-card hover:bg-border text-foreground focus:outline-none focus:ring-2 focus:ring-ring rounded-lg text-sm p-2.5">
+                    <svg id="theme-toggle-dark-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-intermediate-icon" class="w-5 h-5 hidden" fill="currentColor"
+                        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path clip-rule="evenodd" fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zM9 2a8.001 8.001 0 000 16V2z"></path>
+                    </svg>
+                    <svg id="theme-toggle-light-icon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20">
+                        <path
+                            d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm-.707 10.607a1 1 0 011.414 0l.707-.707a1 1 0 111.414 1.414l-.707.707a1 1 0 01-1.414 0zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                            fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
                 </button>
             </div>
         </header>
 
         <section id="main-menu-section" class="p-6 rounded-lg mb-8">
-            <h2 id="main-menu-title" data-translate-key="mainMenuTitle" class="text-2xl font-semibold mb-6 text-center text-foreground">Selecciona un Tema</h2>
+            <h2 id="main-menu-title" data-translate-key="mainMenuTitle"
+                class="text-2xl font-semibold mb-6 text-center text-foreground">Selecciona un Tema</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                <div id="card-0" class="class-card bg-card p-6 rounded-lg shadow-md hover:shadow-xl cursor-pointer transition-all duration-300 transform hover:-translate-y-1 border border-border hover:border-accent" data-target="clase-detail-0"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mb-3 text-accent"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z" /></svg><h3 data-translate-key="card0Title" class="text-xl font-bold text-card-foreground mb-2">0. Introducción al Procesado de Señales Digitales</h3><p data-translate-key="card0Desc" class="text-muted-foreground text-sm">Conceptos fundamentales de DSP.</p></div>
-                <div id="card-1" class="class-card bg-card p-6 rounded-lg shadow-md hover:shadow-xl cursor-pointer transition-all duration-300 transform hover:-translate-y-1 border border-border hover:border-accent" data-target="clase-detail-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mb-3 text-accent"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H21M18.75 3v1.5m0 12.75v1.5m-2.25-1.5h-12a2.25 2.25 0 0 1-2.25-2.25v-7.5a2.25 2.25 0 0 1 2.25-2.25h12a2.25 2.25 0 0 1 2.25 2.25v7.5a2.25 2.25 0 0 1-2.25 2.25Z" /></svg><h3 data-translate-key="card1Title" class="text-xl font-bold text-card-foreground mb-2">1. Puertos y Retardos</h3><p data-translate-key="card1Desc" class="text-muted-foreground text-sm">Primeros pasos con microcontroladores y programación.</p></div>
-                <div id="card-2" class="class-card bg-card p-6 rounded-lg shadow-md hover:shadow-xl cursor-pointer transition-all duration-300 transform hover:-translate-y-1 border border-border hover:border-accent" data-target="clase-detail-2"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mb-3 text-accent"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 3.75H6A2.25 2.25 0 0 0 3.75 6v1.5M16.5 3.75H18A2.25 2.25 0 0 1 20.25 6v1.5m0 9.75v1.5A2.25 2.25 0 0 1 18 20.25h-1.5m-9.75 0H6A2.25 2.25 0 0 1 3.75 18v-1.5M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /></svg><h3 data-translate-key="card2Title" class="text-xl font-bold text-card-foreground mb-2">2. Displays de 7 Segmentos y Teoría de Señal</h3><p data-translate-key="card2Desc" class="text-muted-foreground text-sm">Visualización de datos y fundamentos de señal.</p></div>
-                <div id="card-3" class="class-card bg-card p-6 rounded-lg shadow-md hover:shadow-xl cursor-pointer transition-all duration-300 transform hover:-translate-y-1 border border-border hover:border-accent" data-target="clase-detail-3"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mb-3 text-accent"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" /></svg><h3 data-translate-key="card3Title" class="text-xl font-bold text-card-foreground mb-2">3. Interrupciones INTx y LCD</h3><p data-translate-key="card3Desc" class="text-muted-foreground text-sm">Manejo de eventos y pantallas de cristal líquido.</p></div>
-                <div id="card-4" class="class-card bg-card p-6 rounded-lg shadow-md hover:shadow-xl cursor-pointer transition-all duration-300 transform hover:-translate-y-1 border border-border hover:border-accent" data-target="clase-detail-4"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mb-3 text-accent"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25A2.25 2.25 0 0 1 5.25 3h4.5M15 3.75V1.5a1.5 1.5 0 0 1 3 0v2.25m-3 0h3m-3 0a1.5 1.5 0 0 1-3 0V1.5a1.5 1.5 0 0 1 3 0v2.25" /></svg><h3 data-translate-key="card4Title" class="text-xl font-bold text-card-foreground mb-2">4. Teclado e Interrupción RB</h3><p data-translate-key="card4Desc" class="text-muted-foreground text-sm">Interacción con teclados matriciales.</p></div>
-                <div id="card-5" class="class-card bg-card p-6 rounded-lg shadow-md hover:shadow-xl cursor-pointer transition-all duration-300 transform hover:-translate-y-1 border border-border hover:border-accent" data-target="clase-detail-5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mb-3 text-accent"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg><h3 data-translate-key="card5Title" class="text-xl font-bold text-card-foreground mb-2">5. Temporizaciones</h3><p data-translate-key="card5Desc" class="text-muted-foreground text-sm">Manejo de tiempos y eventos con temporizadores.</p></div>
-                <div id="card-6" class="class-card bg-card p-6 rounded-lg shadow-md hover:shadow-xl cursor-pointer transition-all duration-300 transform hover:-translate-y-1 border border-border hover:border-accent" data-target="clase-detail-6"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mb-3 text-accent"><path stroke-linecap="round" stroke-linejoin="round" d="m15.75 15.75-2.489-2.489m0 0a3.375 3.375 0 1 0-4.773-4.773 3.375 3.375 0 0 0 4.774 4.774ZM21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg><h3 data-translate-key="card6Title" class="text-xl font-bold text-card-foreground mb-2">6. Convertidores AD I</h3><p data-translate-key="card6Desc" class="text-muted-foreground text-sm">Conversión de señales analógicas a digitales (parte 1).</p></div>
-                <div id="card-7" class="class-card bg-card p-6 rounded-lg shadow-md hover:shadow-xl cursor-pointer transition-all duration-300 transform hover:-translate-y-1 border border-border hover:border-accent" data-target="clase-detail-7"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mb-3 text-accent"><path stroke-linecap="round" stroke-linejoin="round" d="M8.288 15.045A9.75 9.75 0 0 1 12 15m0 0a9.75 9.75 0 0 1 3.712.045m-3.712 0a9.75 9.75 0 0 0-3.712.045m3.712 0v-4.5m0 4.5v.75m0-3.75v-1.5m0 0v-1.5m0 0v-1.5m0 0h.01M12 9.75v-4.5m0 4.5v.75m0-3.75v-1.5m0 0v-1.5m0 0v-1.5m0 0h.01M12 9.75v-4.5m0 4.5v.75m0-3.75v-1.5m0 0v-1.5m0 0v-1.5m0 0h.01M16.288 15.045A9.75 9.75 0 0 1 12 15m4.288 0a9.75 9.75 0 0 0-4.288-.045m4.288 0a9.75 9.75 0 0 1-4.288-.045" /></svg><h3 data-translate-key="card7Title" class="text-xl font-bold text-card-foreground mb-2">7. Convertidores AD II y Sensores</h3><p data-translate-key="card7Desc" class="text-muted-foreground text-sm">Conversión de señales analógicas a digitales (parte 2) y uso de sensores.</p></div>
-                <div id="card-8" class="class-card bg-card p-6 rounded-lg shadow-md hover:shadow-xl cursor-pointer transition-all duration-300 transform hover:-translate-y-1 border border-border hover:border-accent" data-target="clase-detail-8"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mb-3 text-accent"><path stroke-linecap="round" stroke-linejoin="round" d="m15.75 15.75 2.489-2.489m0 0a3.375 3.375 0 1 0-4.773-4.773 3.375 3.375 0 0 0 4.774 4.774Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 0 0 3.75-3.75H8.25A3.75 3.75 0 0 0 12 18Z" /></svg><h3 data-translate-key="card8Title" class="text-xl font-bold text-card-foreground mb-2">8. Convertidores DA</h3><p data-translate-key="card8Desc" class="text-muted-foreground text-sm">Conversión de señales digitales a analógicas.</p></div>
-                <div id="card-9" class="class-card bg-card p-6 rounded-lg shadow-md hover:shadow-xl cursor-pointer transition-all duration-300 transform hover:-translate-y-1 border border-border hover:border-accent" data-target="clase-detail-9"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mb-3 text-accent"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25v13.5m-7.5-13.5v13.5" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 5.25v13.5m-15-13.5v13.5" /></svg><h3 data-translate-key="card9Title" class="text-xl font-bold text-card-foreground mb-2">9. Control Secuencial</h3><p data-translate-key="card9Desc" class="text-muted-foreground text-sm">Implementación de sistemas secuenciales con microcontroladores.</p></div>
-                <div id="card-10" class="class-card bg-card p-6 rounded-lg shadow-md hover:shadow-xl cursor-pointer transition-all duration-300 transform hover:-translate-y-1 border border-border hover:border-accent" data-target="clase-detail-10"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mb-3 text-accent"><path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M6.75 8.25l9.75 7.5-9.75 7.5" /></svg><h3 data-translate-key="card10Title" class="text-xl font-bold text-card-foreground mb-2">10. Filtros + Audio</h3><p data-translate-key="card10Desc" class="text-muted-foreground text-sm">Conceptos de filtrado de señales y aplicaciones de audio.</p></div>
-                <div id="card-11" class="class-card bg-card p-6 rounded-lg shadow-md hover:shadow-xl cursor-pointer transition-all duration-300 transform hover:-translate-y-1 border border-border hover:border-accent" data-target="clase-detail-11"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mb-3 text-accent"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" /></svg><h3 data-translate-key="card11Title" class="text-xl font-bold text-card-foreground mb-2">11. VHDL</h3><p data-translate-key="card11Desc" class="text-muted-foreground text-sm">Descripción de hardware con VHDL.</p></div>
-                <div id="card-12" class="class-card bg-card p-6 rounded-lg shadow-md hover:shadow-xl cursor-pointer transition-all duration-300 transform hover:-translate-y-1 border border-border hover:border-accent" data-target="clase-detail-12"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mb-3 text-accent"><path stroke-linecap="round" stroke-linejoin="round" d="m21 7.5-2.25-1.313M21 7.5v2.25m0-2.25-2.25 1.313M3 7.5l2.25-1.313M3 7.5l2.25 1.313M3 7.5v2.25m9 3 2.25-1.313M12 12.75l-2.25-1.313M12 12.75V15m0-2.25 2.25 1.313M12 12.75l-2.25 1.313M15 21v-2.25l2.25-1.313M15 21l-2.25-1.313M15 21v-2.25M9 21v-2.25l-2.25-1.313M9 21l2.25-1.313M9 21v-2.25M7.5 7.5h9M7.5 15h9" /></svg><h3 data-translate-key="card12Title" class="text-xl font-bold text-card-foreground mb-2">12. GPUs</h3><p data-translate-key="card12Desc" class="text-muted-foreground text-sm">Aplicaciones y funcionamiento de las Unidades de Procesamiento Gráfico.</p></div>
-                <div id="card-examenes" class="class-card bg-card p-6 rounded-lg shadow-md hover:shadow-xl cursor-pointer transition-all duration-300 transform hover:-translate-y-1 border border-border hover:border-destructive" data-target="clase-detail-examenes"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mb-3 text-destructive"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c.504 0 1.002-.023 1.49-.067M12 21c-.504 0-1.002-.023-1.49-.067M3.295 14.25A9.004 9.004 0 0 1 12 3c3.51 0 6.565 2.003 8.115 4.819M3.295 14.25a9.004 9.004 0 0 0 8.716 6.747" /></svg><h3 data-translate-key="cardExamsTitle" class="text-xl font-bold text-destructive mb-2">Exámenes</h3><p data-translate-key="cardExamsDesc" class="text-muted-foreground text-sm">Sección dedicada a la evaluación y práctica.</p></div>
+                <div id="card-0"
+                    class="class-card bg-card p-6 rounded-lg shadow-md hover:shadow-xl cursor-pointer transition-all duration-300 transform hover:-translate-y-1 border border-border hover:border-accent"
+                    data-target="clase-detail-0"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mb-3 text-accent">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z" />
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z" />
+                    </svg>
+                    <h3 data-translate-key="card0Title" class="text-xl font-bold text-card-foreground mb-2">0.
+                        Introducción al Procesado de Señales Digitales</h3>
+                    <p data-translate-key="card0Desc" class="text-muted-foreground text-sm">Conceptos fundamentales de
+                        DSP.</p>
+                </div>
+                <div id="card-1"
+                    class="class-card bg-card p-6 rounded-lg shadow-md hover:shadow-xl cursor-pointer transition-all duration-300 transform hover:-translate-y-1 border border-border hover:border-accent"
+                    data-target="clase-detail-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mb-3 text-accent">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M8.25 3v1.5M4.5 8.25H21M18.75 3v1.5m0 12.75v1.5m-2.25-1.5h-12a2.25 2.25 0 0 1-2.25-2.25v-7.5a2.25 2.25 0 0 1 2.25-2.25h12a2.25 2.25 0 0 1 2.25 2.25v7.5a2.25 2.25 0 0 1-2.25 2.25Z" />
+                    </svg>
+                    <h3 data-translate-key="card1Title" class="text-xl font-bold text-card-foreground mb-2">1. Puertos y
+                        Retardos</h3>
+                    <p data-translate-key="card1Desc" class="text-muted-foreground text-sm">Primeros pasos con
+                        microcontroladores y programación.</p>
+                </div>
+                <div id="card-2"
+                    class="class-card bg-card p-6 rounded-lg shadow-md hover:shadow-xl cursor-pointer transition-all duration-300 transform hover:-translate-y-1 border border-border hover:border-accent"
+                    data-target="clase-detail-2"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mb-3 text-accent">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M7.5 3.75H6A2.25 2.25 0 0 0 3.75 6v1.5M16.5 3.75H18A2.25 2.25 0 0 1 20.25 6v1.5m0 9.75v1.5A2.25 2.25 0 0 1 18 20.25h-1.5m-9.75 0H6A2.25 2.25 0 0 1 3.75 18v-1.5M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                    </svg>
+                    <h3 data-translate-key="card2Title" class="text-xl font-bold text-card-foreground mb-2">2. Displays
+                        de 7 Segmentos y Teoría de Señal</h3>
+                    <p data-translate-key="card2Desc" class="text-muted-foreground text-sm">Visualización de datos y
+                        fundamentos de señal.</p>
+                </div>
+                <div id="card-3"
+                    class="class-card bg-card p-6 rounded-lg shadow-md hover:shadow-xl cursor-pointer transition-all duration-300 transform hover:-translate-y-1 border border-border hover:border-accent"
+                    data-target="clase-detail-3"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mb-3 text-accent">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+                    </svg>
+                    <h3 data-translate-key="card3Title" class="text-xl font-bold text-card-foreground mb-2">3.
+                        Interrupciones INTx y LCD</h3>
+                    <p data-translate-key="card3Desc" class="text-muted-foreground text-sm">Manejo de eventos y
+                        pantallas de cristal líquido.</p>
+                </div>
+                <div id="card-4"
+                    class="class-card bg-card p-6 rounded-lg shadow-md hover:shadow-xl cursor-pointer transition-all duration-300 transform hover:-translate-y-1 border border-border hover:border-accent"
+                    data-target="clase-detail-4"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mb-3 text-accent">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25A2.25 2.25 0 0 1 5.25 3h4.5M15 3.75V1.5a1.5 1.5 0 0 1 3 0v2.25m-3 0h3m-3 0a1.5 1.5 0 0 1-3 0V1.5a1.5 1.5 0 0 1 3 0v2.25" />
+                    </svg>
+                    <h3 data-translate-key="card4Title" class="text-xl font-bold text-card-foreground mb-2">4. Teclado e
+                        Interrupción RB</h3>
+                    <p data-translate-key="card4Desc" class="text-muted-foreground text-sm">Interacción con teclados
+                        matriciales.</p>
+                </div>
+                <div id="card-5"
+                    class="class-card bg-card p-6 rounded-lg shadow-md hover:shadow-xl cursor-pointer transition-all duration-300 transform hover:-translate-y-1 border border-border hover:border-accent"
+                    data-target="clase-detail-5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mb-3 text-accent">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg>
+                    <h3 data-translate-key="card5Title" class="text-xl font-bold text-card-foreground mb-2">5.
+                        Temporizaciones</h3>
+                    <p data-translate-key="card5Desc" class="text-muted-foreground text-sm">Manejo de tiempos y eventos
+                        con temporizadores.</p>
+                </div>
+                <div id="card-6"
+                    class="class-card bg-card p-6 rounded-lg shadow-md hover:shadow-xl cursor-pointer transition-all duration-300 transform hover:-translate-y-1 border border-border hover:border-accent"
+                    data-target="clase-detail-6"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mb-3 text-accent">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="m15.75 15.75-2.489-2.489m0 0a3.375 3.375 0 1 0-4.773-4.773 3.375 3.375 0 0 0 4.774 4.774ZM21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                    </svg>
+                    <h3 data-translate-key="card6Title" class="text-xl font-bold text-card-foreground mb-2">6.
+                        Convertidores AD I</h3>
+                    <p data-translate-key="card6Desc" class="text-muted-foreground text-sm">Conversión de señales
+                        analógicas a digitales (parte 1).</p>
+                </div>
+                <div id="card-7"
+                    class="class-card bg-card p-6 rounded-lg shadow-md hover:shadow-xl cursor-pointer transition-all duration-300 transform hover:-translate-y-1 border border-border hover:border-accent"
+                    data-target="clase-detail-7"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mb-3 text-accent">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M8.288 15.045A9.75 9.75 0 0 1 12 15m0 0a9.75 9.75 0 0 1 3.712.045m-3.712 0a9.75 9.75 0 0 0-3.712.045m3.712 0v-4.5m0 4.5v.75m0-3.75v-1.5m0 0v-1.5m0 0v-1.5m0 0h.01M12 9.75v-4.5m0 4.5v.75m0-3.75v-1.5m0 0v-1.5m0 0v-1.5m0 0h.01M12 9.75v-4.5m0 4.5v.75m0-3.75v-1.5m0 0v-1.5m0 0v-1.5m0 0h.01M16.288 15.045A9.75 9.75 0 0 1 12 15m4.288 0a9.75 9.75 0 0 0-4.288-.045m4.288 0a9.75 9.75 0 0 1-4.288-.045" />
+                    </svg>
+                    <h3 data-translate-key="card7Title" class="text-xl font-bold text-card-foreground mb-2">7.
+                        Convertidores AD II y Sensores</h3>
+                    <p data-translate-key="card7Desc" class="text-muted-foreground text-sm">Conversión de señales
+                        analógicas a digitales (parte 2) y uso de sensores.</p>
+                </div>
+                <div id="card-8"
+                    class="class-card bg-card p-6 rounded-lg shadow-md hover:shadow-xl cursor-pointer transition-all duration-300 transform hover:-translate-y-1 border border-border hover:border-accent"
+                    data-target="clase-detail-8"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mb-3 text-accent">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="m15.75 15.75 2.489-2.489m0 0a3.375 3.375 0 1 0-4.773-4.773 3.375 3.375 0 0 0 4.774 4.774Z" />
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 18a3.75 3.75 0 0 0 3.75-3.75H8.25A3.75 3.75 0 0 0 12 18Z" />
+                    </svg>
+                    <h3 data-translate-key="card8Title" class="text-xl font-bold text-card-foreground mb-2">8.
+                        Convertidores DA</h3>
+                    <p data-translate-key="card8Desc" class="text-muted-foreground text-sm">Conversión de señales
+                        digitales a analógicas.</p>
+                </div>
+                <div id="card-9"
+                    class="class-card bg-card p-6 rounded-lg shadow-md hover:shadow-xl cursor-pointer transition-all duration-300 transform hover:-translate-y-1 border border-border hover:border-accent"
+                    data-target="clase-detail-9"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mb-3 text-accent">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25v13.5m-7.5-13.5v13.5" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 5.25v13.5m-15-13.5v13.5" />
+                    </svg>
+                    <h3 data-translate-key="card9Title" class="text-xl font-bold text-card-foreground mb-2">9. Control
+                        Secuencial</h3>
+                    <p data-translate-key="card9Desc" class="text-muted-foreground text-sm">Implementación de sistemas
+                        secuenciales con microcontroladores.</p>
+                </div>
+                <div id="card-10"
+                    class="class-card bg-card p-6 rounded-lg shadow-md hover:shadow-xl cursor-pointer transition-all duration-300 transform hover:-translate-y-1 border border-border hover:border-accent"
+                    data-target="clase-detail-10"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mb-3 text-accent">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M6.75 8.25l9.75 7.5-9.75 7.5" />
+                    </svg>
+                    <h3 data-translate-key="card10Title" class="text-xl font-bold text-card-foreground mb-2">10. Filtros
+                        + Audio</h3>
+                    <p data-translate-key="card10Desc" class="text-muted-foreground text-sm">Conceptos de filtrado de
+                        señales y aplicaciones de audio.</p>
+                </div>
+                <div id="card-11"
+                    class="class-card bg-card p-6 rounded-lg shadow-md hover:shadow-xl cursor-pointer transition-all duration-300 transform hover:-translate-y-1 border border-border hover:border-accent"
+                    data-target="clase-detail-11"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mb-3 text-accent">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
+                    </svg>
+                    <h3 data-translate-key="card11Title" class="text-xl font-bold text-card-foreground mb-2">11. VHDL
+                    </h3>
+                    <p data-translate-key="card11Desc" class="text-muted-foreground text-sm">Descripción de hardware con
+                        VHDL.</p>
+                </div>
+                <div id="card-12"
+                    class="class-card bg-card p-6 rounded-lg shadow-md hover:shadow-xl cursor-pointer transition-all duration-300 transform hover:-translate-y-1 border border-border hover:border-accent"
+                    data-target="clase-detail-12"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mb-3 text-accent">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="m21 7.5-2.25-1.313M21 7.5v2.25m0-2.25-2.25 1.313M3 7.5l2.25-1.313M3 7.5l2.25 1.313M3 7.5v2.25m9 3 2.25-1.313M12 12.75l-2.25-1.313M12 12.75V15m0-2.25 2.25 1.313M12 12.75l-2.25 1.313M15 21v-2.25l2.25-1.313M15 21l-2.25-1.313M15 21v-2.25M9 21v-2.25l-2.25-1.313M9 21l2.25-1.313M9 21v-2.25M7.5 7.5h9M7.5 15h9" />
+                    </svg>
+                    <h3 data-translate-key="card12Title" class="text-xl font-bold text-card-foreground mb-2">12. GPUs
+                    </h3>
+                    <p data-translate-key="card12Desc" class="text-muted-foreground text-sm">Aplicaciones y
+                        funcionamiento de las Unidades de Procesamiento Gráfico.</p>
+                </div>
+                <div id="card-examenes"
+                    class="class-card bg-card p-6 rounded-lg shadow-md hover:shadow-xl cursor-pointer transition-all duration-300 transform hover:-translate-y-1 border border-border hover:border-destructive"
+                    data-target="clase-detail-examenes"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                        class="w-8 h-8 mb-3 text-destructive">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c.504 0 1.002-.023 1.49-.067M12 21c-.504 0-1.002-.023-1.49-.067M3.295 14.25A9.004 9.004 0 0 1 12 3c3.51 0 6.565 2.003 8.115 4.819M3.295 14.25a9.004 9.004 0 0 0 8.716 6.747" />
+                    </svg>
+                    <h3 data-translate-key="cardExamsTitle" class="text-xl font-bold text-destructive mb-2">Exámenes
+                    </h3>
+                    <p data-translate-key="cardExamsDesc" class="text-muted-foreground text-sm">Sección dedicada a la
+                        evaluación y práctica.</p>
+                </div>
             </div>
 
             <div id="chat-container" class="mt-12 p-6 rounded-lg shadow-inner bg-muted">
-                <h3 id="chat-section-title" data-translate-key="chatWithGemini" class="text-xl font-semibold mb-4 text-foreground">Chat con Gemini</h3>
-                <div id="chat-history" class="h-80 overflow-y-auto p-4 border border-border rounded-md flex flex-col space-y-4 mb-4 bg-background"></div>
+                <h3 id="chat-section-title" data-translate-key="chatWithGemini"
+                    class="text-xl font-semibold mb-4 text-foreground">Chat con Gemini</h3>
+                <div id="chat-history"
+                    class="h-80 overflow-y-auto p-4 border border-border rounded-md flex flex-col space-y-4 mb-4 bg-background">
+                </div>
                 <div class="flex flex-col sm:flex-row gap-4 items-center">
-                    <input type="text" id="chat-input" data-translate-placeholder-key="chatInputPlaceholder" placeholder="Escribe tu mensaje..." class="flex-grow p-3 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring bg-background text-foreground transition-shadow">
-                    <label id="file-upload-label" for="file-upload" data-translate-key="attachFile" class="cursor-pointer bg-card hover:bg-border text-foreground font-bold py-3 px-4 rounded-md transition duration-300 flex-shrink-0 text-sm">Adjuntar Archivo</label>
+                    <input type="text" id="chat-input" data-translate-placeholder-key="chatInputPlaceholder"
+                        placeholder="Escribe tu mensaje..."
+                        class="flex-grow p-3 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-ring bg-background text-foreground transition-shadow">
+                    <label id="file-upload-label" for="file-upload" data-translate-key="attachFile"
+                        class="cursor-pointer bg-card hover:bg-border text-foreground font-bold py-3 px-4 rounded-md transition duration-300 flex-shrink-0 text-sm">Adjuntar
+                        Archivo</label>
                     <input type="file" id="file-upload" class="hidden" accept="image/*, application/pdf, text/plain">
-                    <button id="send-chat-button" data-translate-key="sendChatButton" class="bg-accent hover:bg-accent/90 text-accent-foreground font-bold py-3 px-6 rounded-md transition duration-300 flex items-center justify-center flex-shrink-0 shadow-md hover:shadow-lg">
+                    <button id="send-chat-button" data-translate-key="sendChatButton"
+                        class="bg-accent hover:bg-accent/90 text-accent-foreground font-bold py-3 px-6 rounded-md transition duration-300 flex items-center justify-center flex-shrink-0 shadow-md hover:shadow-lg">
                         Enviar<span id="chat-spinner" class="loading-spinner hidden"></span>
                     </button>
                 </div>
                 <div class="mt-2 flex items-center">
                     <span id="file-name-display" class="text-sm italic text-muted-foreground"></span>
-                    <button id="clear-file-button" class="hidden text-destructive hover:text-destructive/80 font-bold text-xs ml-2 p-1 leading-none">X</button>
+                    <button id="clear-file-button"
+                        class="hidden text-destructive hover:text-destructive/80 font-bold text-xs ml-2 p-1 leading-none">X</button>
                 </div>
             </div>
         </section>
-        
+
         <div id="class-detail-sections-container">
-            <section id="clase-detail-0" class="class-detail-section bg-card p-6 rounded-lg shadow-md mb-8">
-                <button data-translate-key="backToMenuButton" class="back-button bg-muted hover:bg-border text-muted-foreground font-bold py-2 px-4 rounded-full mb-6 transition duration-300">← Volver al Menú Principal</button>
-                <h2 data-translate-key="card0Title" class="text-3xl font-bold text-card-foreground mb-6">0. Introducción al Procesado de Señales Digitales</h2>
+            <section id="clase-detail-0"
+                class="class-detail-section section-hidden bg-card p-6 rounded-lg shadow-md mb-8">
+                <button data-translate-key="backToMenuButton"
+                    class="back-button bg-muted hover:bg-border text-muted-foreground font-bold py-2 px-4 rounded-full mb-6 transition duration-300">←
+                    Volver al Menú Principal</button>
+                <h2 data-translate-key="card0Title" class="text-3xl font-bold text-card-foreground mb-6">0. Introducción
+                    al Procesado de Señales Digitales</h2>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div>
-                        <h3 data-translate-key="googlePresentation" class="text-2xl font-semibold text-card-foreground mb-3">Presentación de Google</h3>
-                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-0" data-src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
-                        <button onclick="makeFullScreen('googleSlides-0')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                        <h3 data-translate-key="googlePresentation"
+                            class="text-2xl font-semibold text-card-foreground mb-3">Presentación de Google</h3>
+                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-0"
+                                data-src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000"
+                                frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
+                        <button onclick="makeFullScreen('googleSlides-0')" data-translate-key="fullscreenButton"
+                            class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                     <div>
-                        <h3 data-translate-key="summarySignalsPDF" class="text-2xl font-semibold text-card-foreground mb-3">Resumen Señales (PDF)</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-0" data-src="https://docs.google.com/viewer?url=https://www.example.com/clase_0_resumen_placeholder.pdf&embedded=true" title="PDF Resumen" frameborder="0"></iframe></div>
-                        <button onclick="makeFullScreen('iframe-summary-0')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                        <h3 data-translate-key="summarySignalsPDF"
+                            class="text-2xl font-semibold text-card-foreground mb-3">Resumen Señales (PDF)</h3>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-0"
+                                data-src="https://docs.google.com/viewer?url=https://www.example.com/clase_0_resumen_placeholder.pdf&embedded=true"
+                                title="PDF Resumen" frameborder="0"></iframe></div>
+                        <button onclick="makeFullScreen('iframe-summary-0')" data-translate-key="fullscreenButton"
+                            class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                     <div>
-                        <h3 data-translate-key="theorySignals1" class="text-2xl font-semibold text-card-foreground mb-3">Teoría 1</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-0" data-src="https://drive.google.com/file/d/1xEramV2NGvSW09FH6fCzxZwjhfcvYHNO/preview" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
-                        <button onclick="makeFullScreen('iframe1-0')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                        <h3 data-translate-key="theorySignals1"
+                            class="text-2xl font-semibold text-card-foreground mb-3">Teoría 1</h3>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-0"
+                                data-src="https://drive.google.com/file/d/1xEramV2NGvSW09FH6fCzxZwjhfcvYHNO/preview"
+                                width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <button onclick="makeFullScreen('iframe1-0')" data-translate-key="fullscreenButton"
+                            class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                     <div>
-                        <h3 data-translate-key="theorySignals2" class="text-2xl font-semibold text-card-foreground mb-3">Teoria 2</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-0" data-src="https://drive.google.com/file/d/1lhxbqns3hu2z95N1AagwBBwW6IbbvR4Z/preview" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
-                        <button onclick="makeFullScreen('iframe2-0')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                        <h3 data-translate-key="theorySignals2"
+                            class="text-2xl font-semibold text-card-foreground mb-3">Teoria 2</h3>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-0"
+                                data-src="https://drive.google.com/file/d/1lhxbqns3hu2z95N1AagwBBwW6IbbvR4Z/preview"
+                                width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <button onclick="makeFullScreen('iframe2-0')" data-translate-key="fullscreenButton"
+                            class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                 </div>
             </section>
 
-
-            
-            <section id="clase-detail-1" class="class-detail-section bg-card p-6 rounded-lg shadow-md mb-8">
-                <button data-translate-key="backToMenuButton" class="back-button bg-muted hover:bg-border text-muted-foreground font-bold py-2 px-4 rounded-full mb-6 transition duration-300">← Volver al Menú Principal</button>
-                <h2 data-translate-key="card1Title" class="text-3xl font-bold text-card-foreground mb-6">1. Puertos y Retardos</h2>
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <div class="lg:col-span-2">
-                        <h3 data-translate-key="videoExplicativo" class="text-2xl font-semibold text-card-foreground mb-3 text-center">Video Explicativo</h3>
-                        <div class="max-w-4xl mx-auto">
-                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-1" data-src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player" allowfullscreen></iframe></div>
-                             <button onclick="makeFullScreen('video-1')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
-                        </div>
-                    </div>
-                     <div>
-                        <h3 data-translate-key="googlePresentation" class="text-2xl font-semibold text-card-foreground mb-3">Presentación de Google</h3>
-                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-1" data-src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
-                        <button onclick="makeFullScreen('googleSlides-1')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
-                    </div>
-                    <div>
-                        <h3 data-translate-key="summaryPDF" class="text-2xl font-semibold text-card-foreground mb-3">Resumen</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-1" data-src="" title="PDF Resumen" frameborder="0"></iframe></div>
-                        <button onclick="makeFullScreen('iframe-summary-1')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
-                    </div>
-                    <div>
-                        <h3 data-translate-key="theory1" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-1" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
-                        <button onclick="makeFullScreen('iframe1-1')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
-                    </div>
-                    <div>
-                        <h3 data-translate-key="theory2" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-1" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
-                        <button onclick="makeFullScreen('iframe2-1')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
-                    </div>
-                </div>
-            </section>
-
-            
-
-            
-            <section id="clase-detail-2" class="class-detail-section bg-card p-6 rounded-lg shadow-md mb-8">
-                <button data-translate-key="backToMenuButton" class="back-button bg-muted hover:bg-border text-muted-foreground font-bold py-2 px-4 rounded-full mb-6 transition duration-300">← Volver al Menú Principal</button>
-                <h2 data-translate-key="card2Title" class="text-3xl font-bold text-card-foreground mb-6">2. Displays de 7 Segmentos y Teoría de Señal</h2>
+            <section id="clase-detail-1"
+                class="class-detail-section section-hidden bg-card p-6 rounded-lg shadow-md mb-8">
+                <button data-translate-key="backToMenuButton"
+                    class="back-button bg-muted hover:bg-border text-muted-foreground font-bold py-2 px-4 rounded-full mb-6 transition duration-300">←
+                    Volver al Menú Principal</button>
+                <h2 data-translate-key="card1Title" class="text-3xl font-bold text-card-foreground mb-6">1. Puertos y
+                    Retardos</h2>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div class="lg:col-span-2">
-                        <h3 data-translate-key="videoExplicativo" class="text-2xl font-semibold text-card-foreground mb-3 text-center">Video Explicativo</h3>
+                        <h3 data-translate-key="videoExplicativo"
+                            class="text-2xl font-semibold text-card-foreground mb-3 text-center">Video Explicativo</h3>
                         <div class="max-w-4xl mx-auto">
-                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-2" data-src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player" allowfullscreen></iframe></div>
-                             <button onclick="makeFullScreen('video-2')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-1"
+                                    data-src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player"
+                                    allowfullscreen></iframe></div>
+                            <button onclick="makeFullScreen('video-1')" data-translate-key="fullscreenButton"
+                                class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                                completa</button>
                         </div>
                     </div>
-                     <div>
-                        <h3 data-translate-key="googlePresentation" class="text-2xl font-semibold text-card-foreground mb-3">Presentación de Google</h3>
-                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-2" data-src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
-                        <button onclick="makeFullScreen('googleSlides-2')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                    <div>
+                        <h3 data-translate-key="googlePresentation"
+                            class="text-2xl font-semibold text-card-foreground mb-3">Presentación de Google</h3>
+                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-1"
+                                data-src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000"
+                                frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
+                        <button onclick="makeFullScreen('googleSlides-1')" data-translate-key="fullscreenButton"
+                            class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                     <div>
-                        <h3 data-translate-key="summaryPDF" class="text-2xl font-semibold text-card-foreground mb-3">Resumen</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-2" data-src="" title="PDF Resumen" frameborder="0"></iframe></div>
-                        <button onclick="makeFullScreen('iframe-summary-2')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                        <h3 data-translate-key="summaryPDF" class="text-2xl font-semibold text-card-foreground mb-3">
+                            Resumen</h3>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-1"
+                                data-src="" title="PDF Resumen" frameborder="0"></iframe></div>
+                        <button onclick="makeFullScreen('iframe-summary-1')" data-translate-key="fullscreenButton"
+                            class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                     <div>
-                        <h3 data-translate-key="theory1" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-2" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
-                        <button onclick="makeFullScreen('iframe1-2')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                        <h3 data-translate-key="theory1" class="text-2xl font-semibold text-card-foreground mb-3">Teoría
+                            Práctica</h3>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-1" data-src=""
+                                width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <button onclick="makeFullScreen('iframe1-1')" data-translate-key="fullscreenButton"
+                            class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                     <div>
-                        <h3 data-translate-key="theory2" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-2" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
-                        <button onclick="makeFullScreen('iframe2-2')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                        <h3 data-translate-key="theory2" class="text-2xl font-semibold text-card-foreground mb-3">Teoría
+                            Práctica</h3>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-1" data-src=""
+                                width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <button onclick="makeFullScreen('iframe2-1')" data-translate-key="fullscreenButton"
+                            class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                 </div>
             </section>
 
-            
-
-            
-            <section id="clase-detail-3" class="class-detail-section bg-card p-6 rounded-lg shadow-md mb-8">
-                <button data-translate-key="backToMenuButton" class="back-button bg-muted hover:bg-border text-muted-foreground font-bold py-2 px-4 rounded-full mb-6 transition duration-300">← Volver al Menú Principal</button>
-                <h2 data-translate-key="card3Title" class="text-3xl font-bold text-card-foreground mb-6">3. Interrupciones INTx y LCD</h2>
+            <section id="clase-detail-2"
+                class="class-detail-section section-hidden bg-card p-6 rounded-lg shadow-md mb-8">
+                <button data-translate-key="backToMenuButton"
+                    class="back-button bg-muted hover:bg-border text-muted-foreground font-bold py-2 px-4 rounded-full mb-6 transition duration-300">←
+                    Volver al Menú Principal</button>
+                <h2 data-translate-key="card2Title" class="text-3xl font-bold text-card-foreground mb-6">2. Displays de
+                    7 Segmentos y Teoría de Señal</h2>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div class="lg:col-span-2">
-                        <h3 data-translate-key="videoExplicativo" class="text-2xl font-semibold text-card-foreground mb-3 text-center">Video Explicativo</h3>
+                        <h3 data-translate-key="videoExplicativo"
+                            class="text-2xl font-semibold text-card-foreground mb-3 text-center">Video Explicativo</h3>
                         <div class="max-w-4xl mx-auto">
-                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-3" data-src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player" allowfullscreen></iframe></div>
-                             <button onclick="makeFullScreen('video-3')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-2"
+                                    data-src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player"
+                                    allowfullscreen></iframe></div>
+                            <button onclick="makeFullScreen('video-2')" data-translate-key="fullscreenButton"
+                                class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                                completa</button>
                         </div>
                     </div>
-                     <div>
-                        <h3 data-translate-key="googlePresentation" class="text-2xl font-semibold text-card-foreground mb-3">Presentación de Google</h3>
-                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-3" data-src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
-                        <button onclick="makeFullScreen('googleSlides-3')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                    <div>
+                        <h3 data-translate-key="googlePresentation"
+                            class="text-2xl font-semibold text-card-foreground mb-3">Presentación de Google</h3>
+                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-2"
+                                data-src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000"
+                                frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
+                        <button onclick="makeFullScreen('googleSlides-2')" data-translate-key="fullscreenButton"
+                            class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                     <div>
-                        <h3 data-translate-key="summaryPDF" class="text-2xl font-semibold text-card-foreground mb-3">Resumen</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-3" data-src="" title="PDF Resumen" frameborder="0"></iframe></div>
-                        <button onclick="makeFullScreen('iframe-summary-3')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                        <h3 data-translate-key="summaryPDF" class="text-2xl font-semibold text-card-foreground mb-3">
+                            Resumen</h3>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-2"
+                                data-src="" title="PDF Resumen" frameborder="0"></iframe></div>
+                        <button onclick="makeFullScreen('iframe-summary-2')" data-translate-key="fullscreenButton"
+                            class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                     <div>
-                        <h3 data-translate-key="theory1" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-3" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
-                        <button onclick="makeFullScreen('iframe1-3')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                        <h3 data-translate-key="theory1" class="text-2xl font-semibold text-card-foreground mb-3">Teoría
+                            Práctica</h3>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-2" data-src=""
+                                width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <button onclick="makeFullScreen('iframe1-2')" data-translate-key="fullscreenButton"
+                            class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                     <div>
-                        <h3 data-translate-key="theory2" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-3" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
-                        <button onclick="makeFullScreen('iframe2-3')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                        <h3 data-translate-key="theory2" class="text-2xl font-semibold text-card-foreground mb-3">Teoría
+                            Práctica</h3>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-2" data-src=""
+                                width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <button onclick="makeFullScreen('iframe2-2')" data-translate-key="fullscreenButton"
+                            class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                 </div>
             </section>
-            
-            
 
-            
-            <section id="clase-detail-4" class="class-detail-section bg-card p-6 rounded-lg shadow-md mb-8">
-                <button data-translate-key="backToMenuButton" class="back-button bg-muted hover:bg-border text-muted-foreground font-bold py-2 px-4 rounded-full mb-6 transition duration-300">← Volver al Menú Principal</button>
-                <h2 data-translate-key="card4Title" class="text-3xl font-bold text-card-foreground mb-6">4. Teclado e Interrupción RB</h2>
+            <section id="clase-detail-3"
+                class="class-detail-section section-hidden bg-card p-6 rounded-lg shadow-md mb-8">
+                <button data-translate-key="backToMenuButton"
+                    class="back-button bg-muted hover:bg-border text-muted-foreground font-bold py-2 px-4 rounded-full mb-6 transition duration-300">←
+                    Volver al Menú Principal</button>
+                <h2 data-translate-key="card3Title" class="text-3xl font-bold text-card-foreground mb-6">3.
+                    Interrupciones INTx y LCD</h2>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div class="lg:col-span-2">
-                        <h3 data-translate-key="videoExplicativo" class="text-2xl font-semibold text-card-foreground mb-3 text-center">Video Explicativo</h3>
+                        <h3 data-translate-key="videoExplicativo"
+                            class="text-2xl font-semibold text-card-foreground mb-3 text-center">Video Explicativo</h3>
                         <div class="max-w-4xl mx-auto">
-                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-4" data-src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player" allowfullscreen></iframe></div>
-                             <button onclick="makeFullScreen('video-4')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-3"
+                                    data-src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player"
+                                    allowfullscreen></iframe></div>
+                            <button onclick="makeFullScreen('video-3')" data-translate-key="fullscreenButton"
+                                class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                                completa</button>
                         </div>
                     </div>
-                     <div>
-                        <h3 data-translate-key="googlePresentation" class="text-2xl font-semibold text-card-foreground mb-3">Presentación de Google</h3>
-                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-4" data-src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
-                        <button onclick="makeFullScreen('googleSlides-4')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                    <div>
+                        <h3 data-translate-key="googlePresentation"
+                            class="text-2xl font-semibold text-card-foreground mb-3">Presentación de Google</h3>
+                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-3"
+                                data-src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000"
+                                frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
+                        <button onclick="makeFullScreen('googleSlides-3')" data-translate-key="fullscreenButton"
+                            class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                     <div>
-                        <h3 data-translate-key="summaryPDF" class="text-2xl font-semibold text-card-foreground mb-3">Resumen</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-4" data-src="" title="PDF Resumen" frameborder="0"></iframe></div>
-                        <button onclick="makeFullScreen('iframe-summary-4')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                        <h3 data-translate-key="summaryPDF" class="text-2xl font-semibold text-card-foreground mb-3">
+                            Resumen</h3>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-3"
+                                data-src="" title="PDF Resumen" frameborder="0"></iframe></div>
+                        <button onclick="makeFullScreen('iframe-summary-3')" data-translate-key="fullscreenButton"
+                            class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                     <div>
-                        <h3 data-translate-key="theory1" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-4" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
-                        <button onclick="makeFullScreen('iframe1-4')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                        <h3 data-translate-key="theory1" class="text-2xl font-semibold text-card-foreground mb-3">Teoría
+                            Práctica</h3>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-3" data-src=""
+                                width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <button onclick="makeFullScreen('iframe1-3')" data-translate-key="fullscreenButton"
+                            class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                     <div>
-                        <h3 data-translate-key="theory2" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-4" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
-                        <button onclick="makeFullScreen('iframe2-4')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                        <h3 data-translate-key="theory2" class="text-2xl font-semibold text-card-foreground mb-3">Teoría
+                            Práctica</h3>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-3" data-src=""
+                                width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <button onclick="makeFullScreen('iframe2-3')" data-translate-key="fullscreenButton"
+                            class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                 </div>
             </section>
-            
-            
 
-            
-            <section id="clase-detail-5" class="class-detail-section bg-card p-6 rounded-lg shadow-md mb-8">
-                <button data-translate-key="backToMenuButton" class="back-button bg-muted hover:bg-border text-muted-foreground font-bold py-2 px-4 rounded-full mb-6 transition duration-300">← Volver al Menú Principal</button>
-                <h2 data-translate-key="card5Title" class="text-3xl font-bold text-card-foreground mb-6">5. Temporizaciones</h2>
+            <section id="clase-detail-4"
+                class="class-detail-section section-hidden bg-card p-6 rounded-lg shadow-md mb-8">
+                <button data-translate-key="backToMenuButton"
+                    class="back-button bg-muted hover:bg-border text-muted-foreground font-bold py-2 px-4 rounded-full mb-6 transition duration-300">←
+                    Volver al Menú Principal</button>
+                <h2 data-translate-key="card4Title" class="text-3xl font-bold text-card-foreground mb-6">4. Teclado e
+                    Interrupción RB</h2>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div class="lg:col-span-2">
-                        <h3 data-translate-key="videoExplicativo" class="text-2xl font-semibold text-card-foreground mb-3 text-center">Video Explicativo</h3>
+                        <h3 data-translate-key="videoExplicativo"
+                            class="text-2xl font-semibold text-card-foreground mb-3 text-center">Video Explicativo</h3>
                         <div class="max-w-4xl mx-auto">
-                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-5" data-src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player" allowfullscreen></iframe></div>
-                             <button onclick="makeFullScreen('video-5')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-4"
+                                    data-src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player"
+                                    allowfullscreen></iframe></div>
+                            <button onclick="makeFullScreen('video-4')" data-translate-key="fullscreenButton"
+                                class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                                completa</button>
                         </div>
                     </div>
-                     <div>
-                        <h3 data-translate-key="googlePresentation" class="text-2xl font-semibold text-card-foreground mb-3">Presentación de Google</h3>
-                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-5" data-src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
-                        <button onclick="makeFullScreen('googleSlides-5')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                    <div>
+                        <h3 data-translate-key="googlePresentation"
+                            class="text-2xl font-semibold text-card-foreground mb-3">Presentación de Google</h3>
+                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-4"
+                                data-src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000"
+                                frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
+                        <button onclick="makeFullScreen('googleSlides-4')" data-translate-key="fullscreenButton"
+                            class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                     <div>
-                        <h3 data-translate-key="summaryPDF" class="text-2xl font-semibold text-card-foreground mb-3">Resumen</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-5" data-src="" title="PDF Resumen" frameborder="0"></iframe></div>
-                        <button onclick="makeFullScreen('iframe-summary-5')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                        <h3 data-translate-key="summaryPDF" class="text-2xl font-semibold text-card-foreground mb-3">
+                            Resumen</h3>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-4"
+                                data-src="" title="PDF Resumen" frameborder="0"></iframe></div>
+                        <button onclick="makeFullScreen('iframe-summary-4')" data-translate-key="fullscreenButton"
+                            class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                     <div>
-                        <h3 data-translate-key="theory1" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-5" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
-                        <button onclick="makeFullScreen('iframe1-5')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                        <h3 data-translate-key="theory1" class="text-2xl font-semibold text-card-foreground mb-3">Teoría
+                            Práctica</h3>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-4" data-src=""
+                                width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <button onclick="makeFullScreen('iframe1-4')" data-translate-key="fullscreenButton"
+                            class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                     <div>
-                        <h3 data-translate-key="theory2" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-5" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
-                        <button onclick="makeFullScreen('iframe2-5')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                        <h3 data-translate-key="theory2" class="text-2xl font-semibold text-card-foreground mb-3">Teoría
+                            Práctica</h3>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-4" data-src=""
+                                width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <button onclick="makeFullScreen('iframe2-4')" data-translate-key="fullscreenButton"
+                            class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                 </div>
             </section>
-            
-            
 
-            
-            <section id="clase-detail-6" class="class-detail-section bg-card p-6 rounded-lg shadow-md mb-8">
-                <button data-translate-key="backToMenuButton" class="back-button bg-muted hover:bg-border text-muted-foreground font-bold py-2 px-4 rounded-full mb-6 transition duration-300">← Volver al Menú Principal</button>
-                <h2 data-translate-key="card6Title" class="text-3xl font-bold text-card-foreground mb-6">6. Convertidores AD I</h2>
+            <section id="clase-detail-5"
+                class="class-detail-section section-hidden bg-card p-6 rounded-lg shadow-md mb-8">
+                <button data-translate-key="backToMenuButton"
+                    class="back-button bg-muted hover:bg-border text-muted-foreground font-bold py-2 px-4 rounded-full mb-6 transition duration-300">←
+                    Volver al Menú Principal</button>
+                <h2 data-translate-key="card5Title" class="text-3xl font-bold text-card-foreground mb-6">5.
+                    Temporizaciones</h2>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div class="lg:col-span-2">
-                        <h3 data-translate-key="videoExplicativo" class="text-2xl font-semibold text-card-foreground mb-3 text-center">Video Explicativo</h3>
+                        <h3 data-translate-key="videoExplicativo"
+                            class="text-2xl font-semibold text-card-foreground mb-3 text-center">Video Explicativo</h3>
                         <div class="max-w-4xl mx-auto">
-                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-6" data-src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player" allowfullscreen></iframe></div>
-                             <button onclick="makeFullScreen('video-6')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-5"
+                                    data-src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player"
+                                    allowfullscreen></iframe></div>
+                            <button onclick="makeFullScreen('video-5')" data-translate-key="fullscreenButton"
+                                class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                                completa</button>
                         </div>
                     </div>
-                     <div>
-                        <h3 data-translate-key="googlePresentation" class="text-2xl font-semibold text-card-foreground mb-3">Presentación de Google</h3>
-                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-6" data-src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
-                        <button onclick="makeFullScreen('googleSlides-6')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                    <div>
+                        <h3 data-translate-key="googlePresentation"
+                            class="text-2xl font-semibold text-card-foreground mb-3">Presentación de Google</h3>
+                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-5"
+                                data-src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000"
+                                frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
+                        <button onclick="makeFullScreen('googleSlides-5')" data-translate-key="fullscreenButton"
+                            class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                     <div>
-                        <h3 data-translate-key="summaryPDF" class="text-2xl font-semibold text-card-foreground mb-3">Resumen</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-6" data-src="" title="PDF Resumen" frameborder="0"></iframe></div>
-                        <button onclick="makeFullScreen('iframe-summary-6')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                        <h3 data-translate-key="summaryPDF" class="text-2xl font-semibold text-card-foreground mb-3">
+                            Resumen</h3>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-5"
+                                data-src="" title="PDF Resumen" frameborder="0"></iframe></div>
+                        <button onclick="makeFullScreen('iframe-summary-5')" data-translate-key="fullscreenButton"
+                            class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                     <div>
-                        <h3 data-translate-key="theory1" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-6" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
-                        <button onclick="makeFullScreen('iframe1-6')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                        <h3 data-translate-key="theory1" class="text-2xl font-semibold text-card-foreground mb-3">Teoría
+                            Práctica</h3>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-5" data-src=""
+                                width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <button onclick="makeFullScreen('iframe1-5')" data-translate-key="fullscreenButton"
+                            class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                     <div>
-                        <h3 data-translate-key="theory2" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-6" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
-                        <button onclick="makeFullScreen('iframe2-6')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                        <h3 data-translate-key="theory2" class="text-2xl font-semibold text-card-foreground mb-3">Teoría
+                            Práctica</h3>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-5" data-src=""
+                                width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <button onclick="makeFullScreen('iframe2-5')" data-translate-key="fullscreenButton"
+                            class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                 </div>
             </section>
-            
-            
 
-            
-            <section id="clase-detail-7" class="class-detail-section bg-card p-6 rounded-lg shadow-md mb-8">
-                <button data-translate-key="backToMenuButton" class="back-button bg-muted hover:bg-border text-muted-foreground font-bold py-2 px-4 rounded-full mb-6 transition duration-300">← Volver al Menú Principal</button>
-                <h2 data-translate-key="card7Title" class="text-3xl font-bold text-card-foreground mb-6">7. Convertidores AD II y Sensores</h2>
+            <section id="clase-detail-6"
+                class="class-detail-section section-hidden bg-card p-6 rounded-lg shadow-md mb-8">
+                <button data-translate-key="backToMenuButton"
+                    class="back-button bg-muted hover:bg-border text-muted-foreground font-bold py-2 px-4 rounded-full mb-6 transition duration-300">←
+                    Volver al Menú Principal</button>
+                <h2 data-translate-key="card6Title" class="text-3xl font-bold text-card-foreground mb-6">6.
+                    Convertidores AD I</h2>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div class="lg:col-span-2">
-                        <h3 data-translate-key="videoExplicativo" class="text-2xl font-semibold text-card-foreground mb-3 text-center">Video Explicativo</h3>
+                        <h3 data-translate-key="videoExplicativo"
+                            class="text-2xl font-semibold text-card-foreground mb-3 text-center">Video Explicativo</h3>
                         <div class="max-w-4xl mx-auto">
-                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-7" data-src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player" allowfullscreen></iframe></div>
-                             <button onclick="makeFullScreen('video-7')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-6"
+                                    data-src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player"
+                                    allowfullscreen></iframe></div>
+                            <button onclick="makeFullScreen('video-6')" data-translate-key="fullscreenButton"
+                                class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                                completa</button>
                         </div>
                     </div>
-                     <div>
-                        <h3 data-translate-key="googlePresentation" class="text-2xl font-semibold text-card-foreground mb-3">Presentación de Google</h3>
-                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-7" data-src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
-                        <button onclick="makeFullScreen('googleSlides-7')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                    <div>
+                        <h3 data-translate-key="googlePresentation"
+                            class="text-2xl font-semibold text-card-foreground mb-3">Presentación de Google</h3>
+                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-6"
+                                data-src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000"
+                                frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
+                        <button onclick="makeFullScreen('googleSlides-6')" data-translate-key="fullscreenButton"
+                            class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                     <div>
-                        <h3 data-translate-key="summaryPDF" class="text-2xl font-semibold text-card-foreground mb-3">Resumen</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-7" data-src="" title="PDF Resumen" frameborder="0"></iframe></div>
-                        <button onclick="makeFullScreen('iframe-summary-7')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                        <h3 data-translate-key="summaryPDF" class="text-2xl font-semibold text-card-foreground mb-3">
+                            Resumen</h3>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-6"
+                                data-src="" title="PDF Resumen" frameborder="0"></iframe></div>
+                        <button onclick="makeFullScreen('iframe-summary-6')" data-translate-key="fullscreenButton"
+                            class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                     <div>
-                        <h3 data-translate-key="theory1" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-7" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
-                        <button onclick="makeFullScreen('iframe1-7')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                        <h3 data-translate-key="theory1" class="text-2xl font-semibold text-card-foreground mb-3">Teoría
+                            Práctica</h3>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-6" data-src=""
+                                width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <button onclick="makeFullScreen('iframe1-6')" data-translate-key="fullscreenButton"
+                            class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                     <div>
-                        <h3 data-translate-key="theory2" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-7" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
-                        <button onclick="makeFullScreen('iframe2-7')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                        <h3 data-translate-key="theory2" class="text-2xl font-semibold text-card-foreground mb-3">Teoría
+                            Práctica</h3>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-6" data-src=""
+                                width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <button onclick="makeFullScreen('iframe2-6')" data-translate-key="fullscreenButton"
+                            class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                 </div>
             </section>
-            
-            
 
-            
-            <section id="clase-detail-8" class="class-detail-section bg-card p-6 rounded-lg shadow-md mb-8">
-                <button data-translate-key="backToMenuButton" class="back-button bg-muted hover:bg-border text-muted-foreground font-bold py-2 px-4 rounded-full mb-6 transition duration-300">← Volver al Menú Principal</button>
-                <h2 data-translate-key="card8Title" class="text-3xl font-bold text-card-foreground mb-6">8. Convertidores DA</h2>
+            <section id="clase-detail-7"
+                class="class-detail-section section-hidden bg-card p-6 rounded-lg shadow-md mb-8">
+                <button data-translate-key="backToMenuButton"
+                    class="back-button bg-muted hover:bg-border text-muted-foreground font-bold py-2 px-4 rounded-full mb-6 transition duration-300">←
+                    Volver al Menú Principal</button>
+                <h2 data-translate-key="card7Title" class="text-3xl font-bold text-card-foreground mb-6">7.
+                    Convertidores AD II y Sensores</h2>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div class="lg:col-span-2">
-                        <h3 data-translate-key="videoExplicativo" class="text-2xl font-semibold text-card-foreground mb-3 text-center">Video Explicativo</h3>
+                        <h3 data-translate-key="videoExplicativo"
+                            class="text-2xl font-semibold text-card-foreground mb-3 text-center">Video Explicativo</h3>
                         <div class="max-w-4xl mx-auto">
-                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-8" data-src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player" allowfullscreen></iframe></div>
-                             <button onclick="makeFullScreen('video-8')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-7"
+                                    data-src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player"
+                                    allowfullscreen></iframe></div>
+                            <button onclick="makeFullScreen('video-7')" data-translate-key="fullscreenButton"
+                                class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                                completa</button>
                         </div>
                     </div>
-                     <div>
-                        <h3 data-translate-key="googlePresentation" class="text-2xl font-semibold text-card-foreground mb-3">Presentación de Google</h3>
-                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-8" data-src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
-                        <button onclick="makeFullScreen('googleSlides-8')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                    <div>
+                        <h3 data-translate-key="googlePresentation"
+                            class="text-2xl font-semibold text-card-foreground mb-3">Presentación de Google</h3>
+                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-7"
+                                data-src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000"
+                                frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
+                        <button onclick="makeFullScreen('googleSlides-7')" data-translate-key="fullscreenButton"
+                            class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                     <div>
-                        <h3 data-translate-key="summaryPDF" class="text-2xl font-semibold text-card-foreground mb-3">Resumen</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-8" data-src="" title="PDF Resumen" frameborder="0"></iframe></div>
-                        <button onclick="makeFullScreen('iframe-summary-8')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                        <h3 data-translate-key="summaryPDF" class="text-2xl font-semibold text-card-foreground mb-3">
+                            Resumen</h3>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-7"
+                                data-src="" title="PDF Resumen" frameborder="0"></iframe></div>
+                        <button onclick="makeFullScreen('iframe-summary-7')" data-translate-key="fullscreenButton"
+                            class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                     <div>
-                        <h3 data-translate-key="theory1" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-8" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
-                        <button onclick="makeFullScreen('iframe1-8')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                        <h3 data-translate-key="theory1" class="text-2xl font-semibold text-card-foreground mb-3">Teoría
+                            Práctica</h3>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-7" data-src=""
+                                width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <button onclick="makeFullScreen('iframe1-7')" data-translate-key="fullscreenButton"
+                            class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                     <div>
-                        <h3 data-translate-key="theory2" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-8" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
-                        <button onclick="makeFullScreen('iframe2-8')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                        <h3 data-translate-key="theory2" class="text-2xl font-semibold text-card-foreground mb-3">Teoría
+                            Práctica</h3>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-7" data-src=""
+                                width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <button onclick="makeFullScreen('iframe2-7')" data-translate-key="fullscreenButton"
+                            class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                 </div>
             </section>
-            
-            
 
-            
-            <section id="clase-detail-9" class="class-detail-section bg-card p-6 rounded-lg shadow-md mb-8">
-                <button data-translate-key="backToMenuButton" class="back-button bg-muted hover:bg-border text-muted-foreground font-bold py-2 px-4 rounded-full mb-6 transition duration-300">← Volver al Menú Principal</button>
-                <h2 data-translate-key="card9Title" class="text-3xl font-bold text-card-foreground mb-6">9. Control Secuencial</h2>
+            <section id="clase-detail-8"
+                class="class-detail-section section-hidden bg-card p-6 rounded-lg shadow-md mb-8">
+                <button data-translate-key="backToMenuButton"
+                    class="back-button bg-muted hover:bg-border text-muted-foreground font-bold py-2 px-4 rounded-full mb-6 transition duration-300">←
+                    Volver al Menú Principal</button>
+                <h2 data-translate-key="card8Title" class="text-3xl font-bold text-card-foreground mb-6">8.
+                    Convertidores DA</h2>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div class="lg:col-span-2">
-                        <h3 data-translate-key="videoExplicativo" class="text-2xl font-semibold text-card-foreground mb-3 text-center">Video Explicativo</h3>
+                        <h3 data-translate-key="videoExplicativo"
+                            class="text-2xl font-semibold text-card-foreground mb-3 text-center">Video Explicativo</h3>
                         <div class="max-w-4xl mx-auto">
-                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-9" data-src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player" allowfullscreen></iframe></div>
-                             <button onclick="makeFullScreen('video-9')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-8"
+                                    data-src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player"
+                                    allowfullscreen></iframe></div>
+                            <button onclick="makeFullScreen('video-8')" data-translate-key="fullscreenButton"
+                                class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                                completa</button>
                         </div>
                     </div>
-                     <div>
-                        <h3 data-translate-key="googlePresentation" class="text-2xl font-semibold text-card-foreground mb-3">Presentación de Google</h3>
-                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-9" data-src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
-                        <button onclick="makeFullScreen('googleSlides-9')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                    <div>
+                        <h3 data-translate-key="googlePresentation"
+                            class="text-2xl font-semibold text-card-foreground mb-3">Presentación de Google</h3>
+                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-8"
+                                data-src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000"
+                                frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
+                        <button onclick="makeFullScreen('googleSlides-8')" data-translate-key="fullscreenButton"
+                            class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                     <div>
-                        <h3 data-translate-key="summaryPDF" class="text-2xl font-semibold text-card-foreground mb-3">Resumen</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-9" data-src="" title="PDF Resumen" frameborder="0"></iframe></div>
-                        <button onclick="makeFullScreen('iframe-summary-9')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                        <h3 data-translate-key="summaryPDF" class="text-2xl font-semibold text-card-foreground mb-3">
+                            Resumen</h3>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-8"
+                                data-src="" title="PDF Resumen" frameborder="0"></iframe></div>
+                        <button onclick="makeFullScreen('iframe-summary-8')" data-translate-key="fullscreenButton"
+                            class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                     <div>
-                        <h3 data-translate-key="theory1" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-9" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
-                        <button onclick="makeFullScreen('iframe1-9')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                        <h3 data-translate-key="theory1" class="text-2xl font-semibold text-card-foreground mb-3">Teoría
+                            Práctica</h3>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-8" data-src=""
+                                width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <button onclick="makeFullScreen('iframe1-8')" data-translate-key="fullscreenButton"
+                            class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                     <div>
-                        <h3 data-translate-key="theory2" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-9" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
-                        <button onclick="makeFullScreen('iframe2-9')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                        <h3 data-translate-key="theory2" class="text-2xl font-semibold text-card-foreground mb-3">Teoría
+                            Práctica</h3>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-8" data-src=""
+                                width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <button onclick="makeFullScreen('iframe2-8')" data-translate-key="fullscreenButton"
+                            class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                 </div>
             </section>
-            
-            
 
-            
-            <section id="clase-detail-10" class="class-detail-section bg-card p-6 rounded-lg shadow-md mb-8">
-                <button data-translate-key="backToMenuButton" class="back-button bg-muted hover:bg-border text-muted-foreground font-bold py-2 px-4 rounded-full mb-6 transition duration-300">← Volver al Menú Principal</button>
-                <h2 data-translate-key="card10Title" class="text-3xl font-bold text-card-foreground mb-6">10. Filtros + Audio</h2>
+            <section id="clase-detail-9"
+                class="class-detail-section section-hidden bg-card p-6 rounded-lg shadow-md mb-8">
+                <button data-translate-key="backToMenuButton"
+                    class="back-button bg-muted hover:bg-border text-muted-foreground font-bold py-2 px-4 rounded-full mb-6 transition duration-300">←
+                    Volver al Menú Principal</button>
+                <h2 data-translate-key="card9Title" class="text-3xl font-bold text-card-foreground mb-6">9. Control
+                    Secuencial</h2>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div class="lg:col-span-2">
-                        <h3 data-translate-key="videoExplicativo" class="text-2xl font-semibold text-card-foreground mb-3 text-center">Video Explicativo</h3>
+                        <h3 data-translate-key="videoExplicativo"
+                            class="text-2xl font-semibold text-card-foreground mb-3 text-center">Video Explicativo</h3>
                         <div class="max-w-4xl mx-auto">
-                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-10" data-src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player" allowfullscreen></iframe></div>
-                             <button onclick="makeFullScreen('video-10')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-9"
+                                    data-src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player"
+                                    allowfullscreen></iframe></div>
+                            <button onclick="makeFullScreen('video-9')" data-translate-key="fullscreenButton"
+                                class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                                completa</button>
                         </div>
                     </div>
-                     <div>
-                        <h3 data-translate-key="googlePresentation" class="text-2xl font-semibold text-card-foreground mb-3">Presentación de Google</h3>
-                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-10" data-src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
-                        <button onclick="makeFullScreen('googleSlides-10')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                    <div>
+                        <h3 data-translate-key="googlePresentation"
+                            class="text-2xl font-semibold text-card-foreground mb-3">Presentación de Google</h3>
+                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-9"
+                                data-src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000"
+                                frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
+                        <button onclick="makeFullScreen('googleSlides-9')" data-translate-key="fullscreenButton"
+                            class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                     <div>
-                        <h3 data-translate-key="summaryPDF" class="text-2xl font-semibold text-card-foreground mb-3">Resumen</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-10" data-src="" title="PDF Resumen" frameborder="0"></iframe></div>
-                        <button onclick="makeFullScreen('iframe-summary-10')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                        <h3 data-translate-key="summaryPDF" class="text-2xl font-semibold text-card-foreground mb-3">
+                            Resumen</h3>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-9"
+                                data-src="" title="PDF Resumen" frameborder="0"></iframe></div>
+                        <button onclick="makeFullScreen('iframe-summary-9')" data-translate-key="fullscreenButton"
+                            class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                     <div>
-                        <h3 data-translate-key="theory1" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-10" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
-                        <button onclick="makeFullScreen('iframe1-10')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                        <h3 data-translate-key="theory1" class="text-2xl font-semibold text-card-foreground mb-3">Teoría
+                            Práctica</h3>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-9" data-src=""
+                                width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <button onclick="makeFullScreen('iframe1-9')" data-translate-key="fullscreenButton"
+                            class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                     <div>
-                        <h3 data-translate-key="theory2" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-10" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
-                        <button onclick="makeFullScreen('iframe2-10')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                        <h3 data-translate-key="theory2" class="text-2xl font-semibold text-card-foreground mb-3">Teoría
+                            Práctica</h3>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-9" data-src=""
+                                width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <button onclick="makeFullScreen('iframe2-9')" data-translate-key="fullscreenButton"
+                            class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                 </div>
             </section>
 
+            <section id="clase-detail-10"
+                class="class-detail-section section-hidden bg-card p-6 rounded-lg shadow-md mb-8">
+                <button data-translate-key="backToMenuButton"
+                    class="back-button bg-muted hover:bg-border text-muted-foreground font-bold py-2 px-4 rounded-full mb-6 transition duration-300">←
+                    Volver al Menú Principal</button>
+                <h2 data-translate-key="card10Title" class="text-3xl font-bold text-card-foreground mb-6">10. Filtros +
+                    Audio</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="lg:col-span-2">
+                        <h3 data-translate-key="videoExplicativo"
+                            class="text-2xl font-semibold text-card-foreground mb-3 text-center">Video Explicativo</h3>
+                        <div class="max-w-4xl mx-auto">
+                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-10"
+                                    data-src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player"
+                                    allowfullscreen></iframe></div>
+                            <button onclick="makeFullScreen('video-10')" data-translate-key="fullscreenButton"
+                                class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                                completa</button>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 data-translate-key="googlePresentation"
+                            class="text-2xl font-semibold text-card-foreground mb-3">Presentación de Google</h3>
+                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-10"
+                                data-src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000"
+                                frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
+                        <button onclick="makeFullScreen('googleSlides-10')" data-translate-key="fullscreenButton"
+                            class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
+                    </div>
+                    <div>
+                        <h3 data-translate-key="summaryPDF" class="text-2xl font-semibold text-card-foreground mb-3">
+                            Resumen</h3>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-10"
+                                data-src="" title="PDF Resumen" frameborder="0"></iframe></div>
+                        <button onclick="makeFullScreen('iframe-summary-10')" data-translate-key="fullscreenButton"
+                            class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
+                    </div>
+                    <div>
+                        <h3 data-translate-key="theory1" class="text-2xl font-semibold text-card-foreground mb-3">Teoría
+                            Práctica</h3>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-10" data-src=""
+                                width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <button onclick="makeFullScreen('iframe1-10')" data-translate-key="fullscreenButton"
+                            class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
+                    </div>
+                    <div>
+                        <h3 data-translate-key="theory2" class="text-2xl font-semibold text-card-foreground mb-3">Teoría
+                            Práctica</h3>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-10" data-src=""
+                                width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <button onclick="makeFullScreen('iframe2-10')" data-translate-key="fullscreenButton"
+                            class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
+                    </div>
+                </div>
+            </section>
 
-
-
-              <section id="clase-detail-11" class="class-detail-section bg-card p-6 rounded-lg shadow-md mb-8">
-                <button data-translate-key="backToMenuButton" class="back-button bg-muted hover:bg-border text-muted-foreground font-bold py-2 px-4 rounded-full mb-6 transition duration-300">← Volver al Menú Principal</button>
+            <section id="clase-detail-11"
+                class="class-detail-section section-hidden bg-card p-6 rounded-lg shadow-md mb-8">
+                <button data-translate-key="backToMenuButton"
+                    class="back-button bg-muted hover:bg-border text-muted-foreground font-bold py-2 px-4 rounded-full mb-6 transition duration-300">←
+                    Volver al Menú Principal</button>
                 <h2 data-translate-key="card11Title" class="text-3xl font-bold text-card-foreground mb-6">11. VHDL</h2>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div class="lg:col-span-2">
-                        <h3 data-translate-key="videoExplicativo" class="text-2xl font-semibold text-card-foreground mb-3 text-center">Video Explicativo</h3>
+                        <h3 data-translate-key="videoExplicativo"
+                            class="text-2xl font-semibold text-card-foreground mb-3 text-center">Video Explicativo</h3>
                         <div class="max-w-4xl mx-auto">
-                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-11" data-src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player" allowfullscreen></iframe></div>
-                             <button onclick="makeFullScreen('video-11')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-11"
+                                    data-src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player"
+                                    allowfullscreen></iframe></div>
+                            <button onclick="makeFullScreen('video-11')" data-translate-key="fullscreenButton"
+                                class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                                completa</button>
                         </div>
                     </div>
-                     <div>
-                        <h3 data-translate-key="googlePresentation" class="text-2xl font-semibold text-card-foreground mb-3">Presentación de Google</h3>
-                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-11" data-src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
-                        <button onclick="makeFullScreen('googleSlides-11')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                    <div>
+                        <h3 data-translate-key="googlePresentation"
+                            class="text-2xl font-semibold text-card-foreground mb-3">Presentación de Google</h3>
+                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-11"
+                                data-src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000"
+                                frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
+                        <button onclick="makeFullScreen('googleSlides-11')" data-translate-key="fullscreenButton"
+                            class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                     <div>
-                        <h3 data-translate-key="summaryPDF" class="text-2xl font-semibold text-card-foreground mb-3">Resumen</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-11" data-src="" title="PDF Resumen" frameborder="0"></iframe></div>
-                        <button onclick="makeFullScreen('iframe-summary-11')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                        <h3 data-translate-key="summaryPDF" class="text-2xl font-semibold text-card-foreground mb-3">
+                            Resumen</h3>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-11"
+                                data-src="" title="PDF Resumen" frameborder="0"></iframe></div>
+                        <button onclick="makeFullScreen('iframe-summary-11')" data-translate-key="fullscreenButton"
+                            class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                     <div>
-                        <h3 data-translate-key="theory1" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-11" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
-                        <button onclick="makeFullScreen('iframe1-11')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                        <h3 data-translate-key="theory1" class="text-2xl font-semibold text-card-foreground mb-3">Teoría
+                            Práctica</h3>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-11" data-src=""
+                                width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <button onclick="makeFullScreen('iframe1-11')" data-translate-key="fullscreenButton"
+                            class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                     <div>
-                        <h3 data-translate-key="theory2" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-11" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
-                        <button onclick="makeFullScreen('iframe2-11')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                        <h3 data-translate-key="theory2" class="text-2xl font-semibold text-card-foreground mb-3">Teoría
+                            Práctica</h3>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-11" data-src=""
+                                width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <button onclick="makeFullScreen('iframe2-11')" data-translate-key="fullscreenButton"
+                            class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                 </div>
             </section>
 
-            <section id="clase-detail-12" class="class-detail-section bg-card p-6 rounded-lg shadow-md mb-8">
-                <button data-translate-key="backToMenuButton" class="back-button bg-muted hover:bg-border text-muted-foreground font-bold py-2 px-4 rounded-full mb-6 transition duration-300">← Volver al Menú Principal</button>
+            <section id="clase-detail-12"
+                class="class-detail-section section-hidden bg-card p-6 rounded-lg shadow-md mb-8">
+                <button data-translate-key="backToMenuButton"
+                    class="back-button bg-muted hover:bg-border text-muted-foreground font-bold py-2 px-4 rounded-full mb-6 transition duration-300">←
+                    Volver al Menú Principal</button>
                 <h2 data-translate-key="card12Title" class="text-3xl font-bold text-card-foreground mb-6">12. GPUs</h2>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div class="lg:col-span-2">
-                        <h3 data-translate-key="videoExplicativo" class="text-2xl font-semibold text-card-foreground mb-3 text-center">Video Explicativo</h3>
+                        <h3 data-translate-key="videoExplicativo"
+                            class="text-2xl font-semibold text-card-foreground mb-3 text-center">Video Explicativo</h3>
                         <div class="max-w-4xl mx-auto">
-                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-12" data-src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player" allowfullscreen></iframe></div>
-                             <button onclick="makeFullScreen('video-12')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-12"
+                                    data-src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player"
+                                    allowfullscreen></iframe></div>
+                            <button onclick="makeFullScreen('video-12')" data-translate-key="fullscreenButton"
+                                class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                                completa</button>
                         </div>
                     </div>
-                     <div>
-                        <h3 data-translate-key="googlePresentation" class="text-2xl font-semibold text-card-foreground mb-3">Presentación de Google</h3>
-                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-12" data-src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
-                        <button onclick="makeFullScreen('googleSlides-12')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                    <div>
+                        <h3 data-translate-key="googlePresentation"
+                            class="text-2xl font-semibold text-card-foreground mb-3">Presentación de Google</h3>
+                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-12"
+                                data-src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000"
+                                frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
+                        <button onclick="makeFullScreen('googleSlides-12')" data-translate-key="fullscreenButton"
+                            class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                     <div>
-                        <h3 data-translate-key="summaryPDF" class="text-2xl font-semibold text-card-foreground mb-3">Resumen</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-12" data-src="" title="PDF Resumen" frameborder="0"></iframe></div>
-                        <button onclick="makeFullScreen('iframe-summary-12')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                        <h3 data-translate-key="summaryPDF" class="text-2xl font-semibold text-card-foreground mb-3">
+                            Resumen</h3>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-12"
+                                data-src="" title="PDF Resumen" frameborder="0"></iframe></div>
+                        <button onclick="makeFullScreen('iframe-summary-12')" data-translate-key="fullscreenButton"
+                            class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                     <div>
-                        <h3 data-translate-key="theory1" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-12" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
-                        <button onclick="makeFullScreen('iframe1-12')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                        <h3 data-translate-key="theory1" class="text-2xl font-semibold text-card-foreground mb-3">Teoría
+                            Práctica</h3>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-12" data-src=""
+                                width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <button onclick="makeFullScreen('iframe1-12')" data-translate-key="fullscreenButton"
+                            class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                     <div>
-                        <h3 data-translate-key="theory2" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-12" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
-                        <button onclick="makeFullScreen('iframe2-12')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
+                        <h3 data-translate-key="theory2" class="text-2xl font-semibold text-card-foreground mb-3">Teoría
+                            Práctica</h3>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-12" data-src=""
+                                width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <button onclick="makeFullScreen('iframe2-12')" data-translate-key="fullscreenButton"
+                            class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla
+                            completa</button>
                     </div>
                 </div>
             </section>
-            
-           
-            <section id="clase-detail-examenes" class="class-detail-section bg-card p-6 rounded-lg shadow-md mb-8">
-                 </section>
+
+            <section id="clase-detail-examenes"
+                class="class-detail-section section-hidden bg-card p-6 rounded-lg shadow-md mb-8">
+                <button data-translate-key="backToMenuButton"
+                    class="back-button bg-muted hover:bg-border text-muted-foreground font-bold py-2 px-4 rounded-full mb-6 transition duration-300">←
+                    Volver al Menú Principal</button>
+                <h2 data-translate-key="examsSectionTitle" class="text-3xl font-bold text-card-foreground mb-6">Sección
+                    de Exámenes</h2>
+            </section>
         </div>
 
         <footer class="bg-muted text-muted-foreground p-6 rounded-lg mt-12 text-center">
-            <p>© <span id="current-year"></span> Maurox. <span data-translate-key="rightsReserved">Todos los derechos reservados.</span></p>
-            <p data-translate-key="coursePage" class="text-sm mt-2">Página creada para el curso de Hardware y Aplicación Específica.</p>
+            <p>© <span id="current-year"></span> Maurox. <span data-translate-key="rightsReserved">Todos los derechos
+                    reservados.</span></p>
+            <p data-translate-key="coursePage" class="text-sm mt-2">Página creada para el curso de Hardware y Aplicación
+                Específica.</p>
         </footer>
     </div>
-    
-    <div id="password-prompt-modal" class="fixed inset-0 bg-background/80 backdrop-blur-sm overflow-y-auto h-full w-full flex items-center justify-center p-4" style="display: none; z-index: 100;">
-        <div class="bg-popover text-popover-foreground p-8 rounded-lg shadow-xl w-full max-w-md transform transition-all sm:my-8 border border-border">
-            <h3 data-translate-key="examsAccessTitle" class="text-2xl font-semibold mb-4 text-center">Acceso a Exámenes</h3>
-            <p data-translate-key="examsPasswordPrompt" class="text-muted-foreground mb-6 text-center">Por favor, introduce la contraseña para continuar.</p>
-            <input type="password" id="password-input" data-translate-placeholder-key="passwordPlaceholder" placeholder="Contraseña" class="w-full p-3 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring bg-background text-foreground mb-4">
-            <p id="password-error" data-translate-key="passwordError" class="text-destructive text-sm mb-4 text-center" style="display: none;">Contraseña incorrecta. Inténtalo de nuevo.</p>
+
+    <div id="password-prompt-modal"
+        class="fixed inset-0 bg-background/80 backdrop-blur-sm overflow-y-auto h-full w-full flex items-center justify-center p-4"
+        style="display: none; z-index: 100;">
+        <div
+            class="bg-popover text-popover-foreground p-8 rounded-lg shadow-xl w-full max-w-md transform transition-all sm:my-8 border border-border">
+            <h3 data-translate-key="examsAccessTitle" class="text-2xl font-semibold mb-4 text-center">Acceso a Exámenes
+            </h3>
+            <p data-translate-key="examsPasswordPrompt" class="text-muted-foreground mb-6 text-center">Por favor,
+                introduce la contraseña para continuar.</p>
+            <input type="password" id="password-input" data-translate-placeholder-key="passwordPlaceholder"
+                placeholder="Contraseña"
+                class="w-full p-3 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-ring bg-background text-foreground mb-4">
+            <p id="password-error" data-translate-key="passwordError" class="text-destructive text-sm mb-4 text-center"
+                style="display: none;">Contraseña incorrecta. Inténtalo de nuevo.</p>
             <div class="flex flex-col sm:flex-row justify-end space-y-2 sm:space-y-0 sm:space-x-3">
-                <button id="cancel-password-button" data-translate-key="cancelButton" class="w-full sm:w-auto bg-muted hover:bg-border text-muted-foreground font-bold py-2 px-4 rounded-md transition duration-300">Cancelar</button>
-                <button id="submit-password-button" data-translate-key="accessButton" class="w-full sm:w-auto bg-accent hover:bg-accent/90 text-accent-foreground font-bold py-2 px-4 rounded-md transition duration-300">Acceder</button>
+                <button id="cancel-password-button" data-translate-key="cancelButton"
+                    class="w-full sm:w-auto bg-muted hover:bg-border text-muted-foreground font-bold py-2 px-4 rounded-md transition duration-300">Cancelar</button>
+                <button id="submit-password-button" data-translate-key="accessButton"
+                    class="w-full sm:w-auto bg-accent hover:bg-accent/90 text-accent-foreground font-bold py-2 px-4 rounded-md transition duration-300">Acceder</button>
             </div>
         </div>
     </div>
 
+    
     <script type="module">
-      import { initializeApp } from './ui.js';
-      document.addEventListener('DOMContentLoaded', () => { initializeApp(); });
+        import { initializeApp } from './ui.js';
+        document.addEventListener('DOMContentLoaded', () => { initializeApp(); });
     </script>
 </body>
+
 </html>
