@@ -1,7 +1,7 @@
 // ============== ARCHIVO COMPLETO: geminiService.js ==============
 
 // --- Configuración y Estado Interno del Servicio ---
-const apiKey = ""; // <-- PON TU API KEY DE GEMINI AQUÍ
+const apiKey = "AIzaSyAmmYRxVcSbZBqq_qSXL97LVee_78j1EdY"; // <-- PON TU API KEY DE GEMINI AQUÍ
 const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
 
 let chatConversationHistory = [];
