@@ -287,6 +287,7 @@ body {
     /* Para que el borde animado no se salga */
     transition: transform 0.2s ease-out;
     /* Para el efecto TILT */
+    z-index: 2; /* Asegura que el formulario esté sobre la animación de iconos */
 }
 
 #login-form::after {
@@ -389,4 +390,37 @@ body {
 
 #login-button:hover {
     background-position: right center;
+}
+
+/* --- ESTILOS PARA LA NUEVA ANIMACIÓN DE ICONOS --- */
+#helicopter-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1; /* Detrás del formulario, pero sobre el fondo */
+    pointer-events: none; /* No interfiere con el ratón */
+}
+
+.bouncing-icon {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: hsl(var(--color-accent));
+    animation-name: helicopter-spin;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    filter: drop-shadow(0 0 8px hsla(var(--color-accent), 0.7));
+}
+
+@keyframes helicopter-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }

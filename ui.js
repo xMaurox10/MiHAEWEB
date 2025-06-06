@@ -8,6 +8,7 @@ import logger, { registerUserInFirebase, loginUserFromFirebase, signInWithGoogle
 let selectedFile = null;
 let üretim = {};
 const THEMES = ['dark', 'intermediate', 'light'];
+let animationFrameId = null; // Para controlar la animación de iconos
 
 /**
  * Aplica un tema específico al documento y actualiza los iconos.
@@ -379,6 +380,71 @@ function setupKeyboardShortcuts() {
     });
 };
 
+// ===== NUEVA FUNCIÓN PARA LA ANIMACIÓN DE ICONOS REBOTANDO =====
+/**
+ * Crea una espectacular animación de iconos girando y rebotando en la pantalla de login.
+ */
+function setupBouncingIconsAnimation() {
+    const container = document.getElementById('helicopter-container');
+    if (!container) return;
+
+    if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+    }
+    container.innerHTML = ''; 
+
+    const imageUrl = 'https://media.licdn.com/dms/image/v2/C4E03AQFfgDkLXTbEAw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1530625808416?e=2147483647&v=beta&t=LrzqIkGUX6e99BGi-29hTdGKJCeB7oJIF9_5X_qEqCo';
+
+    const numIcons = 30;
+    const icons = [];
+
+    for (let i = 0; i < numIcons; i++) {
+        const iconImage = document.createElement('img');
+        iconImage.className = 'bouncing-icon';
+        iconImage.src = imageUrl; 
+        
+        container.appendChild(iconImage);
+
+        const size = Math.random() * 80 + 30;
+        
+        iconImage.style.width = `${size}px`;
+        iconImage.style.height = `${size}px`;
+        
+        // --- CORRECCIÓN 1: De 'iconWrapper' a 'iconImage' ---
+        iconImage.style.animationDuration = `${Math.random() * 4 + 1}s`;
+        icons.push({
+            // --- CORRECCIÓN 2: De 'iconWrapper' a 'iconImage' ---
+            el: iconImage, 
+            x: Math.random() * (container.clientWidth - size),
+            y: Math.random() * (container.clientHeight - size),
+            vx: (Math.random() - 0.5) * 3,
+            vy: (Math.random() - 0.5) * 3,
+            size: size
+        });
+    }
+
+    function animate() {
+        icons.forEach(icon => {
+            icon.x += icon.vx;
+            icon.y += icon.vy;
+
+            if (icon.x <= 0 || icon.x + icon.size >= container.clientWidth) {
+                icon.vx *= -1;
+            }
+            if (icon.y <= 0 || icon.y + icon.size >= container.clientHeight) {
+                icon.vy *= -1;
+            }
+
+            icon.el.style.left = `${icon.x}px`;
+            icon.el.style.top = `${icon.y}px`;
+        });
+
+        animationFrameId = requestAnimationFrame(animate);
+    }
+
+    animate();
+}
+
 // ===== NUEVA FUNCIÓN PARA EFECTOS VISUALES DEL LOGIN =====
 /**
  * Añade efectos visuales interactivos a la pantalla de login,
@@ -394,7 +460,7 @@ function setupLoginScreenEffects() {
         const x = (clientX / window.innerWidth - 0.5) * 2; // -1 a 1
         const y = (clientY / window.innerHeight - 0.5) * 2; // -1 a 1
 
-        const maxRotation = 8; // Grados máximos de rotación
+        const maxRotation = 6; // Grados máximos de rotación
 
         loginForm.style.transform = `perspective(1000px) rotateY(${x * maxRotation}deg) rotateX(${-y * maxRotation}deg) scale(1.05)`;
     });
@@ -428,10 +494,21 @@ function setupAuth() {
 
     const transitionToApp = (username) => {
         logger.logLogin(username);
+        
+        // Detener la animación de iconos
+        if (animationFrameId) {
+            cancelAnimationFrame(animationFrameId);
+            animationFrameId = null;
+        }
+
 
         loginScreen.classList.add('fade-out');
         loginScreen.addEventListener('animationend', () => {
             loginScreen.style.display = 'none';
+            // Limpiar los iconos del DOM para liberar memoria
+            const container = document.getElementById('helicopter-container');
+            if (container) container.innerHTML = '';
+
             pageContainer.style.display = 'block';
             pageContainer.classList.add('fade-in-up');
             animateCardsOnLoad();
@@ -582,7 +659,8 @@ export function initializeApp() {
     initializeTheme();
     initializeSparkleEffect();
     setupAuth();
-    setupLoginScreenEffects(); // <-- SE LLAMA A LA NUEVA FUNCIÓN DE EFECTOS
+    setupLoginScreenEffects();
+    setupBouncingIconsAnimation(); // <-- SE LLAMA A LA NUEVA FUNCIÓN DE ANIMACIÓN
     setupNavigation();
     setupPasswordModal();
     setupFileUpload();
