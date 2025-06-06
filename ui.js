@@ -4,7 +4,7 @@ import { initializeLanguage, translations } from './languageManager.js';
 import * as gemini from './geminiService.js';
 import { marked } from 'https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js';
 // CAMBIO 1: Importamos las nuevas funciones y el logger por defecto
-import logger, { registerUserInFirebase, loginUserFromFirebase } from './logger.js';
+import logger, { registerUserInFirebase, loginUserFromFirebase, signInWithGoogle } from './logger.js';
 
 let selectedFile = null;
 let üretim = {};
@@ -387,7 +387,7 @@ function setupAuth() {
         loginView, registerView, showLoginViewLink, showRegisterViewLink,
         loginUsernameInput, loginPasswordInput,
         registerUsernameInput, registerPasswordInput, registerConfirmPasswordInput,
-        authErrorMessage
+        authErrorMessage, googleLoginButton // Se añade el botón de Google
     } = üretim;
 
     const showAuthError = (messageKey) => {
@@ -399,6 +399,21 @@ function setupAuth() {
     const hideAuthError = () => {
         authErrorMessage.style.display = 'none';
         authErrorMessage.textContent = '';
+    };
+
+    const transitionToApp = (username) => {
+        logger.logLogin(username); // Logueamos el evento
+
+        loginScreen.classList.add('fade-out');
+        loginScreen.addEventListener('animationend', () => {
+            loginScreen.style.display = 'none';
+            pageContainer.style.display = 'block';
+            pageContainer.classList.add('fade-in-up');
+            animateCardsOnLoad();
+
+            const currentLanguage = localStorage.getItem('language') || 'es';
+            addInitialChatMessage(true, currentLanguage, translations);
+        }, { once: true });
     };
 
     showRegisterViewLink.addEventListener('click', (e) => {
@@ -415,7 +430,6 @@ function setupAuth() {
         loginView.style.display = 'block';
     });
 
-    // CAMBIO 2: Lógica de Registro con Firebase
     registerButton.addEventListener('click', async () => {
         hideAuthError();
         const username = registerUsernameInput.value.trim();
@@ -431,7 +445,6 @@ function setupAuth() {
             return;
         }
 
-        // Llamar a la función de registro de Firebase
         const result = await registerUserInFirebase(username, password);
 
         if (result.success) {
@@ -439,13 +452,12 @@ function setupAuth() {
             registerUsernameInput.value = '';
             registerPasswordInput.value = '';
             registerConfirmPasswordInput.value = '';
-            showLoginViewLink.click(); // Cambiar a la vista de login
+            showLoginViewLink.click();
         } else {
             showAuthError(result.messageKey);
         }
     });
 
-    // CAMBIO 3: Lógica de Login con Firebase
     const performLogin = async () => {
         hideAuthError();
         const username = loginUsernameInput.value.trim();
@@ -456,22 +468,10 @@ function setupAuth() {
             return;
         }
         
-        // Llamar a la función de login de Firebase
         const loginSuccessful = await loginUserFromFirebase(username, password);
 
         if (loginSuccessful) {
-            logger.logLogin(username); // Logueamos el evento
-
-            loginScreen.classList.add('fade-out');
-            loginScreen.addEventListener('animationend', () => {
-                loginScreen.style.display = 'none';
-                pageContainer.style.display = 'block';
-                pageContainer.classList.add('fade-in-up');
-                animateCardsOnLoad();
-
-                const currentLanguage = localStorage.getItem('language') || 'es';
-                addInitialChatMessage(true, currentLanguage, translations);
-            }, { once: true });
+            transitionToApp(username);
         } else {
             showAuthError('loginFailedError');
             loginForm.style.animation = 'horizontal-shake 0.5s';
@@ -484,7 +484,20 @@ function setupAuth() {
     loginButton.addEventListener('click', performLogin);
     loginUsernameInput.addEventListener('keypress', (e) => e.key === 'Enter' && performLogin());
     loginPasswordInput.addEventListener('keypress', (e) => e.key === 'Enter' && performLogin());
+
+    // --- NUEVO: Event Listener para el Login con Google ---
+    googleLoginButton.addEventListener('click', async () => {
+        hideAuthError();
+        const result = await signInWithGoogle();
+        if (result.success) {
+            transitionToApp(result.user.displayName);
+        } else {
+            // Puedes crear una clave de traducción específica para errores de Google si quieres
+            showAuthError('loginFailedError'); 
+        }
+    });
 }
+
 
 export function initializeApp() {
     üretim = {
@@ -500,6 +513,7 @@ export function initializeApp() {
         showRegisterViewLink: document.getElementById('show-register-view'),
         loginButton: document.getElementById('login-button'),
         registerButton: document.getElementById('register-button'),
+        googleLoginButton: document.getElementById('google-login-button'), // Se añade la referencia al botón
         loginUsernameInput: document.getElementById('login-username-input'),
         loginPasswordInput: document.getElementById('login-password-input'),
         registerUsernameInput: document.getElementById('register-username-input'),

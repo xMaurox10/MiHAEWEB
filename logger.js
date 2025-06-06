@@ -1,10 +1,13 @@
-// ============== ARCHIVO COMPLETO Y CORREGIDO: logger.js ==============
+// ============== ARCHIVO COMPLETO Y ACTUALIZADO: logger.js ==============
 
-// CAMBIO 1: Hemos añadido más funciones de Firestore para manejar usuarios.
+// Imports de Firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 import { getFirestore, collection, addDoc, query, where, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+// Se importa el SDK de autenticación y los proveedores
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
-// Tus claves de configuración (esto está perfecto!)
+
+// Configuración de Firebase (sin cambios)
 const firebaseConfig = {
   apiKey: "AIzaSyCxCTeSDX1v7wiCA1_l-En6X2cHf9XoLQM",
   authDomain: "haeweb-3ce1f.firebaseapp.com",
@@ -15,29 +18,27 @@ const firebaseConfig = {
   measurementId: "G-QZHSFFK7XN"
 };
 
-// Initialize Firebase
+// Inicialización de servicios
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+// Se inicializa el servicio de autenticación
+const auth = getAuth(app);
 
-// --- CLASE ORIGINAL PARA LOGGING ---
+
+// --- CLASE ORIGINAL PARA LOGGING (SIN CAMBIOS) ---
 class Logger {
     constructor() {
         console.log("Logger inicializado y conectado a Firebase.");
     }
-
     async logLogin(name) {
         if (!name) {
             console.warn("Intento de login sin nombre.");
             return;
         }
-        const logEntry = {
-            user: name,
-            loginTime: new Date().toISOString(),
-            timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
-        };
+        const logEntry = { user: name, loginTime: new Date().toISOString(), timezone: Intl.DateTimeFormat().resolvedOptions().timeZone };
         try {
-            const docRef = await addDoc(collection(db, "logs"), logEntry);
-            console.log("✅ ¡Éxito! Registro de login guardado en Firebase con el ID: ", docRef.id);
+            await addDoc(collection(db, "logs"), logEntry);
+            console.log("✅ ¡Éxito! Registro de login guardado en Firebase.");
         } catch (e) {
             console.error("❌ Error al guardar el registro de login en Firebase: ", e);
         }
@@ -47,7 +48,7 @@ const logger = new Logger();
 export default logger;
 
 
-// --- CAMBIO 2: NUEVAS FUNCIONES DE AUTENTICACIÓN CON FIREBASE ---
+// --- FUNCIONES DE AUTENTICACIÓN CON FIREBASE ---
 
 /**
  * Registra un nuevo usuario en la colección "users" de Firestore.
@@ -57,7 +58,6 @@ export default logger;
  * @returns {Promise<{success: boolean, messageKey?: string}>}
  */
 export async function registerUserInFirebase(username, password) {
-    // 1. Comprobar si el usuario ya existe
     const usersRef = collection(db, "users");
     const q = query(usersRef, where("username", "==", username));
     const querySnapshot = await getDocs(q);
@@ -67,7 +67,6 @@ export async function registerUserInFirebase(username, password) {
         return { success: false, messageKey: 'userExistsError' };
     }
 
-    // 2. Si no existe, añadir el nuevo usuario
     try {
         // ADVERTENCIA DE SEGURIDAD MUY IMPORTANTE:
         // En una aplicación REAL, NUNCA guardes la contraseña en texto plano.
@@ -77,6 +76,7 @@ export async function registerUserInFirebase(username, password) {
         const newUser = {
             username: username,
             password: password, // <-- ¡INSEGURO EN PRODUCCIÓN!
+            authMethod: "custom", // Indicamos el método
             registeredAt: new Date().toISOString()
         };
         await addDoc(usersRef, newUser);
@@ -96,7 +96,7 @@ export async function registerUserInFirebase(username, password) {
  */
 export async function loginUserFromFirebase(username, password) {
     const usersRef = collection(db, "users");
-    const q = query(usersRef, where("username", "==", username));
+    const q = query(usersRef, where("username", "==", username), where("authMethod", "==", "custom"));
     const querySnapshot = await getDocs(q);
 
     if (querySnapshot.empty) {
@@ -114,5 +114,45 @@ export async function loginUserFromFirebase(username, password) {
     } else {
         console.warn(`Intento de login con contraseña incorrecta para: ${username}`);
         return false; // Contraseña incorrecta
+    }
+}
+
+/**
+ * Inicia el proceso de login con Google usando un popup.
+ * Si el usuario es nuevo, lo guarda en la colección "users" de Firestore.
+ * @returns {Promise<{success: boolean, user?: any, error?: any}>}
+ */
+export async function signInWithGoogle() {
+    const provider = new GoogleAuthProvider();
+    try {
+        // 1. Abrir el popup de Google para iniciar sesión
+        const result = await signInWithPopup(auth, provider);
+        const googleUser = result.user;
+        console.log("✅ Autenticación con Google correcta:", googleUser);
+
+        // 2. Comprobar si el usuario ya existe en nuestra base de datos de "users"
+        const usersRef = collection(db, "users");
+        const q = query(usersRef, where("uid", "==", googleUser.uid));
+        const querySnapshot = await getDocs(q);
+
+        if (querySnapshot.empty) {
+            // 3. Si es un usuario nuevo, guardamos su información en Firestore
+            console.log(`Usuario nuevo de Google: ${googleUser.displayName}. Guardando en Firestore...`);
+            const newUser = {
+                uid: googleUser.uid, // El ID único de Google
+                username: googleUser.displayName,
+                email: googleUser.email,
+                authMethod: "google",
+                registeredAt: new Date().toISOString()
+            };
+            await addDoc(usersRef, newUser);
+        }
+
+        // 4. Devolvemos el usuario para que la UI pueda continuar
+        return { success: true, user: googleUser };
+
+    } catch (error) {
+        console.error("❌ Error durante el inicio de sesión con Google:", error);
+        return { success: false, error: error };
     }
 }
