@@ -145,7 +145,9 @@ function showSection(sectionIdToShow) {
             }
         });
 
-        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (sectionIdToShow !== 'main-menu-section') {
+            targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
     }
 }
 
@@ -160,59 +162,88 @@ function animateCardsOnLoad() {
     }, 10);
 }
 
+function handleReturnToMenu() {
+    animateCardsOnLoad();
+    document.querySelectorAll('[id^="summary-output-"]').forEach(output => {
+        output.classList.add('hidden');
+        output.innerHTML = '';
+    });
+    // Descarga todos los iframes para liberar memoria y recursos
+    document.querySelectorAll('.class-detail-section iframe').forEach(iframe => {
+        if (iframe.src) iframe.src = 'about:blank';
+    });
+    clearSelectedFile();
+}
+
 function setupNavigation() {
     if (!üretim.allClassCards) return;
     üretim.allClassCards.forEach(card => {
         card.addEventListener('click', () => {
             const targetId = card.dataset.target;
-            if (targetId === 'clase-detail-examenes') {
-                if (üretim.passwordPromptModal) {
-                    üretim.passwordPromptModal.style.display = 'flex';
-                    if (üretim.passwordInputEl) {
-                        üretim.passwordInputEl.value = '';
-                        üretim.passwordInputEl.focus();
-                    }
-                    if (üretim.passwordError) üretim.passwordError.style.display = 'none';
-                }
-            } else {
-                showSection(targetId);
-            }
+            const state = { section: targetId };
+            const title = card.querySelector('h3').textContent;
+            
+            // Muestra la sección y añade una entrada en el historial del navegador
+            showSection(targetId);
+            history.pushState(state, title, `#${targetId}`);
         });
     });
+
     if (!üretim.backButtons) return;
     üretim.backButtons.forEach(button => {
         button.addEventListener('click', () => {
-            showSection('main-menu-section');
-            animateCardsOnLoad();
-            document.querySelectorAll('[id^="summary-output-"]').forEach(output => {
-                output.classList.add('hidden');
-                output.innerHTML = '';
-            });
-
-            // Descarga todos los iframes para liberar memoria y recursos
-            document.querySelectorAll('.class-detail-section iframe').forEach(iframe => {
-                iframe.src = 'about:blank';
-            });
-
-            clearSelectedFile();
+            // Simplemente le dice al navegador que vaya hacia atrás.
+            // El evento 'popstate' se encargará del resto.
+            history.back();
         });
     });
 };
+
+function setupHistoryListener() {
+    window.addEventListener('popstate', (event) => {
+        if (event.state && event.state.section) {
+            showSection(event.state.section);
+        } else {
+            // Si no hay estado, significa que hemos vuelto al inicio (menú principal)
+            showSection('main-menu-section');
+            handleReturnToMenu();
+        }
+    });
+}
+
 
 function setupPasswordModal() {
     if (!üretim.submitPasswordButton || !üretim.passwordInputEl || !üretim.passwordPromptModal || !üretim.passwordError || !üretim.cancelPasswordButton) {
         return;
     }
     const handlePasswordSubmit = () => {
+        const targetId = 'clase-detail-examenes';
         if (üretim.passwordInputEl.value === 'Meteoro') {
             üretim.passwordPromptModal.style.display = 'none';
-            showSection('clase-detail-examenes');
+            showSection(targetId);
+            // También manejamos el historial para la sección de exámenes
+            history.pushState({ section: targetId }, 'Exámenes', `#${targetId}`);
         } else {
             üretim.passwordError.style.display = 'block';
             üretim.passwordInputEl.focus();
         }
         üretim.passwordInputEl.value = '';
     };
+    
+    üretim.allClassCards.forEach(card => {
+        if (card.dataset.target === 'clase-detail-examenes') {
+            card.addEventListener('click', (e) => {
+                e.preventDefault(); // Previene la navegación por defecto
+                üretim.passwordPromptModal.style.display = 'flex';
+                if (üretim.passwordInputEl) {
+                    üretim.passwordInputEl.value = '';
+                    üretim.passwordInputEl.focus();
+                }
+                if (üretim.passwordError) üretim.passwordError.style.display = 'none';
+            });
+        }
+    });
+
     üretim.submitPasswordButton.addEventListener('click', handlePasswordSubmit);
     üretim.passwordInputEl.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') handlePasswordSubmit();
@@ -349,9 +380,10 @@ function setupKeyboardShortcuts() {
         const isTyping = activeElement && (activeElement.tagName === 'INPUT' || activeElement.tagName === 'TEXTAREA' || activeElement.isContentEditable);
         if (((event.key === 'z' || event.key === 'Z') || event.key === 'Escape') && !isTyping) {
             event.preventDefault();
-            showSection('main-menu-section');
-            animateCardsOnLoad();
-            clearSelectedFile();
+            // Usa el historial para volver atrás, igual que los botones
+            if (window.location.hash) {
+                 history.back();
+            }
         }
     });
 };
@@ -379,7 +411,7 @@ export function initializeApp() {
         passwordError: document.getElementById('password-error'),
         themeToggleButton: document.getElementById('theme-toggle'), 
         themeToggleDarkIcon: document.getElementById('theme-toggle-dark-icon'), 
-        themeToggleIntermediateIcon: document.getElementById('theme-toggle-intermediate-icon'), // Nuevo
+        themeToggleIntermediateIcon: document.getElementById('theme-toggle-intermediate-icon'),
         themeToggleLightIcon: document.getElementById('theme-toggle-light-icon'), 
         languageToggleButton: document.getElementById('language-toggle'),
         currentYearSpan: document.getElementById('current-year'),
@@ -395,8 +427,9 @@ export function initializeApp() {
     };
 
     initializeTheme();
-    initializeSparkleEffect(); // <-- AÑADIDO: Activa el efecto de chispas
+    initializeSparkleEffect(); 
     const currentLanguage = initializeLanguage(üretim, addInitialChatMessage); 
+    setupHistoryListener(); // <-- Se añade el listener de historial
     setupNavigation();
     setupPasswordModal();
     setupFileUpload();
@@ -404,6 +437,13 @@ export function initializeApp() {
     setupSummarizeButtons(currentLanguage);
     updateFooterYear();
     setupKeyboardShortcuts();
-    showSection('main-menu-section');
-    animateCardsOnLoad();
+
+    // Estado inicial de la aplicación
+    const initialSection = window.location.hash ? window.location.hash.substring(1) : 'main-menu-section';
+    showSection(initialSection);
+    if (initialSection === 'main-menu-section') {
+        animateCardsOnLoad();
+    }
+    // Reemplaza el estado inicial para que el menú sea el punto de partida en el historial
+    history.replaceState({ section: initialSection }, '', window.location.pathname + window.location.search);
 }
