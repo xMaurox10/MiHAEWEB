@@ -8,7 +8,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
     
     <style>
         :root {
@@ -69,7 +70,7 @@
         }
         .fade-in-up { animation: keyframes-fade-in-up 0.5s ease-out forwards; opacity: 0; }
         .responsive-iframe-container { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 0.5rem; }
-        .responsive-iframe-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+        .responsive-iframe-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; background-color: hsl(var(--color-muted)); }
         .chat-message { transition: all 0.3s ease; }
 
         /* --- Estilos para el efecto de chispas del ratón --- */
@@ -181,22 +182,22 @@
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <div>
                         <h3 data-translate-key="googlePresentation" class="text-2xl font-semibold text-card-foreground mb-3">Presentación de Google</h3>
-                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-0" src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
+                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-0" data-src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
                         <button onclick="makeFullScreen('googleSlides-0')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                     <div>
                         <h3 data-translate-key="summarySignalsPDF" class="text-2xl font-semibold text-card-foreground mb-3">Resumen Señales (PDF)</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-0" src="https://docs.google.com/viewer?url=https://www.example.com/clase_0_resumen_placeholder.pdf&embedded=true" title="PDF Resumen" frameborder="0"></iframe></div>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-0" data-src="https://docs.google.com/viewer?url=https://www.example.com/clase_0_resumen_placeholder.pdf&embedded=true" title="PDF Resumen" frameborder="0"></iframe></div>
                         <button onclick="makeFullScreen('iframe-summary-0')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                     <div>
                         <h3 data-translate-key="theorySignals1" class="text-2xl font-semibold text-card-foreground mb-3">Teoría 1</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-0" src="https://drive.google.com/file/d/1xEramV2NGvSW09FH6fCzxZwjhfcvYHNO/preview" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-0" data-src="https://drive.google.com/file/d/1xEramV2NGvSW09FH6fCzxZwjhfcvYHNO/preview" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
                         <button onclick="makeFullScreen('iframe1-0')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                     <div>
                         <h3 data-translate-key="theorySignals2" class="text-2xl font-semibold text-card-foreground mb-3">Teoria 2</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-0" src="https://drive.google.com/file/d/1lhxbqns3hu2z95N1AagwBBwW6IbbvR4Z/preview" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-0" data-src="https://drive.google.com/file/d/1lhxbqns3hu2z95N1AagwBBwW6IbbvR4Z/preview" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
                         <button onclick="makeFullScreen('iframe2-0')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                 </div>
@@ -211,28 +212,28 @@
                     <div class="lg:col-span-2">
                         <h3 data-translate-key="videoExplicativo" class="text-2xl font-semibold text-card-foreground mb-3 text-center">Video Explicativo</h3>
                         <div class="max-w-4xl mx-auto">
-                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-1" src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player" allowfullscreen></iframe></div>
+                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-1" data-src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player" allowfullscreen></iframe></div>
                              <button onclick="makeFullScreen('video-1')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                         </div>
                     </div>
                      <div>
                         <h3 data-translate-key="googlePresentation" class="text-2xl font-semibold text-card-foreground mb-3">Presentación de Google</h3>
-                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-1" src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
+                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-1" data-src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
                         <button onclick="makeFullScreen('googleSlides-1')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                     <div>
                         <h3 data-translate-key="summaryPDF" class="text-2xl font-semibold text-card-foreground mb-3">Resumen</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-1" src="" title="PDF Resumen" frameborder="0"></iframe></div>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-1" data-src="" title="PDF Resumen" frameborder="0"></iframe></div>
                         <button onclick="makeFullScreen('iframe-summary-1')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                     <div>
                         <h3 data-translate-key="theory1" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-1" src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-1" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
                         <button onclick="makeFullScreen('iframe1-1')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                     <div>
                         <h3 data-translate-key="theory2" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-1" src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-1" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
                         <button onclick="makeFullScreen('iframe2-1')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                 </div>
@@ -248,28 +249,28 @@
                     <div class="lg:col-span-2">
                         <h3 data-translate-key="videoExplicativo" class="text-2xl font-semibold text-card-foreground mb-3 text-center">Video Explicativo</h3>
                         <div class="max-w-4xl mx-auto">
-                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-2" src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player" allowfullscreen></iframe></div>
+                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-2" data-src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player" allowfullscreen></iframe></div>
                              <button onclick="makeFullScreen('video-2')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                         </div>
                     </div>
                      <div>
                         <h3 data-translate-key="googlePresentation" class="text-2xl font-semibold text-card-foreground mb-3">Presentación de Google</h3>
-                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-2" src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
+                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-2" data-src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
                         <button onclick="makeFullScreen('googleSlides-2')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                     <div>
                         <h3 data-translate-key="summaryPDF" class="text-2xl font-semibold text-card-foreground mb-3">Resumen</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-2" src="" title="PDF Resumen" frameborder="0"></iframe></div>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-2" data-src="" title="PDF Resumen" frameborder="0"></iframe></div>
                         <button onclick="makeFullScreen('iframe-summary-2')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                     <div>
                         <h3 data-translate-key="theory1" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-2" src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-2" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
                         <button onclick="makeFullScreen('iframe1-2')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                     <div>
                         <h3 data-translate-key="theory2" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-2" src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-2" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
                         <button onclick="makeFullScreen('iframe2-2')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                 </div>
@@ -285,28 +286,28 @@
                     <div class="lg:col-span-2">
                         <h3 data-translate-key="videoExplicativo" class="text-2xl font-semibold text-card-foreground mb-3 text-center">Video Explicativo</h3>
                         <div class="max-w-4xl mx-auto">
-                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-3" src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player" allowfullscreen></iframe></div>
+                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-3" data-src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player" allowfullscreen></iframe></div>
                              <button onclick="makeFullScreen('video-3')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                         </div>
                     </div>
                      <div>
                         <h3 data-translate-key="googlePresentation" class="text-2xl font-semibold text-card-foreground mb-3">Presentación de Google</h3>
-                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-3" src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
+                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-3" data-src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
                         <button onclick="makeFullScreen('googleSlides-3')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                     <div>
                         <h3 data-translate-key="summaryPDF" class="text-2xl font-semibold text-card-foreground mb-3">Resumen</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-3" src="" title="PDF Resumen" frameborder="0"></iframe></div>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-3" data-src="" title="PDF Resumen" frameborder="0"></iframe></div>
                         <button onclick="makeFullScreen('iframe-summary-3')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                     <div>
                         <h3 data-translate-key="theory1" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-3" src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-3" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
                         <button onclick="makeFullScreen('iframe1-3')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                     <div>
                         <h3 data-translate-key="theory2" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-3" src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-3" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
                         <button onclick="makeFullScreen('iframe2-3')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                 </div>
@@ -322,28 +323,28 @@
                     <div class="lg:col-span-2">
                         <h3 data-translate-key="videoExplicativo" class="text-2xl font-semibold text-card-foreground mb-3 text-center">Video Explicativo</h3>
                         <div class="max-w-4xl mx-auto">
-                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-4" src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player" allowfullscreen></iframe></div>
+                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-4" data-src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player" allowfullscreen></iframe></div>
                              <button onclick="makeFullScreen('video-4')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                         </div>
                     </div>
                      <div>
                         <h3 data-translate-key="googlePresentation" class="text-2xl font-semibold text-card-foreground mb-3">Presentación de Google</h3>
-                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-4" src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
+                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-4" data-src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
                         <button onclick="makeFullScreen('googleSlides-4')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                     <div>
                         <h3 data-translate-key="summaryPDF" class="text-2xl font-semibold text-card-foreground mb-3">Resumen</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-4" src="" title="PDF Resumen" frameborder="0"></iframe></div>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-4" data-src="" title="PDF Resumen" frameborder="0"></iframe></div>
                         <button onclick="makeFullScreen('iframe-summary-4')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                     <div>
                         <h3 data-translate-key="theory1" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-4" src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-4" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
                         <button onclick="makeFullScreen('iframe1-4')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                     <div>
                         <h3 data-translate-key="theory2" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-4" src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-4" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
                         <button onclick="makeFullScreen('iframe2-4')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                 </div>
@@ -359,28 +360,28 @@
                     <div class="lg:col-span-2">
                         <h3 data-translate-key="videoExplicativo" class="text-2xl font-semibold text-card-foreground mb-3 text-center">Video Explicativo</h3>
                         <div class="max-w-4xl mx-auto">
-                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-5" src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player" allowfullscreen></iframe></div>
+                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-5" data-src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player" allowfullscreen></iframe></div>
                              <button onclick="makeFullScreen('video-5')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                         </div>
                     </div>
                      <div>
                         <h3 data-translate-key="googlePresentation" class="text-2xl font-semibold text-card-foreground mb-3">Presentación de Google</h3>
-                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-5" src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
+                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-5" data-src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
                         <button onclick="makeFullScreen('googleSlides-5')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                     <div>
                         <h3 data-translate-key="summaryPDF" class="text-2xl font-semibold text-card-foreground mb-3">Resumen</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-5" src="" title="PDF Resumen" frameborder="0"></iframe></div>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-5" data-src="" title="PDF Resumen" frameborder="0"></iframe></div>
                         <button onclick="makeFullScreen('iframe-summary-5')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                     <div>
                         <h3 data-translate-key="theory1" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-5" src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-5" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
                         <button onclick="makeFullScreen('iframe1-5')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                     <div>
                         <h3 data-translate-key="theory2" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-5" src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-5" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
                         <button onclick="makeFullScreen('iframe2-5')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                 </div>
@@ -396,28 +397,28 @@
                     <div class="lg:col-span-2">
                         <h3 data-translate-key="videoExplicativo" class="text-2xl font-semibold text-card-foreground mb-3 text-center">Video Explicativo</h3>
                         <div class="max-w-4xl mx-auto">
-                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-6" src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player" allowfullscreen></iframe></div>
+                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-6" data-src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player" allowfullscreen></iframe></div>
                              <button onclick="makeFullScreen('video-6')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                         </div>
                     </div>
                      <div>
                         <h3 data-translate-key="googlePresentation" class="text-2xl font-semibold text-card-foreground mb-3">Presentación de Google</h3>
-                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-6" src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
+                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-6" data-src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
                         <button onclick="makeFullScreen('googleSlides-6')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                     <div>
                         <h3 data-translate-key="summaryPDF" class="text-2xl font-semibold text-card-foreground mb-3">Resumen</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-6" src="" title="PDF Resumen" frameborder="0"></iframe></div>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-6" data-src="" title="PDF Resumen" frameborder="0"></iframe></div>
                         <button onclick="makeFullScreen('iframe-summary-6')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                     <div>
                         <h3 data-translate-key="theory1" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-6" src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-6" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
                         <button onclick="makeFullScreen('iframe1-6')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                     <div>
                         <h3 data-translate-key="theory2" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-6" src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-6" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
                         <button onclick="makeFullScreen('iframe2-6')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                 </div>
@@ -433,28 +434,28 @@
                     <div class="lg:col-span-2">
                         <h3 data-translate-key="videoExplicativo" class="text-2xl font-semibold text-card-foreground mb-3 text-center">Video Explicativo</h3>
                         <div class="max-w-4xl mx-auto">
-                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-7" src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player" allowfullscreen></iframe></div>
+                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-7" data-src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player" allowfullscreen></iframe></div>
                              <button onclick="makeFullScreen('video-7')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                         </div>
                     </div>
                      <div>
                         <h3 data-translate-key="googlePresentation" class="text-2xl font-semibold text-card-foreground mb-3">Presentación de Google</h3>
-                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-7" src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
+                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-7" data-src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
                         <button onclick="makeFullScreen('googleSlides-7')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                     <div>
                         <h3 data-translate-key="summaryPDF" class="text-2xl font-semibold text-card-foreground mb-3">Resumen</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-7" src="" title="PDF Resumen" frameborder="0"></iframe></div>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-7" data-src="" title="PDF Resumen" frameborder="0"></iframe></div>
                         <button onclick="makeFullScreen('iframe-summary-7')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                     <div>
                         <h3 data-translate-key="theory1" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-7" src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-7" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
                         <button onclick="makeFullScreen('iframe1-7')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                     <div>
                         <h3 data-translate-key="theory2" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-7" src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-7" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
                         <button onclick="makeFullScreen('iframe2-7')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                 </div>
@@ -470,28 +471,28 @@
                     <div class="lg:col-span-2">
                         <h3 data-translate-key="videoExplicativo" class="text-2xl font-semibold text-card-foreground mb-3 text-center">Video Explicativo</h3>
                         <div class="max-w-4xl mx-auto">
-                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-8" src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player" allowfullscreen></iframe></div>
+                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-8" data-src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player" allowfullscreen></iframe></div>
                              <button onclick="makeFullScreen('video-8')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                         </div>
                     </div>
                      <div>
                         <h3 data-translate-key="googlePresentation" class="text-2xl font-semibold text-card-foreground mb-3">Presentación de Google</h3>
-                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-8" src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
+                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-8" data-src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
                         <button onclick="makeFullScreen('googleSlides-8')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                     <div>
                         <h3 data-translate-key="summaryPDF" class="text-2xl font-semibold text-card-foreground mb-3">Resumen</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-8" src="" title="PDF Resumen" frameborder="0"></iframe></div>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-8" data-src="" title="PDF Resumen" frameborder="0"></iframe></div>
                         <button onclick="makeFullScreen('iframe-summary-8')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                     <div>
                         <h3 data-translate-key="theory1" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-8" src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-8" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
                         <button onclick="makeFullScreen('iframe1-8')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                     <div>
                         <h3 data-translate-key="theory2" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-8" src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-8" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
                         <button onclick="makeFullScreen('iframe2-8')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                 </div>
@@ -507,28 +508,28 @@
                     <div class="lg:col-span-2">
                         <h3 data-translate-key="videoExplicativo" class="text-2xl font-semibold text-card-foreground mb-3 text-center">Video Explicativo</h3>
                         <div class="max-w-4xl mx-auto">
-                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-9" src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player" allowfullscreen></iframe></div>
+                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-9" data-src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player" allowfullscreen></iframe></div>
                              <button onclick="makeFullScreen('video-9')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                         </div>
                     </div>
                      <div>
                         <h3 data-translate-key="googlePresentation" class="text-2xl font-semibold text-card-foreground mb-3">Presentación de Google</h3>
-                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-9" src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
+                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-9" data-src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
                         <button onclick="makeFullScreen('googleSlides-9')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                     <div>
                         <h3 data-translate-key="summaryPDF" class="text-2xl font-semibold text-card-foreground mb-3">Resumen</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-9" src="" title="PDF Resumen" frameborder="0"></iframe></div>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-9" data-src="" title="PDF Resumen" frameborder="0"></iframe></div>
                         <button onclick="makeFullScreen('iframe-summary-9')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                     <div>
                         <h3 data-translate-key="theory1" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-9" src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-9" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
                         <button onclick="makeFullScreen('iframe1-9')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                     <div>
                         <h3 data-translate-key="theory2" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-9" src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-9" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
                         <button onclick="makeFullScreen('iframe2-9')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                 </div>
@@ -544,28 +545,28 @@
                     <div class="lg:col-span-2">
                         <h3 data-translate-key="videoExplicativo" class="text-2xl font-semibold text-card-foreground mb-3 text-center">Video Explicativo</h3>
                         <div class="max-w-4xl mx-auto">
-                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-10" src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player" allowfullscreen></iframe></div>
+                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-10" data-src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player" allowfullscreen></iframe></div>
                              <button onclick="makeFullScreen('video-10')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                         </div>
                     </div>
                      <div>
                         <h3 data-translate-key="googlePresentation" class="text-2xl font-semibold text-card-foreground mb-3">Presentación de Google</h3>
-                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-10" src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
+                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-10" data-src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
                         <button onclick="makeFullScreen('googleSlides-10')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                     <div>
                         <h3 data-translate-key="summaryPDF" class="text-2xl font-semibold text-card-foreground mb-3">Resumen</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-10" src="" title="PDF Resumen" frameborder="0"></iframe></div>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-10" data-src="" title="PDF Resumen" frameborder="0"></iframe></div>
                         <button onclick="makeFullScreen('iframe-summary-10')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                     <div>
                         <h3 data-translate-key="theory1" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-10" src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-10" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
                         <button onclick="makeFullScreen('iframe1-10')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                     <div>
                         <h3 data-translate-key="theory2" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-10" src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-10" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
                         <button onclick="makeFullScreen('iframe2-10')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                 </div>
@@ -581,28 +582,28 @@
                     <div class="lg:col-span-2">
                         <h3 data-translate-key="videoExplicativo" class="text-2xl font-semibold text-card-foreground mb-3 text-center">Video Explicativo</h3>
                         <div class="max-w-4xl mx-auto">
-                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-11" src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player" allowfullscreen></iframe></div>
+                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-11" data-src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player" allowfullscreen></iframe></div>
                              <button onclick="makeFullScreen('video-11')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                         </div>
                     </div>
                      <div>
                         <h3 data-translate-key="googlePresentation" class="text-2xl font-semibold text-card-foreground mb-3">Presentación de Google</h3>
-                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-11" src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
+                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-11" data-src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
                         <button onclick="makeFullScreen('googleSlides-11')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                     <div>
                         <h3 data-translate-key="summaryPDF" class="text-2xl font-semibold text-card-foreground mb-3">Resumen</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-11" src="" title="PDF Resumen" frameborder="0"></iframe></div>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-11" data-src="" title="PDF Resumen" frameborder="0"></iframe></div>
                         <button onclick="makeFullScreen('iframe-summary-11')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                     <div>
                         <h3 data-translate-key="theory1" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-11" src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-11" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
                         <button onclick="makeFullScreen('iframe1-11')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                     <div>
                         <h3 data-translate-key="theory2" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-11" src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-11" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
                         <button onclick="makeFullScreen('iframe2-11')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                 </div>
@@ -615,28 +616,28 @@
                     <div class="lg:col-span-2">
                         <h3 data-translate-key="videoExplicativo" class="text-2xl font-semibold text-card-foreground mb-3 text-center">Video Explicativo</h3>
                         <div class="max-w-4xl mx-auto">
-                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-12" src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player" allowfullscreen></iframe></div>
+                            <div class="responsive-iframe-container shadow-lg"><iframe id="video-12" data-src="https://www.youtube.com/embed/yG0oBPtyNb0" title="YouTube video player" allowfullscreen></iframe></div>
                              <button onclick="makeFullScreen('video-12')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                         </div>
                     </div>
                      <div>
                         <h3 data-translate-key="googlePresentation" class="text-2xl font-semibold text-card-foreground mb-3">Presentación de Google</h3>
-                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-12" src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
+                        <div class="responsive-iframe-container shadow-lg"><iframe id="googleSlides-12" data-src="https://docs.google.com/presentation/d/1XMLJ2ANyCy-m4xJWXN4hzGloOrQNMO-EzrBXF1qrJMw/embed?start=true&loop=false&delayms=5000" frameborder="0" width="960" height="569" allowfullscreen></iframe></div>
                         <button onclick="makeFullScreen('googleSlides-12')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                     <div>
                         <h3 data-translate-key="summaryPDF" class="text-2xl font-semibold text-card-foreground mb-3">Resumen</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-12" src="" title="PDF Resumen" frameborder="0"></iframe></div>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe-summary-12" data-src="" title="PDF Resumen" frameborder="0"></iframe></div>
                         <button onclick="makeFullScreen('iframe-summary-12')" data-translate-key="fullscreenButton" class="mt-3 px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                     <div>
                         <h3 data-translate-key="theory1" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-12" src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe1-12" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
                         <button onclick="makeFullScreen('iframe1-12')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                     <div>
                         <h3 data-translate-key="theory2" class="text-2xl font-semibold text-card-foreground mb-3">Teoría Práctica</h3>
-                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-12" src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
+                        <div class="responsive-iframe-container mb-2 shadow-lg"><iframe id="iframe2-12" data-src="" width="640" height="480" allow="autoplay" allowfullscreen></iframe></div>
                         <button onclick="makeFullScreen('iframe2-12')" data-translate-key="fullscreenButton" class="px-4 py-2 bg-accent hover:bg-accent/90 text-accent-foreground rounded transition text-sm">Pantalla completa</button>
                     </div>
                 </div>

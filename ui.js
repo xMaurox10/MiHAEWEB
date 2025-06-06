@@ -133,8 +133,18 @@ function showSection(sectionIdToShow) {
     if (üretim.passwordPromptModal) {
         üretim.passwordPromptModal.style.display = 'none';
     }
+    
     const targetSection = document.getElementById(sectionIdToShow);
     if (targetSection) {
+        // Carga perezosa de iframes solo para la sección que se va a mostrar
+        const iframes = targetSection.querySelectorAll('iframe[data-src]');
+        iframes.forEach(iframe => {
+            // Solo carga el src si no ha sido cargado antes
+            if (iframe.dataset.src && !iframe.src) {
+                iframe.src = iframe.dataset.src;
+            }
+        });
+
         targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 }
@@ -178,6 +188,12 @@ function setupNavigation() {
                 output.classList.add('hidden');
                 output.innerHTML = '';
             });
+
+            // Descarga todos los iframes para liberar memoria y recursos
+            document.querySelectorAll('.class-detail-section iframe').forEach(iframe => {
+                iframe.src = 'about:blank';
+            });
+
             clearSelectedFile();
         });
     });
