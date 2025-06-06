@@ -420,7 +420,7 @@ function setupBouncingIconsAnimation() {
 
     // El código creará 50 iconos en total, repitiendo tus 7 imágenes.
     // Si quieres que solo aparezcan 7 iconos en total, cambia el 50 por un 7.
-    const numIcons = 50;
+    const numIcons = 100;
     const icons = [];
 
     for (let i = 0; i < numIcons; i++) {
