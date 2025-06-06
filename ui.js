@@ -384,6 +384,13 @@ function setupKeyboardShortcuts() {
 /**
  * Crea una espectacular animación de iconos girando y rebotando en la pantalla de login.
  */
+// ===== NUEVA VERSIÓN DE LA FUNCIÓN DE ANIMACIÓN =====
+/**
+ * Crea una espectacular animación con varias imágenes diferentes girando y rebotando.
+ */
+/**
+ * Crea una espectacular animación con 7 imágenes diferentes girando y rebotando.
+ */
 function setupBouncingIconsAnimation() {
     const container = document.getElementById('helicopter-container');
     if (!container) return;
@@ -393,15 +400,35 @@ function setupBouncingIconsAnimation() {
     }
     container.innerHTML = ''; 
 
-    const imageUrl = 'https://media.licdn.com/dms/image/v2/C4E03AQFfgDkLXTbEAw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1530625808416?e=2147483647&v=beta&t=LrzqIkGUX6e99BGi-29hTdGKJCeB7oJIF9_5X_qEqCo';
+    // --- PASO 1: DEFINE TUS 7 IMÁGENES AQUÍ ---
+    // Reemplaza cada línea con la ruta correcta a tus imágenes.
+    // Asegúrate de que los archivos están en la carpeta 'images'.
+    const imageUrls = [
+        'https://media.licdn.com/dms/image/v2/C5603AQFCvHuqBHCX3w/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1517752668724?e=2147483647&v=beta&t=l20wtO-v6cDunqIIpvJ0cwnSj2PSEDR4FG2TUSEe3z0', // Imagen 1
+        'https://media.licdn.com/dms/image/v2/C4E03AQFfgDkLXTbEAw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1530625808416?e=2147483647&v=beta&t=LrzqIkGUX6e99BGi-29hTdGKJCeB7oJIF9_5X_qEqCo', // Imagen 2
+        'https://www.iisgaliciasur.es/images/invest/994imageninv_20210331080033.png', // Imagen 3
+        'https://www.uvigo.gal/sites/uvigo.gal/files/media/duvi/2019-01/carlos1.jpg', // Imagen 4
+        'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSY4fhtt2pLMLmak-2xnIVFfAMdTwcR8-28wPb0n0jwY4qm9Jbk', // Imagen 5
+        'https://cpeig.gal/system/files/2021-10/Ivan%20Luistb.jpg', // Imagen 6
+        'https://media.licdn.com/dms/image/v2/C4E03AQEFoaTq-WOQIw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1657534685198?e=2147483647&v=beta&t=JtDmAWljQHDEBw9eT3H_lV2OKBtIQwa_ppeDEaW17eE', // Imagen 7
+    ];
 
-    const numIcons = 30;
+    if (imageUrls.length === 0) {
+        console.warn("El array de imágenes para la animación está vacío.");
+        return;
+    }
+
+    // El código creará 50 iconos en total, repitiendo tus 7 imágenes.
+    // Si quieres que solo aparezcan 7 iconos en total, cambia el 50 por un 7.
+    const numIcons = 50;
     const icons = [];
 
     for (let i = 0; i < numIcons; i++) {
         const iconImage = document.createElement('img');
         iconImage.className = 'bouncing-icon';
-        iconImage.src = imageUrl; 
+        
+        // Esta línea asigna una de las 7 imágenes de forma cíclica
+        iconImage.src = imageUrls[i % imageUrls.length]; 
         
         container.appendChild(iconImage);
 
@@ -409,11 +436,9 @@ function setupBouncingIconsAnimation() {
         
         iconImage.style.width = `${size}px`;
         iconImage.style.height = `${size}px`;
-        
-        // --- CORRECCIÓN 1: De 'iconWrapper' a 'iconImage' ---
         iconImage.style.animationDuration = `${Math.random() * 4 + 1}s`;
+
         icons.push({
-            // --- CORRECCIÓN 2: De 'iconWrapper' a 'iconImage' ---
             el: iconImage, 
             x: Math.random() * (container.clientWidth - size),
             y: Math.random() * (container.clientHeight - size),
