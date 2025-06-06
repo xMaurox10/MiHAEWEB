@@ -3,7 +3,6 @@
 import { initializeLanguage, translations } from './languageManager.js';
 import * as gemini from './geminiService.js';
 import { marked } from 'https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js';
-// CAMBIO 1: Importamos las nuevas funciones y el logger por defecto
 import logger, { registerUserInFirebase, loginUserFromFirebase, signInWithGoogle } from './logger.js';
 
 let selectedFile = null;
@@ -380,6 +379,32 @@ function setupKeyboardShortcuts() {
     });
 };
 
+// ===== NUEVA FUNCIÓN PARA EFECTOS VISUALES DEL LOGIN =====
+/**
+ * Añade efectos visuales interactivos a la pantalla de login,
+ * como la inclinación 3D del formulario al mover el ratón.
+ */
+function setupLoginScreenEffects() {
+    const { loginScreen, loginForm } = üretim;
+    if (!loginScreen || !loginForm) return;
+
+    loginScreen.addEventListener('mousemove', (e) => {
+        const { clientX, clientY } = e;
+        const { offsetWidth, offsetHeight } = loginForm;
+        const x = (clientX / window.innerWidth - 0.5) * 2; // -1 a 1
+        const y = (clientY / window.innerHeight - 0.5) * 2; // -1 a 1
+
+        const maxRotation = 8; // Grados máximos de rotación
+
+        loginForm.style.transform = `perspective(1000px) rotateY(${x * maxRotation}deg) rotateX(${-y * maxRotation}deg) scale(1.05)`;
+    });
+
+    loginScreen.addEventListener('mouseleave', () => {
+        loginForm.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1)';
+    });
+}
+
+
 // ===== FUNCIÓN DE AUTENTICACIÓN ACTUALIZADA CON FIREBASE =====
 function setupAuth() {
     const {
@@ -387,7 +412,7 @@ function setupAuth() {
         loginView, registerView, showLoginViewLink, showRegisterViewLink,
         loginUsernameInput, loginPasswordInput,
         registerUsernameInput, registerPasswordInput, registerConfirmPasswordInput,
-        authErrorMessage, googleLoginButton // Se añade el botón de Google
+        authErrorMessage, googleLoginButton
     } = üretim;
 
     const showAuthError = (messageKey) => {
@@ -402,7 +427,7 @@ function setupAuth() {
     };
 
     const transitionToApp = (username) => {
-        logger.logLogin(username); // Logueamos el evento
+        logger.logLogin(username);
 
         loginScreen.classList.add('fade-out');
         loginScreen.addEventListener('animationend', () => {
@@ -485,14 +510,12 @@ function setupAuth() {
     loginUsernameInput.addEventListener('keypress', (e) => e.key === 'Enter' && performLogin());
     loginPasswordInput.addEventListener('keypress', (e) => e.key === 'Enter' && performLogin());
 
-    // --- NUEVO: Event Listener para el Login con Google ---
     googleLoginButton.addEventListener('click', async () => {
         hideAuthError();
         const result = await signInWithGoogle();
         if (result.success) {
             transitionToApp(result.user.displayName);
         } else {
-            // Puedes crear una clave de traducción específica para errores de Google si quieres
             showAuthError('loginFailedError'); 
         }
     });
@@ -513,7 +536,7 @@ export function initializeApp() {
         showRegisterViewLink: document.getElementById('show-register-view'),
         loginButton: document.getElementById('login-button'),
         registerButton: document.getElementById('register-button'),
-        googleLoginButton: document.getElementById('google-login-button'), // Se añade la referencia al botón
+        googleLoginButton: document.getElementById('google-login-button'),
         loginUsernameInput: document.getElementById('login-username-input'),
         loginPasswordInput: document.getElementById('login-password-input'),
         registerUsernameInput: document.getElementById('register-username-input'),
@@ -558,7 +581,8 @@ export function initializeApp() {
 
     initializeTheme();
     initializeSparkleEffect();
-    setupAuth(); // Se llama a la función de autenticación actualizada
+    setupAuth();
+    setupLoginScreenEffects(); // <-- SE LLAMA A LA NUEVA FUNCIÓN DE EFECTOS
     setupNavigation();
     setupPasswordModal();
     setupFileUpload();

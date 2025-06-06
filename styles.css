@@ -1,0 +1,392 @@
+/* ============== ARCHIVO NUEVO: styles.css ============== */
+
+:root {
+    /* TEMA POR DEFECTO: OSCURO (SYSTEM) */
+    --color-background: 222 47% 11%;
+    /* gray-900 */
+    --color-foreground: 210 40% 98%;
+    /* gray-50 */
+    --color-muted: 222 47% 15%;
+    /* gray-800 */
+    --color-muted-foreground: 215 20% 65%;
+    /* gray-400 */
+    --color-card: 222 47% 15%;
+    /* gray-800 */
+    --color-card-foreground: 210 40% 98%;
+    /* gray-50 */
+    --color-border: 217 33% 25%;
+    /* gray-700 */
+    --color-input: 217 33% 25%;
+    /* gray-700 */
+    --color-accent: 9 95% 68%;
+    /* orange-500 */
+    --color-accent-foreground: 222 47% 11%;
+    /* gray-900 */
+    --color-destructive: 0 84.2% 60.2%;
+    /* red-500 */
+    --color-ring: 9 95% 68%;
+    /* orange-500 */
+}
+
+.theme-intermediate {
+    /* TEMA INTERMEDIO (AZUL CLÁSICO) */
+    --color-background: 210 29% 7%;
+    /* #0d1117 */
+    --color-foreground: 210 14% 84%;
+    /* #c9d1d9 */
+    --color-muted: 212 23% 11%;
+    /* #161b22 */
+    --color-muted-foreground: 213 9% 58%;
+    /* #8b949e */
+    --color-card: 212 23% 11%;
+    /* #161b22 */
+    --color-card-foreground: 210 14% 84%;
+    /* #c9d1d9 */
+    --color-border: 213 14% 20%;
+    /* #21262d */
+    --color-input: 210 29% 7%;
+    /* #0d1117 */
+    --color-accent: 212 100% 67%;
+    /* #58a6ff */
+    --color-accent-foreground: 212 23% 11%;
+    /* #161b22 */
+    --color-destructive: 2 82% 62%;
+    /* #f87171 */
+    --color-ring: 212 100% 67%;
+    /* #58a6ff */
+}
+
+.light {
+    /* TEMA CLARO (VIBRANT) */
+    --color-background: 0 0% 100%;
+    /* white */
+    --color-foreground: 222.2 84% 4.9%;
+    /* gray-950 */
+    --color-muted: 210 40% 96.1%;
+    /* gray-100 */
+    --color-muted-foreground: 215.4 16.3% 46.9%;
+    /* gray-500 */
+    --color-card: 210 40% 98%;
+    /* gray-50 */
+    --color-card-foreground: 222.2 84% 4.9%;
+    /* gray-950 */
+    --color-border: 214.3 31.8% 91.4%;
+    /* gray-200 */
+    --color-input: 214.3 31.8% 91.4%;
+    /* gray-200 */
+    --color-accent: 198 93% 59%;
+    /* sky-500 */
+    --color-accent-foreground: 210 40% 98%;
+    /* gray-50 */
+    --color-destructive: 0 84.2% 60.2%;
+    /* red-500 */
+    --color-ring: 198 93% 59%;
+    /* sky-500 */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+.class-detail-section {
+    display: none;
+}
+
+.loading-spinner {
+    border-left-color: hsl(var(--color-accent));
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes keyframes-fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: keyframes-fade-in-up 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+.responsive-iframe-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 0.5rem;
+}
+
+.responsive-iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background-color: hsl(var(--color-muted));
+}
+
+.chat-message {
+    transition: all 0.3s ease;
+}
+
+@keyframes typing-cursor-blink {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.typing-cursor {
+    display: inline-block;
+    width: 8px;
+    height: 1.1em;
+    background-color: hsl(var(--color-accent));
+    animation: typing-cursor-blink 1s step-end infinite;
+    margin-left: 3px;
+    vertical-align: text-bottom;
+    border-radius: 2px;
+}
+
+/* --- Estilos básicos para el contenido Markdown de Gemini --- */
+.gemini-response-content strong,
+.gemini-response-content b {
+    font-weight: 700;
+    color: hsl(var(--color-card-foreground));
+}
+
+.gemini-response-content em,
+.gemini-response-content i {
+    font-style: italic;
+}
+
+.gemini-response-content ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.gemini-response-content ol {
+    list-style-type: decimal;
+    padding-left: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.gemini-response-content code {
+    background-color: hsl(var(--color-muted));
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.9em;
+}
+
+.gemini-response-content pre {
+    background-color: hsl(var(--color-muted));
+    padding: 10px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.gemini-response-content pre code {
+    padding: 0;
+    background-color: transparent;
+}
+
+.gemini-response-content a {
+    color: hsl(var(--color-accent));
+    text-decoration: underline;
+}
+
+/* --- Estilos para el efecto de chispas del ratón --- */
+.sparkle {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background-color: hsl(var(--color-accent));
+    border-radius: 50%;
+    z-index: 9999;
+    pointer-events: none;
+    /* Para que las chispas no interfieran con los clics */
+    animation: sparkle-animation 700ms forwards;
+    transform-origin: center;
+}
+
+@keyframes sparkle-animation {
+    0% {
+        opacity: 1;
+        transform: scale(1) translate(0, 0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(0) translate(var(--sparkle-translate-x), var(--sparkle-translate-y));
+    }
+}
+
+/* --- EFECTOS VISUALES MEJORADOS PARA LOGIN --- */
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+#login-screen::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(-45deg, hsl(var(--color-background)), hsl(var(--color-muted)), hsl(222, 47%, 20%), hsl(var(--color-accent)));
+    background-size: 400% 400%;
+    animation: gradient-animation 25s ease infinite;
+    z-index: -1;
+}
+
+#login-form {
+    animation: keyframes-fade-in-up 0.7s ease-out forwards;
+    background-color: hsla(var(--color-card), 0.6);
+    /* Glassmorphism */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 1.5rem;
+    /* Borde más redondeado */
+    border: 1px solid hsla(var(--color-border), 0.2);
+    position: relative;
+    overflow: hidden;
+    /* Para que el borde animado no se salga */
+    transition: transform 0.2s ease-out;
+    /* Para el efecto TILT */
+}
+
+#login-form::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 1.5rem;
+    padding: 2px;
+    background: linear-gradient(60deg, hsla(var(--color-accent), 0), hsl(var(--color-accent)), hsla(var(--color-accent), 0));
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: 0;
+    animation: gradient-animation 5s ease-in-out infinite alternate;
+}
+
+#auth-container {
+    position: relative;
+    z-index: 1;
+    /* Para que el contenido esté sobre el borde */
+}
+
+.fade-out {
+    animation: fade-out-animation 0.5s ease-out forwards;
+}
+
+@keyframes fade-out-animation {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+}
+
+@keyframes horizontal-shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-8px);
+    }
+
+    50% {
+        transform: translateX(8px);
+    }
+
+    75% {
+        transform: translateX(-8px);
+    }
+}
+
+/* Estilos para etiquetas flotantes */
+.floating-label-group {
+    position: relative;
+}
+
+.floating-input {
+    padding-top: 1.5rem;
+    border: 1px solid hsl(var(--color-input));
+}
+
+.floating-label {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+    color: hsl(var(--color-muted-foreground));
+    pointer-events: none;
+    transition: all 0.2s ease-out;
+    background-color: hsl(var(--color-background));
+    padding: 0 4px;
+}
+
+/* Cuando el input está enfocado o no está vacío, la etiqueta se mueve */
+.floating-input:focus+.floating-label,
+.floating-input:not(:placeholder-shown)+.floating-label {
+    top: 0;
+    font-size: 0.75rem;
+    color: hsl(var(--color-accent));
+}
+
+/* Botón con gradiente animado */
+#login-button {
+    background-image: linear-gradient(to right, hsl(var(--color-accent)), hsl(var(--color-ring)), hsl(var(--color-accent)));
+    background-size: 200% auto;
+    transition: background-position 0.5s ease;
+}
+
+#login-button:hover {
+    background-position: right center;
+}
